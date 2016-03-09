@@ -145,9 +145,9 @@
 					if(previousYear != nextYear){
 
 						if(data['preschool'][nextYear] > data['preschool'][previousYear]){
-							$('.preschool .girl').css('background-image','url(superman/superman-rise.gif?x='+ Math.random() +')');
+							$('.preschool .girl').css('background-image','url(superman/superman-rise.gif)');
 						}else{
-							$('.preschool .girl').css('background-image','url(superman/superman-fall.gif?x='+ Math.random() +')');
+							$('.preschool .girl').css('background-image','url(superman/superman-fall.gif)');
 						}
 
 						// TODO: Loop to cover all school groups.
@@ -171,7 +171,7 @@
 							            $('.preschool .number').text(Math.ceil(now));
 							        },
 							        complete: function() {
-								      	$('.preschool .girl').css('background-image','url(superman/superman-idle.gif?x='+ Math.random() +')');
+								      	$('.preschool .girl').css('background-image','url(superman/superman-idle.gif)');
 								    }
 					    		})
 					}

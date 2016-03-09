@@ -1,0 +1,265 @@
+<html>
+	<head>
+		<title>School</title>
+		<!-- jquery -->
+		<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+		<style>
+			body{
+				background-color: #F7B02E;
+			}
+			.container{
+				width: 600px !important;
+			}
+
+			.school-col{
+				height: 400px;
+			}
+
+			.stack-row{
+				padding-left:20px;
+				padding-right:20px;
+			}
+
+			.preschool .stack{
+				/** Styling **/
+				background-color: red;
+
+				/** Transition **/
+			    -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
+    			transition: height 1s;
+			}
+
+			.preschool .stack-2011{
+			    /** Styling **/
+			    height: 120px;  
+			}
+
+			.preschool .stack-2012 {
+				height: 150px;
+			}
+
+			.preschool .stack-2013 {
+				height: 210px;
+			}
+
+			.preschool .stack-2014 {
+				height: 100px;
+			}
+
+			.preschool .stack-2015 {
+				height: 240px;
+			}
+		
+			.preschool .girl{
+				/* Styling */
+				background-image: url('superman/superman-idle.gif');
+				background-size: 74px 150px;
+    			background-repeat: no-repeat;
+    			background-position: center bottom;
+
+    			height:150px;
+				
+			    /* Transition */
+			    -webkit-transition: margin-top 1s; /* For Safari 3.1 to 6.0 */
+    			transition: margin-top 1s;
+			}
+
+			.preschool .girl-2011{
+				/* totalHeigh - girlHeight - stackHeight */
+				/* 400px - 150px - 120px = 130px */
+				margin-top: 130px;
+			}
+
+			.preschool .girl-2012{
+				/* totalHeigh - girlHeight - stackHeight */
+				/* 400px - 150px - 150px = 130px */
+				margin-top: 100px;
+			}
+
+			.preschool .girl-2013{
+				/* totalHeigh - girlHeight - stackHeight */
+				/* 400px - 150px - 210px = 130px */
+				margin-top: 40px;
+			}
+
+			.preschool .girl-2014{
+				/* totalHeigh - girlHeight - stackHeight */
+				/* 400px - 150px - 100px = 150px */
+				margin-top: 150px;
+			}
+
+			.preschool .girl-2015{
+				/* totalHeigh - girlHeight - stackHeight */
+				/* 400px - 150px - 240px = 10px */
+				margin-top: 10px;
+			}
+
+			.value{
+				text-align: center;
+				font-size: 30px;
+				color: white;
+				bottom: 40px;
+			}
+
+		</style>
+
+		<script>	
+			$(function() {
+
+				var data = {
+					'preschool': {
+						'2011': 25,
+						'2012': 29,
+						'2013': 40,
+						'2014': 20,
+						'2015': 51
+					}
+				}
+
+				// Register year selection button listeners.
+				for(var y=0; y < $('.btn-year').length; y++){
+					$($('.btn-year')[y]).click(function() {
+
+						// Get previous year we just moved away from:
+						var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
+						var previousYear = btnPreviousYearClass[0].split('-')[1];
+
+						// Update button style state for feedback
+						$('.btn-primary').addClass('btn-default');
+						$('.btn-primary').removeClass('btn-primary');
+						$(this).removeClass('btn-default');
+						$(this).addClass('btn-primary');
+
+						// Update visualization
+				  		var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
+				  		var nextYear = btnNextYearClass[0].split('-')[1];
+				  		draw(previousYear, nextYear);
+					});
+				}
+
+				function draw(previousYear, nextYear){
+					if(previousYear != nextYear){
+
+						if(data['preschool'][nextYear] > data['preschool'][previousYear]){
+							$('.preschool .girl').css('background-image','url(superman/superman-rise.gif?x='+ Math.random() +')');
+						}else{
+							$('.preschool .girl').css('background-image','url(superman/superman-fall.gif?x='+ Math.random() +')');
+						}
+
+						// TODO: Loop to cover all school groups.
+
+						// Animate the stack going up or down.
+						$('.preschool .stack-' + previousYear).addClass('stack-' + nextYear);
+						$('.preschool .stack-' + previousYear).removeClass('stack-' + previousYear);
+
+						// Animate the girl going up or down..
+						$('.preschool .girl-' + previousYear).addClass('girl-' + nextYear);
+						$('.preschool .girl-' + previousYear).removeClass('girl-' + previousYear);
+
+						// Animate the numerical value increasing or decreasing.
+						$('.preschool .number').prop('Counter', $('.preschool .number').text()).animate(
+								{Counter: data['preschool'][nextYear]},
+								{
+							    	// Duration must match stack and girl animation length
+							        duration: 1000,
+							        easing: 'swing',
+							        step: function (now) {
+							            $('.preschool .number').text(Math.ceil(now));
+							        },
+							        complete: function() {
+								      	$('.preschool .girl').css('background-image','url(superman/superman-idle.gif?x='+ Math.random() +')');
+								    }
+					    		})
+					}
+				}
+
+			});
+		</script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-3 school-col preschool">
+					<div class="row">
+						<div class="col-xs-12 girl girl-2011">
+						</div>
+					</div>
+
+					<div class="row stack-row">
+						<div class="col-xs-12 stack stack-2011">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 value">
+							<span class="number">25</span>%
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3 school-col pre-primary">
+					<div class="row">
+						<div class="col-xs-12 girl girl-2011">
+						</div>
+					</div>
+
+					<div class="row stack-row">
+						<div class="col-xs-12 stack stack-2011">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 value">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3 school-col primary-and-lower-secondary">
+					<div class="row">
+						<div class="col-xs-12 girl girl-2011">
+						</div>
+					</div>
+
+					<div class="row stack-row">
+						<div class="col-xs-12 stack stack-2011">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 value">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3 school-col high-secondary">
+					<div class="row">
+						<div class="col-xs-12 girl girl-2011">
+						</div>
+					</div>
+
+					<div class="row stack-row">
+						<div class="col-xs-12 stack stack-2011">
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="col-xs-12 value">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row" style="padding-top:25px;">
+				<div class="col-xs-12" align="center">
+					<div class="btn-group" role="group">
+					  <button type="button" class="btn btn-primary btn-year btn-2011">2011</button>
+					  <button type="button" class="btn btn-default btn-year btn-2012">2012</button>
+					  <button type="button" class="btn btn-default btn-year btn-2013">2013</button>
+					  <button type="button" class="btn btn-default btn-year btn-2014">2014</button>
+					  <button type="button" class="btn btn-default btn-year btn-2015">2015</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

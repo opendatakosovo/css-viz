@@ -1,0 +1,63 @@
+.primary-and-lower-secondary .girl{
+	/* Styling */
+	background-image: url('../img/primary-and-lower-secondary-girl.png');
+	background-size: 74px 150px;
+	height: 150px;  
+}
+
+.primary-and-lower-secondary .stack{
+	/** Styling **/
+	background-color: #ff0000;
+}
+
+.primary-and-lower-secondary .stack-2011{
+    /** Styling **/
+    height: 120px;  
+}
+
+.primary-and-lower-secondary .stack-2012 {
+	height: 150px;
+}
+
+.primary-and-lower-secondary .stack-2013 {
+	height: 210px;
+}
+
+.primary-and-lower-secondary .stack-2014 {
+	height: 100px;
+}
+
+.primary-and-lower-secondary .stack-2015 {
+	height: 240px;
+}
+
+
+.primary-and-lower-secondary .girl-2011{
+	/* totalHeight - girlHeight - stackHeight */
+	/* 400px - 150px - 120px = 130px */
+	margin-top: 130px;
+}
+
+.primary-and-lower-secondary .girl-2012{
+	/* totalHeight - girlHeight - stackHeight */
+	/* 400px - 150px - 150px = 130px */
+	margin-top: 100px;
+}
+
+.primary-and-lower-secondary .girl-2013{
+	/* totalHeight - girlHeight - stackHeight */
+	/* 400px - 150px - 210px = 130px */
+	margin-top: 40px;
+}
+
+.primary-and-lower-secondary .girl-2014{
+	/* totalHeight - girlHeight - stackHeight */
+	/* 400px - 150px - 100px = 150px */
+	margin-top: 150px;
+}
+
+.primary-and-lower-secondary .girl-2015{
+	/* totalHeight - girlHeight - stackHeight */
+	/* 400px - 150px - 240px = 10px */
+	margin-top: 10px;
+}

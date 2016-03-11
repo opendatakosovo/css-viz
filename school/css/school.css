@@ -1,0 +1,44 @@
+body{
+	background-color: #F7B02E;
+}
+
+.container{
+	width: 600px !important;
+}
+
+.school-col{
+	height: 400px;
+}
+
+.stack-row{
+	padding-left:28px;
+	padding-right:28px;
+}
+
+.stack{
+	/** Styling **/
+	border-style: solid;
+	border-width: 2px;
+	border-color: black;
+
+	/** Transition **/
+    -webkit-transition: height 1s; /* For Safari 3.1 to 6.0 */
+	transition: height 1s;
+}
+
+.girl{
+	/** Styling **/
+	background-repeat: no-repeat;
+	background-position: center bottom;
+
+	/* Transition */
+    -webkit-transition: margin-top 1s; /* For Safari 3.1 to 6.0 */
+	transition: margin-top 1s;
+}
+
+.value{
+	text-align: center;
+	font-size: 30px;
+	color: white;
+	bottom: 40px;
+}

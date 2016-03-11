@@ -1,0 +1,333 @@
+.preschool .girl {
+  background-image: url("../img/preschool-girl.png"); }
+
+.pre-primary .girl {
+  background-image: url("../img/pre-primary-girl.png"); }
+
+.primary-and-lower-secondary .girl {
+  background-image: url("../img/primary-and-lower-secondary-girl.png"); }
+
+.high-secondary .girl {
+  background-image: url("../img/high-secondary-girl.png"); }
+
+.preschool .stack {
+  background-color: #ffcc00; }
+
+.pre-primary .stack {
+  background-color: #ff7700; }
+
+.primary-and-lower-secondary .stack {
+  background-color: #ff0000; }
+
+.high-secondary .stack {
+  background-color: #ff00aa; }
+
+.preschool .stack-2004 {
+  height: 168;
+  /** 94.2% **/ }
+
+.preschool .girl-2004 {
+  margin-top: 82; }
+
+.pre-primary .stack-2004 {
+  height: 141;
+  /** 90.9% **/ }
+
+.pre-primary .girl-2004 {
+  margin-top: 109; }
+
+.primary-and-lower-secondary .stack-2004 {
+  height: 148;
+  /** 91.8% **/ }
+
+.primary-and-lower-secondary .girl-2004 {
+  margin-top: 102; }
+
+.high-secondary .stack-2004 {
+  height: 48;
+  /** 79.1% **/ }
+
+.high-secondary .girl-2004 {
+  margin-top: 202; }
+
+.preschool .stack-2005 {
+  height: 229;
+  /** 102% **/ }
+
+.preschool .girl-2005 {
+  margin-top: 21; }
+
+.pre-primary .stack-2005 {
+  height: 152;
+  /** 92.3% **/ }
+
+.pre-primary .girl-2005 {
+  margin-top: 98; }
+
+.primary-and-lower-secondary .stack-2005 {
+  height: 153;
+  /** 92.4% **/ }
+
+.primary-and-lower-secondary .girl-2005 {
+  margin-top: 97; }
+
+.high-secondary .stack-2005 {
+  height: 20;
+  /** 75.6% **/ }
+
+.high-secondary .girl-2005 {
+  margin-top: 230; }
+
+.preschool .stack-2006 {
+  height: 118;
+  /** 87.9% **/ }
+
+.preschool .girl-2006 {
+  margin-top: 132; }
+
+.pre-primary .stack-2006 {
+  height: 164;
+  /** 93.7% **/ }
+
+.pre-primary .girl-2006 {
+  margin-top: 86; }
+
+.primary-and-lower-secondary .stack-2006 {
+  height: 156;
+  /** 92.8% **/ }
+
+.primary-and-lower-secondary .girl-2006 {
+  margin-top: 94; }
+
+.high-secondary .stack-2006 {
+  height: 31;
+  /** 77% **/ }
+
+.high-secondary .girl-2006 {
+  margin-top: 219; }
+
+.preschool .stack-2007 {
+  height: 66;
+  /** 81.4% **/ }
+
+.preschool .girl-2007 {
+  margin-top: 184; }
+
+.pre-primary .stack-2007 {
+  height: 250;
+  /** 104.6% **/ }
+
+.pre-primary .girl-2007 {
+  margin-top: 0; }
+
+.primary-and-lower-secondary .stack-2007 {
+  height: 159;
+  /** 93.1% **/ }
+
+.primary-and-lower-secondary .girl-2007 {
+  margin-top: 91; }
+
+.high-secondary .stack-2007 {
+  height: 51;
+  /** 79.5% **/ }
+
+.high-secondary .girl-2007 {
+  margin-top: 199; }
+
+.preschool .stack-2008 {
+  height: 94;
+  /** 84.9% **/ }
+
+.preschool .girl-2008 {
+  margin-top: 156; }
+
+.pre-primary .stack-2008 {
+  height: 129;
+  /** 89.3% **/ }
+
+.pre-primary .girl-2008 {
+  margin-top: 121; }
+
+.primary-and-lower-secondary .stack-2008 {
+  height: 141;
+  /** 90.8% **/ }
+
+.primary-and-lower-secondary .girl-2008 {
+  margin-top: 109; }
+
+.high-secondary .stack-2008 {
+  height: 70;
+  /** 81.9% **/ }
+
+.high-secondary .girl-2008 {
+  margin-top: 180; }
+
+.preschool .stack-2009 {
+  height: 79;
+  /** 83.1% **/ }
+
+.preschool .girl-2009 {
+  margin-top: 171; }
+
+.pre-primary .stack-2009 {
+  height: 185;
+  /** 96.4% **/ }
+
+.pre-primary .girl-2009 {
+  margin-top: 65; }
+
+.primary-and-lower-secondary .stack-2009 {
+  height: 148;
+  /** 91.8% **/ }
+
+.primary-and-lower-secondary .girl-2009 {
+  margin-top: 102; }
+
+.high-secondary .stack-2009 {
+  height: 56;
+  /** 80.2% **/ }
+
+.high-secondary .girl-2009 {
+  margin-top: 194; }
+
+.preschool .stack-2010 {
+  height: 151;
+  /** 92.1% **/ }
+
+.preschool .girl-2010 {
+  margin-top: 99; }
+
+.pre-primary .stack-2010 {
+  height: 168;
+  /** 94.2% **/ }
+
+.pre-primary .girl-2010 {
+  margin-top: 82; }
+
+.primary-and-lower-secondary .stack-2010 {
+  height: 160;
+  /** 93.3% **/ }
+
+.primary-and-lower-secondary .girl-2010 {
+  margin-top: 90; }
+
+.high-secondary .stack-2010 {
+  height: 81;
+  /** 83.3% **/ }
+
+.high-secondary .girl-2010 {
+  margin-top: 169; }
+
+.preschool .stack-2011 {
+  height: 137;
+  /** 90.3% **/ }
+
+.preschool .girl-2011 {
+  margin-top: 113; }
+
+.pre-primary .stack-2011 {
+  height: 188;
+  /** 96.8% **/ }
+
+.pre-primary .girl-2011 {
+  margin-top: 62; }
+
+.primary-and-lower-secondary .stack-2011 {
+  height: 164;
+  /** 93.7% **/ }
+
+.primary-and-lower-secondary .girl-2011 {
+  margin-top: 86; }
+
+.high-secondary .stack-2011 {
+  height: 95;
+  /** 85% **/ }
+
+.high-secondary .girl-2011 {
+  margin-top: 155; }
+
+.preschool .stack-2012 {
+  height: 117;
+  /** 87.8% **/ }
+
+.preschool .girl-2012 {
+  margin-top: 133; }
+
+.pre-primary .stack-2012 {
+  height: 178;
+  /** 95.5% **/ }
+
+.pre-primary .girl-2012 {
+  margin-top: 72; }
+
+.primary-and-lower-secondary .stack-2012 {
+  height: 164;
+  /** 93.7% **/ }
+
+.primary-and-lower-secondary .girl-2012 {
+  margin-top: 86; }
+
+.high-secondary .stack-2012 {
+  height: 97;
+  /** 85.3% **/ }
+
+.high-secondary .girl-2012 {
+  margin-top: 153; }
+
+.preschool .stack-2013 {
+  height: 176;
+  /** 95.3% **/ }
+
+.preschool .girl-2013 {
+  margin-top: 74; }
+
+.pre-primary .stack-2013 {
+  height: 152;
+  /** 92.3% **/ }
+
+.pre-primary .girl-2013 {
+  margin-top: 98; }
+
+.primary-and-lower-secondary .stack-2013 {
+  height: 158;
+  /** 93% **/ }
+
+.primary-and-lower-secondary .girl-2013 {
+  margin-top: 92; }
+
+.high-secondary .stack-2013 {
+  height: 111;
+  /** 87.1% **/ }
+
+.high-secondary .girl-2013 {
+  margin-top: 139; }
+
+.preschool .stack-2014 {
+  height: 155;
+  /** 92.6% **/ }
+
+.preschool .girl-2014 {
+  margin-top: 95; }
+
+.pre-primary .stack-2014 {
+  height: 168;
+  /** 94.2% **/ }
+
+.pre-primary .girl-2014 {
+  margin-top: 82; }
+
+.primary-and-lower-secondary .stack-2014 {
+  height: 164;
+  /** 93.8% **/ }
+
+.primary-and-lower-secondary .girl-2014 {
+  margin-top: 86; }
+
+.high-secondary .stack-2014 {
+  height: 124;
+  /** 88.7% **/ }
+
+.high-secondary .girl-2014 {
+  margin-top: 126; }
+
+/*# sourceMappingURL=girlstack.css.map */

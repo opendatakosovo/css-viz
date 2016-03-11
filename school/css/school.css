@@ -3,7 +3,7 @@ body{
 }
 
 .container{
-	width: 600px !important;
+	width: 650px !important;
 }
 
 .school-col{
@@ -28,6 +28,8 @@ body{
 
 .girl{
 	/** Styling **/
+	background-size: 74px 150px;
+	height: 150px;  
 	background-repeat: no-repeat;
 	background-position: center bottom;
 

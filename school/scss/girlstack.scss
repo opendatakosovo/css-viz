@@ -1,0 +1,173 @@
+// Define constant variables
+$containerHeight: 400;
+$girlHeight: 150;
+
+$valueMin: 75.6;
+$valueMax: 104.6;
+
+$stackMinHeight: 20;
+$stackMaxHeight: 250;
+
+//  We need to transform the value range (in percentage) into
+//  a stack height range (in pixels).
+//
+//  Use the following formula:
+// 
+//  V = percentage input (in percentage)
+//  Vmin = Value min (in percentage) = 75.6%
+//  Vmax = percentage max (in percentage) = 104.6%
+//
+//  Smin = Stack min hight (in pixels) = 20px
+//  Smax = Stack max height (in pixels) = 250px
+//  S = Stack height output (in pixels)
+//
+//  S = [(V - Vmin) * (Smax - Smin) / (Vmax - Vmin) + Smin
+//
+@function stack-height($value) {
+    @return round(($value - $valueMin) * ($stackMaxHeight - $stackMinHeight) / ($valueMax - $valueMin) + $stackMinHeight);
+}
+
+
+// The dataset
+$data-map: (
+    2004: (
+        preschool: 94.2,
+        pre-primary:  90.9,
+        primary-and-lower-secondary: 91.8,
+        high-secondary: 79.1
+    ),
+    2005: (
+        preschool: 102.0,
+        pre-primary: 92.3,
+        primary-and-lower-secondary: 92.4,
+        high-secondary: 75.6
+    ),
+    2006: (
+        preschool: 87.9,
+        pre-primary: 93.7,
+        primary-and-lower-secondary: 92.8,
+        high-secondary: 77.0
+    ),
+    2007: (
+        preschool: 81.4,
+        pre-primary: 104.6,
+        primary-and-lower-secondary: 93.1,
+        high-secondary: 79.5
+    ),
+    2008: (
+        preschool: 84.9,
+        pre-primary: 89.3,
+        primary-and-lower-secondary: 90.8,
+        high-secondary: 81.9
+    ),
+    2009: (
+        preschool: 83.1,
+        pre-primary: 96.4,
+        primary-and-lower-secondary: 91.8,
+        high-secondary: 80.2
+    ),
+    2010: (
+        preschool: 92.1,
+        pre-primary: 94.2,
+        primary-and-lower-secondary: 93.3,
+        high-secondary: 83.3
+    ),
+    2011: (
+        preschool: 90.3,
+        pre-primary: 96.8,
+        primary-and-lower-secondary: 93.7,
+        high-secondary: 85.0
+    ),
+    2012: (
+        preschool: 87.8,
+        pre-primary: 95.5,
+        primary-and-lower-secondary: 93.7,
+        high-secondary: 85.3
+    ),
+    2013: (
+        preschool: 95.3,
+        pre-primary: 92.3,
+        primary-and-lower-secondary: 93.0,
+        high-secondary: 87.1
+    ),
+    2014: (
+        preschool: 92.6,
+        pre-primary: 94.2,
+        primary-and-lower-secondary: 93.8,
+        high-secondary: 88.7
+    )
+);
+
+.preschool .girl{
+    background-image: url('../img/preschool-girl.png'); 
+}
+
+.pre-primary .girl{
+    background-image: url('../img/pre-primary-girl.png'); 
+}
+
+.primary-and-lower-secondary .girl{
+    background-image: url('../img/primary-and-lower-secondary-girl.png');
+}
+
+.high-secondary .girl{
+    background-image: url('../img/high-secondary-girl.png');
+}
+
+.preschool .stack{
+    background-color: #ffcc00;
+}
+
+.pre-primary .stack{
+    background-color: #ff7700;
+}
+
+.primary-and-lower-secondary .stack{
+    background-color: #ff0000;
+}
+
+.high-secondary .stack{
+    background-color: #ff00aa;
+}
+
+// Calculate stack height and margin top for school group in each year
+@each $year, $map in $data-map {
+
+    $preschoolStackHeight: stack-height(map-get($map, preschool));
+    $prePrimaryStackHeight: stack-height(map-get($map, pre-primary));
+    $primaryLowerSecondaryStackHeight: stack-height(map-get($map, primary-and-lower-secondary));
+    $higherSecondaryStackHeight: stack-height(map-get($map, high-secondary));
+    
+
+    .preschool .stack-#{$year} {
+        height: $preschoolStackHeight; /** #{map-get($map, preschool)}% **/
+    }
+
+    .preschool .girl-#{$year}{
+        margin-top: $containerHeight - $girlHeight - $preschoolStackHeight;
+    }
+    
+    .pre-primary .stack-#{$year} {
+        height: $prePrimaryStackHeight; /** #{map-get($map, pre-primary)}% **/
+    }
+
+    .pre-primary .girl-#{$year}{
+        margin-top: $containerHeight - $girlHeight - $prePrimaryStackHeight;
+    }
+
+    .primary-and-lower-secondary .stack-#{$year} {
+        height: $primaryLowerSecondaryStackHeight; /** #{map-get($map, primary-and-lower-secondary)}% **/
+    }
+
+    .primary-and-lower-secondary .girl-#{$year}{
+        margin-top: $containerHeight - $girlHeight - $primaryLowerSecondaryStackHeight;
+    }
+
+    .high-secondary .stack-#{$year} {
+        height: $higherSecondaryStackHeight; /** #{map-get($map, high-secondary)}% **/
+    }
+
+    .high-secondary .girl-#{$year}{
+        margin-top: $containerHeight - $girlHeight - $higherSecondaryStackHeight;
+    }
+}

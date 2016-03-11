@@ -8,25 +8,38 @@ $valueMax: 104.6;
 $stackMinHeight: 20;
 $stackMaxHeight: 250;
 
-//  We need to transform the value range (in percentage) into
-//  a stack height range (in pixels).
-//
-//  Use the following formula:
-// 
-//  V = Value input (in percentage)
-//  Vmin = Value min (in percentage) = 75.6%
-//  Vmax = Value max (in percentage) = 104.6%
-//
-//  Smin = Stack min hight (in pixels) = 20px
-//  Smax = Stack max height (in pixels) = 250px
-//  S = Stack height output (in pixels)
-//
-//  S = [(V - Vmin) * (Smax - Smin) / (Vmax - Vmin) + Smin
-//
-@function stack-height($value) {
-    @return round(($value - $valueMin) * ($stackMaxHeight - $stackMinHeight) / ($valueMax - $valueMin) + $stackMinHeight);
+
+.preschool .girl{
+    background-image: url('../img/preschool-girl.png'); 
 }
 
+.pre-primary .girl{
+    background-image: url('../img/pre-primary-girl.png'); 
+}
+
+.primary-and-lower-secondary .girl{
+    background-image: url('../img/primary-and-lower-secondary-girl.png');
+}
+
+.high-secondary .girl{
+    background-image: url('../img/high-secondary-girl.png');
+}
+
+.preschool .stack{
+    background-color: #ffcc00;
+}
+
+.pre-primary .stack{
+    background-color: #ff7700;
+}
+
+.primary-and-lower-secondary .stack{
+    background-color: #ff0000;
+}
+
+.high-secondary .stack{
+    background-color: #ff00aa;
+}
 
 // The dataset
 $data-map: (
@@ -98,36 +111,23 @@ $data-map: (
     )
 );
 
-.preschool .girl{
-    background-image: url('../img/preschool-girl.png'); 
-}
-
-.pre-primary .girl{
-    background-image: url('../img/pre-primary-girl.png'); 
-}
-
-.primary-and-lower-secondary .girl{
-    background-image: url('../img/primary-and-lower-secondary-girl.png');
-}
-
-.high-secondary .girl{
-    background-image: url('../img/high-secondary-girl.png');
-}
-
-.preschool .stack{
-    background-color: #ffcc00;
-}
-
-.pre-primary .stack{
-    background-color: #ff7700;
-}
-
-.primary-and-lower-secondary .stack{
-    background-color: #ff0000;
-}
-
-.high-secondary .stack{
-    background-color: #ff00aa;
+//  We need to transform the value range (in percentage) into
+//  a stack height range (in pixels).
+//
+//  Use the following formula:
+// 
+//  V = Value input (in percentage)
+//  Vmin = Value min (in percentage) = 75.6%
+//  Vmax = Value max (in percentage) = 104.6%
+//
+//  Smin = Stack min hight (in pixels) = 20px
+//  Smax = Stack max height (in pixels) = 250px
+//  S = Stack height output (in pixels)
+//
+//  S = [(V - Vmin) * (Smax - Smin) / (Vmax - Vmin) + Smin
+//
+@function stack-height($value) {
+    @return round(($value - $valueMin) * ($stackMaxHeight - $stackMinHeight) / ($valueMax - $valueMin) + $stackMinHeight);
 }
 
 // Calculate stack height and margin top for school group in each year

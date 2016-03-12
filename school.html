@@ -2,10 +2,13 @@
     <head>
         <title>School</title>
         <!-- jquery -->
-        <script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
+        <!--script src="https://code.jquery.com/jquery-1.12.1.min.js"></script-->
+        <script src="libs/jquery.js"></script>
 
         <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <!--link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"-->
+
+        <link rel="stylesheet" href="libs/bootstrap.min.css">
 
         <link rel="stylesheet" href="school/css/school.css">
         <link rel="stylesheet" href="school/css/girlstack.css">
@@ -14,32 +17,56 @@
             $(function() {
                 var data = {
                     'preschool': {
-                        '2011': 25,
-                        '2012': 29,
-                        '2013': 40,
-                        '2014': 20,
-                        '2015': 51
+                        '2004': 94.2,
+                        '2005': 102.0,
+                        '2006': 87.9,
+                        '2007': 81.4,
+                        '2008': 84.9,
+                        '2009': 83.1,
+                        '2010': 92.1,
+                        '2011': 90.3,
+                        '2012': 87.8,
+                        '2013': 95.3,
+                        '2014': 92.6
                     },
                     'pre-primary': {
-                        '2011': 29,
-                        '2012': 25,
-                        '2013': 51,
-                        '2014': 40,
-                        '2015': 20
+                        '2004': 90.9,
+                        '2005': 92.3,
+                        '2006': 93.7,
+                        '2007': 104.6,
+                        '2008': 89.3,
+                        '2009': 96.4,
+                        '2010': 94.2,
+                        '2011': 96.8,
+                        '2012': 95.5,
+                        '2013': 92.3,
+                        '2014': 94.2
                     },
                     'primary-and-lower-secondary': {
-                        '2011': 51,
-                        '2012': 20,
-                        '2013': 40,
-                        '2014': 29,
-                        '2015': 25
+                        '2004': 91.8,
+                        '2005': 92.4,
+                        '2006': 92.8,
+                        '2007': 93.1,
+                        '2008': 90.8,
+                        '2009': 91.8,
+                        '2010': 93.3,
+                        '2011': 93.7,
+                        '2012': 93.7,
+                        '2013': 93.0,
+                        '2014': 93.8
                     },
                     'high-secondary': {
-                        '2011': 20,
-                        '2012': 51,
-                        '2013': 25,
-                        '2014': 40,
-                        '2015': 29
+                        '2004': 79.1,
+                        '2005': 75.6,
+                        '2006': 77.0,
+                        '2007': 79.5,
+                        '2008': 81.9,
+                        '2009': 80.2,
+                        '2010': 83.3,
+                        '2011': 85.0,
+                        '2012': 85.3,
+                        '2013': 87.1,
+                        '2014': 88.7
                     }
                 }
 
@@ -79,19 +106,18 @@
                             $('.' + schoolGroups[i] + ' .girl-' + previousYear).addClass('girl-' + nextYear);
                             $('.' + schoolGroups[i] + ' .girl-' + previousYear).removeClass('girl-' + previousYear);
 
-                            /**
+                            
                             // Animate the numerical value increasing or decreasing.
-                            $('.preschool .number').prop('Counter', $('.' + schoolGroups[i] + ' .number').text()).animate({
-                                Counter: data['preschool'][nextYear]
+                            $('.' + schoolGroups[i] + ' .number').prop('Counter', $('.' + schoolGroups[i] + ' .number').text()).animate({
+                                Counter: data[schoolGroups[i]][nextYear]
                             }, {
                                  // Duration must match stack and girl animation length
                                 duration: 1000,
                                 easing: 'swing',
                                 step: function (now) {
-                                    $('.preschool .number').text(Math.ceil(now));
+                                    $(this).text(Math.round(now));
                                 }
                             });
-                            **/
                         }
                     }
                 }
@@ -116,9 +142,9 @@
                     </div>
 
                     <div class="row">
-                        <!--div class="col-xs-12 value">
-                            <span class="number">25</span>%
-                        </div-->
+                        <div class="col-xs-12 value">
+                            <span class="number">94</span>%
+                        </div>
                     </div>
                 </div>
 
@@ -135,9 +161,9 @@
                     </div>
 
                     <div class="row">
-                        <!--div class="col-xs-12 value">
-                            <span class="number">29</span>%
-                        </div-->
+                        <div class="col-xs-12 value">
+                            <span class="number">91</span>%
+                        </div>
                     </div>
                 </div>
 
@@ -154,9 +180,9 @@
                     </div>
 
                     <div class="row">
-                        <!--div class="col-xs-12 value">
-                            <span class="number">51</span>%
-                        </div-->
+                        <div class="col-xs-12 value">
+                            <span class="number">92</span>%
+                        </div>
                     </div>
                 </div>
 
@@ -173,9 +199,9 @@
                     </div>
 
                     <div class="row">
-                        <!--div class="col-xs-12 value">
-                            <span class="number">0</span>%
-                        </div-->
+                        <div class="col-xs-12 value">
+                            <span class="number">79</span>%
+                        </div>
                     </div>
                 </div>
             </div>

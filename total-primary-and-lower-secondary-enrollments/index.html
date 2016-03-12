@@ -225,7 +225,8 @@
                         // If desk has a girl, draw a girl.
                         if(sittingStudents[1] == 1){
                             // Get a random number between 1 and 5:
-                            var ranNum = Math.floor((Math.random() * 5) + 1);
+                            //var ranNum = Math.floor((Math.random() * 5) + 1);
+                            var ranNum = 0;
 
                             if(ranNum == 5){
 
@@ -235,6 +236,7 @@
 
                                     $('.girl-' + deskIndex).addClass('girl-present-raises-hand');
 
+                                    
                                     $('.girl-' + deskIndex).css('background-image','url(img/girl-raises-hand.gif?x='+ Math.random() +')');
                                 }
                             }else{

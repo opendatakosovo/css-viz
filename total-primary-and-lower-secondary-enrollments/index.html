@@ -47,7 +47,7 @@
                 /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
                 height: 116px;
 
-                background-size: 75px 107px;
+                background-size: 75px 107px; /** width height **/
                 background-repeat: no-repeat;
                 background-position: center bottom;
 
@@ -67,7 +67,9 @@
             }
 
             .girl-present-raises-hand{
-                background-image: url('img/girl-raises-hand.gif');
+                /** Animated gif file so we don't set the background-url here. **/
+                /** This is because we will have to reload the image every time we want to display it **.
+                /** So we will use jQuery's .css() function instead **/
             }
 
             .girl-present{
@@ -224,15 +226,12 @@
 
                         // If desk has a girl, draw a girl.
                         if(sittingStudents[1] == 1){
-                            // Get a random number between 1 and 5:
-                            //var ranNum = Math.floor((Math.random() * 5) + 1);
-                            var ranNum = 0;
+                            // Get a random number between 1 and 4:
+                            var ranNum = Math.floor((Math.random() * 4) + 1);
 
-                            if(ranNum == 5){
+                            if(ranNum == 4){
 
-                                if($('.girl-' + deskIndex).hasClass('girl-present-raises-hand') == false){
-
-                                    $('.girl-' + deskIndex).removeClass('girl-present');
+                                if(!$('.girl-' + deskIndex).hasClass('girl-present-raises-hand') && !$('.girl-' + deskIndex).hasClass('girl-present')){
 
                                     $('.girl-' + deskIndex).addClass('girl-present-raises-hand');
 
@@ -240,17 +239,17 @@
                                     $('.girl-' + deskIndex).css('background-image','url(img/girl-raises-hand.gif?x='+ Math.random() +')');
                                 }
                             }else{
-                                if($('.girl-' + deskIndex).hasClass('girl-present') == false){
+                                if(!$('.girl-' + deskIndex).hasClass('girl-present')){
                                     $('.girl-' + deskIndex).addClass('girl-present'); 
                                 }
                             }      
                         }
 
                         // If desk doesn't have a girl,
-                        // make her disappear
+                        // make her disappear.
                         else{
                             $('.girl-' + deskIndex).removeClass('girl-present');
-                            $('.girl-' + deskIndex).removeClass('girl-present-raises-hand');
+                            $('.girl-' + deskIndex).css('background-image','');
                         }
                     });
                 }

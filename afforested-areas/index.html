@@ -1,0 +1,216 @@
+<html>
+    <head>
+        <title>Afforester Areas</title>
+        <script src="../libs/jquery.js"></script>
+        <script src="../libs/mdg.js"></script>
+
+        <link rel="stylesheet" href="../libs/bootstrap.min.css">
+
+        <link rel="stylesheet" href="css/trees.css">
+
+        <style>
+            body{
+                background-color: #99CC33;
+            }
+            .container{
+                width: 600px !important;
+            }
+
+            .trees{
+                height: 74px;
+
+                background-size: 100px 74px; /** width height **/
+                background-repeat: no-repeat;
+                background-position: center bottom;
+                
+                /**
+                border-style: solid;
+                border-width: thin;
+                border-color: green;
+                **/
+            }
+
+            .trees-growing{
+                /** Animated gif file so we don't set the background-url here. **/
+                /** This is because we will have to reload the image every time we want to display it **.
+                /** So we will use jQuery's .css() function instead **/
+            }
+
+        </style>
+        
+        <!-- CONSTANTS -->
+        <script>
+            var DATASET = {
+                '2004': 18,
+                '2005': 408,
+                '2006': 604,
+                '2007': 671,
+                '2008': 1183,
+                '2009': 2013,
+                '2010': 2253,
+            }
+
+            var VALUE_MIN = DATASET['2004'];
+            var VALUE_MAX = DATASET['2010'];
+            var VISUALIZER_RANGE_MIN = 1;
+            var VISUALIZER_RANGE_MAX = 36;
+        </script>
+
+        <script>
+            $(function() {
+                // Get how many trees should be represented in the visualizer based on given input value.
+                function getTreesCellCount(input){
+                    return getRangeTransformedValue(input, VALUE_MIN, VALUE_MAX, VISUALIZER_RANGE_MIN, VISUALIZER_RANGE_MAX);
+                }
+
+                function draw(year){
+                    var treeCellCount = getTreesCellCount(DATASET[year]);
+
+                    $.each($('.trees'), function(index, trees) {
+
+                        if(treeCellCount >= 1){
+                            if(!$(trees).hasClass('trees-growing')){
+                               $(trees).addClass('trees-growing');
+                               $(trees).css('background-image','url(img/trees.gif?x='+ Math.random() +')');
+                            }
+                            
+                        }else if($(trees).hasClass('trees-growing')){
+                            $(trees).removeClass('trees-growing');
+                            $(trees).css('background-image','');
+                        }
+
+                        treeCellCount = treeCellCount - 1;
+                    });
+                }
+
+                // Register year selection button listeners.
+                for(var y=0; y < $('.btn-year').length; y++){
+                    $($('.btn-year')[y]).click(function() {
+
+                        // Get previous year we just moved away from:
+                        var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
+                        var previousYear = btnPreviousYearClass[0].split('-')[1];
+
+                        // Update button style state for feedback
+                        $('.btn-primary').addClass('btn-default');
+                        $('.btn-primary').removeClass('btn-primary');
+                        $(this).removeClass('btn-default');
+                        $(this).addClass('btn-primary');
+
+                        // Update visualization
+                        var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
+                        var nextYear = btnNextYearClass[0].split('-')[1];
+
+                        draw(nextYear);
+                    });
+                }
+
+                // Init visualizer for first year
+                var firstYear = parseInt(Object.keys(DATASET)[0]);
+                draw(firstYear);
+
+            });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row tree-row tree-row-1">
+                <div class="col-xs-2 trees trees-1">
+                </div>
+                <div class="col-xs-2 trees trees-2">
+                </div>
+                <div class="col-xs-2 trees trees-3">
+                </div>
+                <div class="col-xs-2 trees trees-4">
+                </div>
+                <div class="col-xs-2 trees trees-5">
+                </div>
+                <div class="col-xs-2 trees trees-6">
+                </div>
+            </div>
+            <div class="row tree-row tree-row-2">
+                <div class="col-xs-2 trees trees-7">
+                </div>
+                <div class="col-xs-2 trees trees-8">
+                </div>
+                <div class="col-xs-2 trees trees-9">
+                </div>
+                <div class="col-xs-2 trees trees-10">
+                </div>
+                <div class="col-xs-2 trees trees-11">
+                </div>
+                <div class="col-xs-2 trees trees-12">
+                </div>
+            </div>
+            <div class="row tree-row tree-row-3">
+                <div class="col-xs-2 trees trees-13">
+                </div>
+                <div class="col-xs-2 trees trees-14">
+                </div>
+                <div class="col-xs-2 trees trees-15">
+                </div>
+                <div class="col-xs-2 trees trees-16">
+                </div>
+                <div class="col-xs-2 trees trees-17">
+                </div>
+                <div class="col-xs-2 trees trees-18">
+                </div>
+            </div>
+            <div class="row tree-row tree-row-4">
+                <div class="col-xs-2 trees trees-19">
+                </div>
+                <div class="col-xs-2 trees trees-20">
+                </div>
+                <div class="col-xs-2 trees trees-21">
+                </div>
+                <div class="col-xs-2 trees trees-22">
+                </div>
+                <div class="col-xs-2 trees trees-23">
+                </div>
+                <div class="col-xs-2 trees trees-24">
+                </div>
+            </div>
+            <div class="row tree-row tree-row-5">
+                <div class="col-xs-2 trees trees-25">
+                </div>
+                <div class="col-xs-2 trees trees-26">
+                </div>
+                <div class="col-xs-2 trees trees-27">
+                </div>
+                <div class="col-xs-2 trees trees-28">
+                </div>
+                <div class="col-xs-2 trees trees-29">
+                </div>
+                <div class="col-xs-2 trees trees-30">
+                </div>
+            </div>
+            <div class="row tree-row tree-row-6">
+                <div class="col-xs-2 trees trees-31">
+                </div>
+                <div class="col-xs-2 trees trees-32">
+                </div>
+                <div class="col-xs-2 trees trees-33">
+                </div>
+                <div class="col-xs-2 trees trees-34">
+                </div>
+                <div class="col-xs-2 trees trees-35">
+                </div>
+                <div class="col-xs-2 trees trees-36">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="bottom:100px;right:60;" align="center">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-xs btn-primary btn-year btn-2004">2004</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2005">2005</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2006">2006</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2007">2007</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2008">2008</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2009">2009</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2010">2010</button>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

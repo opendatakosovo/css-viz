@@ -1,0 +1,386 @@
+<html>
+    <head>
+        <title>Total Primary and Lower Secondary Enrollments</title>
+        <script src="../libs/jquery.js"></script>
+        <script src="../libs/mdg.js"></script>
+        
+        <link rel="stylesheet" href="../libs/bootstrap.min.css">
+        <style>
+            body{
+                background-color: #a9ae19;
+            }
+            .container{
+                width: 450px !important;
+            }
+
+            .row-desk-1 .desk{
+                bottom: 0px;
+            }
+            .row-desk-2 .desk{
+                bottom: 20px;
+            }
+
+            .row-desk-3 .desk{
+                bottom: 40px;
+            }
+
+            .row-desk-4 .desk{
+                bottom: 60px;
+            }
+
+            .desk{
+                height: 120px;
+
+                /**
+                border-style: solid;
+                border-width: thin;
+                border-color: black;
+                **/
+
+                background-image: url('img/desk.png');
+                background-size: 150px 120px; /** width height **/
+                background-repeat: no-repeat;
+                background-position: center bottom; 
+            }
+
+            .student{
+                /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
+                height: 116px;
+
+                background-size: 75px 107px;
+                background-repeat: no-repeat;
+                background-position: center bottom;
+
+                /** 
+                border-style: solid;
+                border-width: thin;
+                border-color: red;
+                **/
+            }
+
+            .boy-present{
+                background-image: url('img/boy.png');
+            }
+
+            .girl-present{
+                background-image: url('img/girl.png');
+            }
+
+            .girl-present-raises-hand{
+                background-image: url('img/girl-raises-hand.gif');
+            }
+
+            .girl-present{
+                background-image: url('img/girl.png');
+            }
+        </style>
+
+        <!-- CONSTANTS-->
+        <script>
+            var DATASET = {
+                '2004': {
+                    'boys': 170641,
+                    'girls': 156566
+                },
+                '2005': {
+                    'boys': 167452,
+                    'girls': 154728
+                },
+                '2006': {
+                    'boys': 168404,
+                    'girls': 156210
+                },
+                '2007': {
+                    'boys': 169272,
+                    'girls': 157639
+                },
+                '2008': {
+                    'boys': 169306,
+                    'girls': 153669
+                },
+                '2009': {
+                    'boys': 162527,
+                    'girls': 149217
+                },
+                '2010': {
+                    'boys': 155970,
+                    'girls': 145516
+                },
+                '2011': {
+                    'boys': 152412,
+                    'girls': 142806
+                },
+                '2012': {
+                    'boys': 152412,
+                    'girls': 142806
+                },
+                '2013': {
+                    'boys': 144335,
+                    'girls': 134273
+                },
+                '2014': {
+                    'boys': 141168,
+                    'girls': 132481
+                }
+            }
+
+            var VALUE_MIN_BOY = DATASET['2014']['boys'];
+            var VALUE_MAX_BOY = DATASET['2004']['boys'];
+            var VALUE_MIN_GIRL = DATASET['2014']['girls'];
+            var VALUE_MAX_GIRL = DATASET['2004']['girls'];
+            var VISUALIZER_RANGE_MIN = 1;
+            var VISUALIZER_RANGE_MAX = 12;
+
+
+        </script>
+        <script>
+            $(function() {
+                // Get how many boys should be represented in the visualizer based
+                // on given input value.
+                function getBoysCount(input){
+                    return getRangeTransformedValue(input, VALUE_MIN_BOY, VALUE_MAX_BOY, VISUALIZER_RANGE_MIN, VISUALIZER_RANGE_MAX);
+                }
+
+                // Get how many girls should be represented in the visualizer based
+                // on given input value.
+                function getGirlsCount(input){
+                    return getRangeTransformedValue(input, VALUE_MIN_GIRL, VALUE_MAX_GIRL, VISUALIZER_RANGE_MIN, VISUALIZER_RANGE_MAX);
+                }
+
+                // Calculate how many boys and girls should be in the classroom.
+                // Calculate for every year in the dataset.
+                // Resulting classroom desk matrix is pushed in the classrooms array.
+                // 
+                // A classroom desk matrix has twelve desk.
+                // Each desk is represent by a size 1 array:
+                // [0,0] = No students sitting on that desk.
+                // [1,0] = One boy and no girl sitting on that desk.
+                // [0,1] = One girl and no boy sitting on that desk.
+                // [1,1] = One boy and one girl sitting on that desk.
+                //
+                // e.g.: matrix:
+                // classrooms = [
+                //      [1,1][0,1][0,0],
+                //      [0,0][0,0][0,0],
+                //      [0,0][0,0][0,0],
+                //      [0,0][0,0][0,0],
+                //  ]
+                var classrooms = [];
+                for(var i = 0; i < Object.keys(DATASET).length; i++){
+                    var boyCount = getBoysCount(DATASET[Object.keys(DATASET)[i]]['boys']);
+                    var girlCount = getGirlsCount(DATASET[Object.keys(DATASET)[i]]['girls']);
+
+                    var desks = [];
+                    for(var deskIndex = 0; deskIndex < VISUALIZER_RANGE_MAX; deskIndex++){
+
+                        // Desk has a boy and a girl.
+                        if(deskIndex < boyCount && deskIndex < girlCount){
+                            desks.push([1, 1]);
+                        }
+                        // Desk only has a boy.
+                        else if(deskIndex < boyCount && deskIndex >= girlCount){
+                            desks.push([1, 0]);
+                        }
+                        // Desk only has a girl.
+                        else if(deskIndex >= boyCount && deskIndex < girlCount){
+                            desks.push([0, 1]);
+                        }
+                        // Desk doesn't have a boy nor a girl.
+                        else{
+                            desks.push([0, 0]);
+                        }
+                    }
+
+                    // Each year we have a different classroom desk matrix.
+                    // Each classroom in this array is classroom desk matrix for a year.
+                    classrooms.push(desks);
+                }
+
+                
+                // Draw the data.
+                // Read from the classroom desk matrix.
+                function draw(year){
+                    
+                    // Get the year index by substract by the first year of the dataset
+                    var yearIndex = year - parseInt(Object.keys(DATASET)[0]);
+
+                    // Travel through each desk.
+                    // Check the classroom array for the given year.
+                    // For each desk, check if there is meant to be a boy or not.
+                    $.each($('.desk'), function(index, desk) {
+                        var sittingStudents = classrooms[yearIndex][index];
+                        var deskIndex = index + 1;
+
+                        // If desk has a boy, draw a boy.
+                        if(sittingStudents[0] == 1){
+                            $('.boy-' + deskIndex).addClass('boy-present');
+                        }
+
+                        // If desk doesn't have a boy,
+                        // make him disappear
+                        else{
+                            $('.boy-' + deskIndex).removeClass('boy-present');
+                        }
+
+                        // If desk has a girl, draw a girl.
+                        if(sittingStudents[1] == 1){
+                            // Get a random number between 1 and 5:
+                            var ranNum = Math.floor((Math.random() * 5) + 1);
+
+                            if(ranNum == 5){
+
+                                if($('.girl-' + deskIndex).hasClass('girl-present-raises-hand') == false){
+
+                                    $('.girl-' + deskIndex).removeClass('girl-present');
+
+                                    $('.girl-' + deskIndex).addClass('girl-present-raises-hand');
+
+                                    $('.girl-' + deskIndex).css('background-image','url(img/girl-raises-hand.gif?x='+ Math.random() +')');
+                                }
+                            }else{
+                                if($('.girl-' + deskIndex).hasClass('girl-present') == false){
+                                    $('.girl-' + deskIndex).addClass('girl-present'); 
+                                }
+                            }      
+                        }
+
+                        // If desk doesn't have a girl,
+                        // make her disappear
+                        else{
+                            $('.girl-' + deskIndex).removeClass('girl-present');
+                            $('.girl-' + deskIndex).removeClass('girl-present-raises-hand');
+                        }
+                    });
+                }
+
+                // Register year selection button listeners.
+                for(var y=0; y < $('.btn-year').length; y++){
+                    $($('.btn-year')[y]).click(function() {
+
+                        // Get previous year we just moved away from:
+                        var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
+                        var previousYear = btnPreviousYearClass[0].split('-')[1];
+
+                        // Update button style state for feedback
+                        $('.btn-primary').addClass('btn-default');
+                        $('.btn-primary').removeClass('btn-primary');
+                        $(this).removeClass('btn-default');
+                        $(this).addClass('btn-primary');
+
+                        // Update visualization
+                        var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
+                        var nextYear = btnNextYearClass[0].split('-')[1];
+                        draw(nextYear);
+                    });
+                }
+
+                // Initialize visualizer for the first year.
+                var firstYear = parseInt(Object.keys(DATASET)[0]);
+                draw(firstYear);
+            });
+ 
+        </script>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row row-desk-1">
+                <div class="col-xs-4 desk desk-1">
+                    <div class="row">
+                        <div class="col-xs-6 student boy boy-1"></div>
+                        <div class="col-xs-6 student girl girl-1"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-2">
+                    <div class="row">
+                        <div class="col-xs-6 student girl girl-2"></div>
+                        <div class="col-xs-6 student boy boy-2"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-3">
+                    <div class="row">
+                        <div class="col-xs-6 student girl girl-3"></div>
+                        <div class="col-xs-6 student boy boy-3"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-desk-2">
+                <div class="col-xs-4 desk desk-4">
+                    <div class="row">
+                        <div class="col-xs-6 student girl girl-4"></div>
+                        <div class="col-xs-6 student boy boy-4"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-5">
+                    <div class="row">
+                        <div class="col-xs-6 student boy boy-5"></div>
+                        <div class="col-xs-6 student girl girl-5"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-6">
+                    <div class="row">
+                        <div class="col-xs-6 student boy boy-6"></div>
+                        <div class="col-xs-6 student girl girl-6"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-desk-3">
+                <div class="col-xs-4 desk desk-7">
+                    <div class="row">
+                        <div class="col-xs-6 student boy boy-7"></div>
+                        <div class="col-xs-6 student girl girl-7"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-8">
+                    <div class="row">
+                        <div class="col-xs-6 student boy boy-8"></div>
+                        <div class="col-xs-6 student girl girl-8"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-9">
+                    <div class="row">
+                        <div class="col-xs-6 student girl girl-9"></div>
+                        <div class="col-xs-6 student boy boy-9"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-desk-4">
+                <div class="col-xs-4 desk desk-10">
+                    <div class="row">
+                        <div class="col-xs-6 student girl girl-10"></div>
+                        <div class="col-xs-6 student boy boy-10"></div>   
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-11">
+                    <div class="row">
+                        <div class="col-xs-6 student girl girl-11"></div>
+                        <div class="col-xs-6 student boy boy-11"></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 desk desk-12">
+                    <div class="row">
+                        <div class="col-xs-6 student boy boy-12"></div>
+                        <div class="col-xs-6 student girl girl-12"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" style="bottom:40px;" align="center">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2004">2004-05</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005">2005-06</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006">2006-07</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007">2007-08</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008">2008-09</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009">2009-10</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010">2010-11</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2011">2011-12</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2012">2012-13</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2013">2013-14</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2014">2014-15</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

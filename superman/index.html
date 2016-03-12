@@ -1,11 +1,8 @@
 <html>
 	<head>
-		<title>School</title>
-		<!-- jquery -->
-		<script src="https://code.jquery.com/jquery-1.12.1.min.js"></script>
-
-		<!-- Latest compiled and minified CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+		<title>Superman</title>
+		<script src="../libs/jquery.js"></script>
+        <link rel="stylesheet" href="../libs/bootstrap.min.css">
 
 		<style>
 			body{
@@ -56,7 +53,7 @@
 		
 			.preschool .girl{
 				/* Styling */
-				background-image: url('superman/superman-idle.gif');
+				background-image: url('img/superman-idle.gif');
 				background-size: 74px 150px;
     			background-repeat: no-repeat;
     			background-position: center bottom;
@@ -145,9 +142,9 @@
 					if(previousYear != nextYear){
 
 						if(data['preschool'][nextYear] > data['preschool'][previousYear]){
-							$('.preschool .girl').css('background-image','url(superman/superman-rise.gif)');
+							$('.preschool .girl').css('background-image','url(img/superman-rise.gif)');
 						}else{
-							$('.preschool .girl').css('background-image','url(superman/superman-fall.gif)');
+							$('.preschool .girl').css('background-image','url(img/superman-fall.gif)');
 						}
 
 						// TODO: Loop to cover all school groups.
@@ -171,7 +168,7 @@
 							            $('.preschool .number').text(Math.ceil(now));
 							        },
 							        complete: function() {
-								      	$('.preschool .girl').css('background-image','url(superman/superman-idle.gif)');
+								      	$('.preschool .girl').css('background-image','url(img/superman-idle.gif)');
 								    }
 					    		})
 					}
@@ -181,8 +178,8 @@
 				var img1 = new Image();
 				var img2 = new Image();
 				
-				img1.src = "superman/superman-rise.gif";
-				img2.src = "superman/superman-fall.gif";
+				img1.src = "img/superman-rise.gif";
+				img2.src = "img/superman-fall.gif";
 
 			});
 		</script>

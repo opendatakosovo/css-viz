@@ -2,6 +2,8 @@
     <head>
         <title>Poverty Headcount Ratio at National Poverty Lines</title>
         <script src="../libs/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        
         <script src="../libs/underscore.min.js"></script>
         <link rel="stylesheet" href="../libs/bootstrap.min.css">
 
@@ -132,11 +134,16 @@
                     }
                 }
 
-                registerYearSelectionListeners(fillCell, emptyCell);
+                function shakeAlreadyFilledCells(){
+                    $('.cell-img').effect( "shake", {times:2, distance:3}, 300 );
+                }
+
+                registerYearSelectionListeners(fillCell, emptyCell, shakeAlreadyFilledCells);
 
                 // Init visualizer for first year
                 var firstYear = parseInt(Object.keys(DATASET)[0]);
                 var firstYearValue = DATASET[firstYear];
+
                 draw(firstYearValue, fillCell, emptyCell);
 
             });

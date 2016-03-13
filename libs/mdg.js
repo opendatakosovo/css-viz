@@ -11,7 +11,12 @@ for(var i = 0; i < VISUALIZER_RANGE_MAX; i++){
     totalEmptyCells.push(i+1);
 }
 
-function draw(value, fillCell, emptyCell){
+function draw(value, fillCell, emptyCell, initFunc){
+    // Fire init function, if defined
+    if(initFunc != null){
+        initFunc();
+    }
+
     if(DRAW_RANDOMLY){
         drawRandomly(value, fillCell, emptyCell);
     }else{
@@ -74,7 +79,7 @@ function drawRandomly(value, fillCellFunc, emptyCellFunc){
     previouslyFilledCellCount = nextFilledCellCount;
 }
 
-function registerYearSelectionListeners(fillCell, emptyCell){
+function registerYearSelectionListeners(fillCell, emptyCell, initFunc){
     // Register year selection button listeners.
     for(var y=0; y < $('.btn-year').length; y++){
         $($('.btn-year')[y]).click(function() {
@@ -94,7 +99,7 @@ function registerYearSelectionListeners(fillCell, emptyCell){
             var nextYear = btnNextYearClass[0].split('-')[1];
             var nextYearValue = DATASET[nextYear];
 
-            draw(nextYearValue, fillCell, emptyCell);
+            draw(nextYearValue, fillCell, emptyCell, initFunc);
         });
     }
 }

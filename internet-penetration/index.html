@@ -77,13 +77,22 @@
         <script>
             $(function() {
 
+                // preload images that we will load later
+                var cursors1 = new Image();
+                var cursors2 = new Image();
+                var cursors3 = new Image();
+                
+                cursors1.src = "img/cursors-1.gif";
+                cursors2.src = "img/cursors-2.gif";
+                cursors3.src = "img/cursors-3.gif";
+
                 function fillCell(cell){
                     if(!cell.hasClass('filled-cell')){
                         cell.addClass('filled-cell');
 
                         var randomCursorsIndex = Math.floor((Math.random() * 3) + 1)
 
-                        cell.css('background-image','url(img/cursors-' + randomCursorsIndex + '.gif?x='+ Math.random() +')');
+                        cell.css('background-image','url(img/cursors-' + randomCursorsIndex + '.gif');
                     }
                 }
 

@@ -5,7 +5,7 @@ $right: 0;
 // First row has "bottom" set to 0.
 @for $i from 1 through 6{
 
-    .tree-row-#{$i} .trees{
+    .cell-row-#{$i} .cell{
         bottom: $bottom;
     }
     $bottom: $bottom + 24;
@@ -15,7 +15,7 @@ $right: 0;
 // First cell of each row has "right" set to 0.
 @for $i from 1 through 36{
 
-    .trees-#{$i}{
+    .cell-#{$i}{
         right: $right;
     }
 

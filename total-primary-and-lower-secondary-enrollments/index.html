@@ -2,7 +2,7 @@
     <head>
         <title>Total Primary and Lower Secondary Enrollments</title>
         <script src="../libs/jquery.js"></script>
-        <script src="../libs/mdg.js"></script>
+        
         
         <link rel="stylesheet" href="../libs/bootstrap.min.css">
         <style>
@@ -137,6 +137,11 @@
         </script>
         <script>
             $(function() {
+                function getRangeTransformedValue(input, oMin, oMax, nMin, nMax){
+                    var output = (input - oMin) * (nMax - nMin) / (oMax - oMin) + nMin;
+                    return Math.round(output);
+                }
+
                 // Get how many boys should be represented in the visualizer based
                 // on given input value.
                 function getBoysCount(input){

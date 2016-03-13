@@ -3,8 +3,7 @@
         <title>Afforester Areas</title>
         <script src="../libs/jquery.js"></script>
         <script src="../libs/underscore.min.js"></script>
-        <script src="../libs/mdg.js"></script>
-
+        
         <link rel="stylesheet" href="../libs/bootstrap.min.css">
 
         <link rel="stylesheet" href="css/trees.css">
@@ -17,7 +16,7 @@
                 width: 600px !important;
             }
 
-            .trees{
+            .cell{
                 height: 74px;
 
                 background-size: 100px 74px; /** width height **/
@@ -31,7 +30,7 @@
                 **/
             }
 
-            .trees-growing{
+            .filled-cell{
                 /** Animated gif file so we don't set the background-url here. **/
                 /** This is because we will have to reload the image every time we want to display it **.
                 /** So we will use jQuery's .css() function instead **/
@@ -62,226 +61,114 @@
         <script>
             $(function() {
 
-                // Get how many trees should be represented in the visualizer based on given input value.
-                function getTreesCellCount(input){
-                    return getRangeTransformedValue(input, VALUE_MIN, VALUE_MAX, VISUALIZER_RANGE_MIN, VISUALIZER_RANGE_MAX);
-                }
-
-                // For random drawing
-                var totalFilledCells = [];
-                var totalEmptyCells = []
-
-                var previouslyFilledCellCount = 0;
-                var cellsToFill = [];
-                var cellsToEmpty = [];
-
-
-                for(var i = 0; i < VISUALIZER_RANGE_MAX; i++){
-                    totalEmptyCells.push(i+1);
-                }
-
-                
-                function draw(year, random){
-                    var nextFilledCellCount = getTreesCellCount(DATASET[year]);
-
-                    if(random){
-                        drawRandomly(nextFilledCellCount);
-                    }else{
-                        drawInOrder(year);
+                function fillCell(cell){
+                    if(!cell.hasClass('filled-cell')){
+                        cell.addClass('filled-cell');
+                        cell.css('background-image','url(img/trees.gif?x='+ Math.random() +')');
                     }
                 }
 
-                function drawRandomly(nextFilledCellCount){
-                    
-
-                    var currentCellCount = nextFilledCellCount - previouslyFilledCellCount;
-
-                    // Filling empty cells.
-                    if(currentCellCount > 0){
-                        // Build an array with the indices of all cells that are to be filled.
-                        cellsToFill = _.sample(totalEmptyCells, currentCellCount);
-                        totalEmptyCells = _.difference(totalEmptyCells, cellsToFill);
-
-                        console.log(Math.abs(currentCellCount));
-                        console.log(cellsToFill);
-
-                        for(var i = 0; i < cellsToFill.length; i++){
-                            cell = $('.trees-' + cellsToFill[i]);
-
-                            if(!cell.hasClass('trees-growing')){
-                               cell.addClass('trees-growing');
-                               cell.css('background-image','url(img/trees.gif?x='+ Math.random() +')');
-                            }
-
-                            totalFilledCells.push(cellsToFill[i]);
-                        }
-
+                function emptyCell(cell){
+                    if(cell.hasClass('filled-cell')){
+                        cell.removeClass('filled-cell');
+                        cell.css('background-image','');
                     }
-                    // Emptying previously filled cells.
-                    else if(currentCellCount < 0){
-                        // From the total filled cells, remove cells that should be emptied.
-                        cellsToEmpty = _.sample(totalFilledCells, Math.abs(currentCellCount));
-                        totalFilledCells = _.difference(totalFilledCells, cellsToEmpty);
-
-                        console.log(Math.abs(currentCellCount));
-                        console.log(cellsToEmpty);
-  
-                        for(var i = 0; i < cellsToEmpty.length; i++){
-                            cell = $('.trees-' + cellsToEmpty[i]);
-
-                            if(cell.hasClass('trees-growing')){
-                               cell.removeClass('trees-growing');
-                               cell.css('background-image','');
-                            }
-
-                            totalEmptyCells.push(cellsToEmpty[i]);
-                        }
-                        
-                    }else{
-                        // No changes, do nothing.
-                    }
-
-                    previouslyFilledCellCount = nextFilledCellCount;
-
-                    // Random numner from 0 to 35
-                    //Math.floor((Math.random() * VISUALIZER_RANGE_MAX));
-
-                    //var randomTreeCells = _.sample($('.trees'), treeCellCount)
                 }
 
-                function drawInOrder(year){
-                    var treeCellCount = getTreesCellCount(DATASET[year]);
-
-                    $.each($('.trees'), function(index, trees) {
-
-                        if(treeCellCount >= 1){
-                            if(!$(trees).hasClass('trees-growing')){
-                               $(trees).addClass('trees-growing');
-                               $(trees).css('background-image','url(img/trees.gif?x='+ Math.random() +')');
-                            }
-                            
-                        }else if($(trees).hasClass('trees-growing')){
-                            $(trees).removeClass('trees-growing');
-                            $(trees).css('background-image','');
-                        }
-
-                        treeCellCount = treeCellCount - 1;
-                    });
-                }
-
-                // Register year selection button listeners.
-                for(var y=0; y < $('.btn-year').length; y++){
-                    $($('.btn-year')[y]).click(function() {
-
-                        // Get previous year we just moved away from:
-                        var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
-                        var previousYear = btnPreviousYearClass[0].split('-')[1];
-
-                        // Update button style state for feedback
-                        $('.btn-primary').addClass('btn-default');
-                        $('.btn-primary').removeClass('btn-primary');
-                        $(this).removeClass('btn-default');
-                        $(this).addClass('btn-primary');
-
-                        // Update visualization
-                        var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
-                        var nextYear = btnNextYearClass[0].split('-')[1];
-
-                        draw(nextYear, DRAW_RANDOMLY);
-                    });
-                }
+                registerYearSelectionListeners(fillCell, emptyCell);
 
                 // Init visualizer for first year
                 var firstYear = parseInt(Object.keys(DATASET)[0]);
-                draw(firstYear, DRAW_RANDOMLY);
+                var firstYearValue = DATASET[firstYear];
+                draw(firstYearValue, fillCell, emptyCell);
 
             });
         </script>
     </head>
     <body>
         <div class="container">
-            <div class="row tree-row tree-row-1">
-                <div class="col-xs-2 trees trees-1">
+            <div class="row cell-row cell-row-1">
+                <div class="col-xs-2 cell cell-1">
                 </div>
-                <div class="col-xs-2 trees trees-2">
+                <div class="col-xs-2 cell cell-2">
                 </div>
-                <div class="col-xs-2 trees trees-3">
+                <div class="col-xs-2 cell cell-3">
                 </div>
-                <div class="col-xs-2 trees trees-4">
+                <div class="col-xs-2 cell cell-4">
                 </div>
-                <div class="col-xs-2 trees trees-5">
+                <div class="col-xs-2 cell cell-5">
                 </div>
-                <div class="col-xs-2 trees trees-6">
-                </div>
-            </div>
-            <div class="row tree-row tree-row-2">
-                <div class="col-xs-2 trees trees-7">
-                </div>
-                <div class="col-xs-2 trees trees-8">
-                </div>
-                <div class="col-xs-2 trees trees-9">
-                </div>
-                <div class="col-xs-2 trees trees-10">
-                </div>
-                <div class="col-xs-2 trees trees-11">
-                </div>
-                <div class="col-xs-2 trees trees-12">
+                <div class="col-xs-2 cell cell-6">
                 </div>
             </div>
-            <div class="row tree-row tree-row-3">
-                <div class="col-xs-2 trees trees-13">
+            <div class="row cell-row cell-row-2">
+                <div class="col-xs-2 cell cell-7">
                 </div>
-                <div class="col-xs-2 trees trees-14">
+                <div class="col-xs-2 cell cell-8">
                 </div>
-                <div class="col-xs-2 trees trees-15">
+                <div class="col-xs-2 cell cell-9">
                 </div>
-                <div class="col-xs-2 trees trees-16">
+                <div class="col-xs-2 cell cell-10">
                 </div>
-                <div class="col-xs-2 trees trees-17">
+                <div class="col-xs-2 cell cell-11">
                 </div>
-                <div class="col-xs-2 trees trees-18">
-                </div>
-            </div>
-            <div class="row tree-row tree-row-4">
-                <div class="col-xs-2 trees trees-19">
-                </div>
-                <div class="col-xs-2 trees trees-20">
-                </div>
-                <div class="col-xs-2 trees trees-21">
-                </div>
-                <div class="col-xs-2 trees trees-22">
-                </div>
-                <div class="col-xs-2 trees trees-23">
-                </div>
-                <div class="col-xs-2 trees trees-24">
+                <div class="col-xs-2 cell cell-12">
                 </div>
             </div>
-            <div class="row tree-row tree-row-5">
-                <div class="col-xs-2 trees trees-25">
+            <div class="row cell-row cell-row-3">
+                <div class="col-xs-2 cell cell-13">
                 </div>
-                <div class="col-xs-2 trees trees-26">
+                <div class="col-xs-2 cell cell-14">
                 </div>
-                <div class="col-xs-2 trees trees-27">
+                <div class="col-xs-2 cell cell-15">
                 </div>
-                <div class="col-xs-2 trees trees-28">
+                <div class="col-xs-2 cell cell-16">
                 </div>
-                <div class="col-xs-2 trees trees-29">
+                <div class="col-xs-2 cell cell-17">
                 </div>
-                <div class="col-xs-2 trees trees-30">
+                <div class="col-xs-2 cell cell-18">
                 </div>
             </div>
-            <div class="row tree-row tree-row-6">
-                <div class="col-xs-2 trees trees-31">
+            <div class="row cell-row cell-row-4">
+                <div class="col-xs-2 cell cell-19">
                 </div>
-                <div class="col-xs-2 trees trees-32">
+                <div class="col-xs-2 cell cell-20">
                 </div>
-                <div class="col-xs-2 trees trees-33">
+                <div class="col-xs-2 cell cell-21">
                 </div>
-                <div class="col-xs-2 trees trees-34">
+                <div class="col-xs-2 cell cell-22">
                 </div>
-                <div class="col-xs-2 trees trees-35">
+                <div class="col-xs-2 cell cell-23">
                 </div>
-                <div class="col-xs-2 trees trees-36">
+                <div class="col-xs-2 cell cell-24">
+                </div>
+            </div>
+            <div class="row cell-row cell-row-5">
+                <div class="col-xs-2 cell cell-25">
+                </div>
+                <div class="col-xs-2 cell cell-26">
+                </div>
+                <div class="col-xs-2 cell cell-27">
+                </div>
+                <div class="col-xs-2 cell cell-28">
+                </div>
+                <div class="col-xs-2 cell cell-29">
+                </div>
+                <div class="col-xs-2 cell cell-30">
+                </div>
+            </div>
+            <div class="row cell-row cell-row-6">
+                <div class="col-xs-2 cell cell-31">
+                </div>
+                <div class="col-xs-2 cell cell-32">
+                </div>
+                <div class="col-xs-2 cell cell-33">
+                </div>
+                <div class="col-xs-2 cell cell-34">
+                </div>
+                <div class="col-xs-2 cell cell-35">
+                </div>
+                <div class="col-xs-2 cell cell-36">
                 </div>
             </div>
         </div>
@@ -298,5 +185,6 @@
                 </div>
             </div>
         </div>
+        <script src="../libs/mdg.js"></script>
     </body>
 </html>

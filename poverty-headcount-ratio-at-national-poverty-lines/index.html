@@ -135,7 +135,7 @@
                 }
 
                 function shakeAlreadyFilledCells(){
-                    $('.cell-img').effect( "shake", {times:2, distance:3}, 300 );
+                    $('.filled-cell .cell-img').effect( "shake", {times:2, distance:3}, 300 );
                 }
 
                 registerYearSelectionListeners(fillCell, emptyCell, shakeAlreadyFilledCells);

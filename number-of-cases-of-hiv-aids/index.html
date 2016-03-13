@@ -2,17 +2,17 @@
     <head>
         <title>Number of Cases of HIV/AIDS</title>
         <script src="../libs/jquery.js"></script>
-        
-        
+
         <link rel="stylesheet" href="../libs/bootstrap.min.css">
+        
         <style>
             body{
                 background-color: #FF6633;
             }
-            .container{
-                width: 450px !important;
-            }
 
+            .container-visualizer{
+                width: 450px;
+            }
 
             .cell{
                 height: 120px;
@@ -132,63 +132,68 @@
     </head>
     <body>
         <div class="container">
-            <div class="row row-cell-1">
-                <div class="col-xs-4 cell cell-1">
-                    <div class="row">
-                        <div class="col-xs-6 unit unit-a unit-a-1"></div>
-                        <div class="col-xs-6 unit unit-b unit-b-1"></div>
-                    </div>
-                </div>
-                <div class="col-xs-4 cell cell-2">
-                    <div class="row">
-                        <div class="col-xs-6 unit unit-a unit-a-2"></div>
-                        <div class="col-xs-6 unit unit-b unit-b-2"></div>
-                    </div>
-                </div>
-                <div class="col-xs-4 cell cell-3">
-                    <div class="row">
-                        <div class="col-xs-6 unit unit-a unit-a-3"></div>
-                        <div class="col-xs-6 unit unit-b unit-b-3"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-cell-2">
-                <div class="col-xs-12 cell cell-4">
-                    <div class="row">
-                        <div class="col-xs-6 unit unit-a unit-a-4"></div>
-                        <div class="col-xs-6 unit unit-b unit-b-4"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="row row-cell-3">
-                <div class="col-xs-4 cell cell-5">
-                    <div class="row">
-                        <div class="col-xs-6 unit unit-a unit-a-5"></div>
-                        <div class="col-xs-6 unit unit-b unit-b-5"></div>
-                    </div>
-                </div>
-                <div class="col-xs-4 cell cell-6">
-                    <div class="row">
-                        <div class="col-xs-6 unit unit-a unit-a-6"></div>
-                        <div class="col-xs-6 unit unit-b unit-b-6"></div>
-                    </div>
-                </div>
-                <div class="col-xs-4 cell cell-7">
-                    <div class="row">
-                        <div class="col-xs-6 unit unit-a unit-a-7"></div>
-                        <div class="col-xs-6 unit unit-b unit-b-7"></div>
-                    </div>
-                </div>
-            </div>
-            
             <div class="row">
-                <div class="col-xs-12" style="bottom:60px"; align="center">
-                    <div class="btn-group" role="group">
+                <div class="col-xs-2">
+                    <!-- Include buttons for each year. -->
+                    <div class="btn-group-vertical" role="group">
                         <button type="button" class="btn btn-xs btn-primary btn-year btn-2010">2010</button>
                         <button type="button" class="btn btn-xs btn-default btn-year btn-2011">2011</button>
                         <button type="button" class="btn btn-xs btn-default btn-year btn-2012">2012</button>
                         <button type="button" class="btn btn-xs btn-default btn-year btn-2013">2013</button>
                         <button type="button" class="btn btn-xs btn-default btn-year btn-2014">2014</button>
+                    </div>
+                </div>
+                <div class="col-xs-10">
+                    <!-- Build visualization grid. -->
+                    <div class="container-visualizer">
+                        <div class="row row-cell-1">
+                            <div class="col-xs-4 cell cell-1">
+                                <div class="row">
+                                    <div class="col-xs-6 unit unit-a unit-a-1"></div>
+                                    <div class="col-xs-6 unit unit-b unit-b-1"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 cell cell-2">
+                                <div class="row">
+                                    <div class="col-xs-6 unit unit-a unit-a-2"></div>
+                                    <div class="col-xs-6 unit unit-b unit-b-2"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 cell cell-3">
+                                <div class="row">
+                                    <div class="col-xs-6 unit unit-a unit-a-3"></div>
+                                    <div class="col-xs-6 unit unit-b unit-b-3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cell-2">
+                            <div class="col-xs-12 cell cell-4">
+                                <div class="row">
+                                    <div class="col-xs-6 unit unit-a unit-a-4"></div>
+                                    <div class="col-xs-6 unit unit-b unit-b-4"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row row-cell-3">
+                            <div class="col-xs-4 cell cell-5">
+                                <div class="row">
+                                    <div class="col-xs-6 unit unit-a unit-a-5"></div>
+                                    <div class="col-xs-6 unit unit-b unit-b-5"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 cell cell-6">
+                                <div class="row">
+                                    <div class="col-xs-6 unit unit-a unit-a-6"></div>
+                                    <div class="col-xs-6 unit unit-b unit-b-6"></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 cell cell-7">
+                                <div class="row">
+                                    <div class="col-xs-6 unit unit-a unit-a-7"></div>
+                                    <div class="col-xs-6 unit unit-b unit-b-7"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

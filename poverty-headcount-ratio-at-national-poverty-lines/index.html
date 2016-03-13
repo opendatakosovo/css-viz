@@ -10,8 +10,8 @@
                 background-color: #F1D760;
             }
             
-            .container{
-                width: 450px !important;
+            .container-visualizer{
+                width: 450px;
             }
 
             .cell{
@@ -143,65 +143,67 @@
         </script>
     </head>
     <body>
-        <!-- Build visualization grid. -->
         <div class="container">
-            <div class="row cell-row cell-row-1">
-                <div class="col-xs-4 cell cell-1">
-                    <div class="cell-img"></div>
+            <div class="row">
+                <div class="col-xs-2">
+                    <!-- Include buttons for each year. -->
+                    <div class="btn-group-vertical" role="group">
+                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2003">2003</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2004">2004</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005">2005</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006">2006</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007">2007</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008">2008</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009">2009</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010">2010</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2011">2011</button>
+                    </div>
                 </div>
-                <div class="col-xs-4 cell cell-2">
-                    <div class="cell-img"></div>
+                <div class="col-xs-10">
+                    <!-- Build visualization grid. -->
+                    <div class="container-visualizer">
+                        <div class="row cell-row cell-row-1">
+                            <div class="col-xs-4 cell cell-1">
+                                <div class="cell-img"></div>
+                            </div>
+                            <div class="col-xs-4 cell cell-2">
+                                <div class="cell-img"></div>
+                            </div>
+                            <div class="col-xs-4 cell cell-3">
+                                <div class="cell-img"></div>
+                            </div>
+                        </div>
+                        <div class="row cell-row cell-row-2">
+                            <div class="col-xs-6 cell cell-4 cell-pull-right">
+                                <div class="cell-img"></div>
+                            </div>
+                            <div class="col-xs-6 cell cell-5 cell-pull-left">
+                                <div class="cell-img"></div>
+                            </div>
+                        </div>
+                        <div class="row cell-row cell-row-3">
+                            <div class="col-xs-4 cell cell-6">
+                                <div class="cell-img"></div>
+                            </div>
+                            <div class="col-xs-4 cell cell-7">
+                                <div class="cell-img"></div>
+                            </div>
+                            <div class="col-xs-4 cell cell-8">
+                                <div class="cell-img"></div>
+                            </div>
+                        </div>
+                        <div class="row cell-row cell-row-4">
+                            <div class="col-xs-6 cell cell-9 cell-pull-right">
+                                <div class="cell-img"></div>
+                            </div>
+                            <div class="col-xs-6 cell cell-10 cell-pull-left">
+                                <div class="cell-img"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-xs-4 cell cell-3">
-                    <div class="cell-img"></div>
-                </div>
-            </div>
-            <div class="row cell-row cell-row-2">
-                <div class="col-xs-6 cell cell-4 cell-pull-right">
-                    <div class="cell-img"></div>
-                </div>
-                <div class="col-xs-6 cell cell-5 cell-pull-left">
-                    <div class="cell-img"></div>
-                </div>
-            </div>
-            <div class="row cell-row cell-row-3">
-                <div class="col-xs-4 cell cell-6">
-                    <div class="cell-img"></div>
-                </div>
-                <div class="col-xs-4 cell cell-7">
-                    <div class="cell-img"></div>
-                </div>
-                <div class="col-xs-4 cell cell-8">
-                    <div class="cell-img"></div>
-                </div>
-            </div>
-            <div class="row cell-row cell-row-4">
-                <div class="col-xs-6 cell cell-9 cell-pull-right">
-                    <div class="cell-img"></div>
-                </div>
-                <div class="col-xs-6 cell cell-10 cell-pull-left">
-                    <div class="cell-img"></div>
-                </div>
-            </div>
+            </div>            
         </div>
-
-        <!-- Include buttons for each year. -->
-        <div class="row">
-            <div class="col-xs-12" style="bottom:200px" align="center">
-                <div class="btn-group" role="group">
-                    <button type="button" class="btn btn-xs btn-primary btn-year btn-2003">2003</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2004">2004</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2005">2005</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2006">2006</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2007">2007</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2008">2008</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2009">2009</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2010">2010</button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2011">2011</button>
-                </div>
-            </div>
-        </div>
-
         <script src="../libs/mdg-core.js"></script>
         <script src="../libs/mdg.js"></script>
     </body>

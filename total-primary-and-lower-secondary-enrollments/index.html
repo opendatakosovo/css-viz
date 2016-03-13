@@ -256,7 +256,7 @@
                             }
 
                             // If the random number is 6, make the girl raise her hand in infinite loop.
-                            if(ranNum == 4){
+                            else if(ranNum == 4){
 
                                 if( !girl.hasClass('girl-present-raises-hand-loop') &&
                                     !girl.hasClass('girl-present-raises-hand') &&
@@ -265,7 +265,10 @@
                                     girl.addClass('girl-present-raises-hand-loop');
                                 }
                             }
-                            else if(!girl.hasClass('girl-present')){
+                            else if(!girl.hasClass('girl-present-raises-hand-loop') &&
+                                    !girl.hasClass('girl-present-raises-hand') &&
+                                    !girl.hasClass('girl-present')){
+                                
                                 girl.addClass('girl-present'); 
                             }      
                         }

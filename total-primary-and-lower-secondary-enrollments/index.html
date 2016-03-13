@@ -72,8 +72,8 @@
                 /** So we will use jQuery's .css() function instead **/
             }
 
-            .girl-present{
-                background-image: url('img/girl.png');
+            .girl-present-raises-hand-loop{
+                background-image: url('img/girl-raises-hand-loop.gif');
             }
         </style>
 
@@ -137,6 +137,11 @@
         </script>
         <script>
             $(function() {
+                // preload images that we will load later
+                var girlHandRaiseLoopImg = new Image();
+                
+                girlHandRaiseLoopImg.src = "img/girl-raises-hand-loop.gif"
+
                 function getRangeTransformedValue(input, oMin, oMax, nMin, nMax){
                     var output = (input - oMin) * (nMax - nMin) / (oMax - oMin) + nMin;
                     return Math.round(output);
@@ -218,45 +223,72 @@
                         var sittingStudents = classrooms[yearIndex][index];
                         var deskIndex = index + 1;
 
+                        girl = $('.girl-' + deskIndex);
+                        boy = $('.boy-' + deskIndex)
+
                         // If desk has a boy, draw a boy.
                         if(sittingStudents[0] == 1 && !$('.boy-' + deskIndex).hasClass('boy-present')){
-                            $('.boy-' + deskIndex).addClass('boy-present');
+                            boy.addClass('boy-present');
                         }
 
                         // If desk doesn't have a boy,
                         // make him disappear
                         else if(sittingStudents[0] == 0 && $('.boy-' + deskIndex).hasClass('boy-present')){
-                            $('.boy-' + deskIndex).removeClass('boy-present');
+                            boy.removeClass('boy-present');
                         }
 
                         // If desk has a girl, draw a girl.
                         if(sittingStudents[1] == 1){
                             // Get a random number between 1 and 3:
-                            var ranNum = Math.floor((Math.random() * 3) + 1);
+                            var ranNum = Math.floor((Math.random() * 4) + 1);
 
-                            // If the randum number is 3, make the girl raise her hand.
-                            if(ranNum == 3){
+                            // If the random number is 3, make the girl raise her hand.
+                            if(ranNum == 2){
 
-                                if(!$('.girl-' + deskIndex).hasClass('girl-present-raises-hand') && !$('.girl-' + deskIndex).hasClass('girl-present')){
+                                if( !girl.hasClass('girl-present-raises-hand') &&
+                                    !girl.hasClass('girl-present-raises-hand-loop') && 
+                                    !girl.hasClass('girl-present')){
 
-                                    $('.girl-' + deskIndex).addClass('girl-present-raises-hand');
+                                    girl.addClass('girl-present-raises-hand');
 
-                                    
-                                    $('.girl-' + deskIndex).css('background-image','url(img/girl-raises-hand.gif?x='+ Math.random() +')');
+                                    girl.css('background-image','url(img/girl-raises-hand.gif?x='+ Math.random() +')');
                                 }
-                            }else if(!$('.girl-' + deskIndex).hasClass('girl-present')){
-                                $('.girl-' + deskIndex).addClass('girl-present'); 
+                            }
+
+                            // If the random number is 6, make the girl raise her hand in infinite loop.
+                            if(ranNum == 4){
+
+                                if( !girl.hasClass('girl-present-raises-hand-loop') &&
+                                    !girl.hasClass('girl-present-raises-hand') &&
+                                    !girl.hasClass('girl-present')){
+
+                                    girl.addClass('girl-present-raises-hand-loop');
+                                }
+                            }
+                            else if(!girl.hasClass('girl-present')){
+                                girl.addClass('girl-present'); 
                             }      
                         }
 
                         // If desk doesn't have a girl,
                         // make her disappear.
-                        else if (sittingStudents[1] == 0 && $('.girl-' + deskIndex).hasClass('girl-present')) {
-                            $('.girl-' + deskIndex).removeClass('girl-present');
-                            $('.girl-' + deskIndex).css('background-image','');
-                        }else if (sittingStudents[1] == 0 && $('.girl-' + deskIndex).hasClass('girl-present-raises-hand')) {
-                            $('.girl-' + deskIndex).removeClass('girl-present-raises-hand');
-                            $('.girl-' + deskIndex).css('background-image','');
+                        else if (   sittingStudents[1] == 0 && 
+                                    girl.hasClass('girl-present')) {
+
+                            girl.removeClass('girl-present');
+                            girl.css('background-image','');
+
+                        }else if (  sittingStudents[1] == 0 &&
+                                    girl.hasClass('girl-present-raises-hand')) {
+
+                            girl.removeClass('girl-present-raises-hand');
+                            girl.css('background-image','');
+
+                        }else if (  sittingStudents[1] == 0 &&
+                                    girl.hasClass('girl-present-raises-hand-loop')) {
+
+                            girl.removeClass('girl-present-raises-hand-loop');
+                            girl.css('background-image','');
                         }
                     });
                 }

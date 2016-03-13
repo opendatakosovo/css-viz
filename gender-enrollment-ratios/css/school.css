@@ -28,7 +28,7 @@ body{
 
 .girl{
 	/** Styling **/
-	background-size: 99px 150px; /* width and height **/
+	background-size: 150px 150px; /* width and height **/
 	height: 150px;  
 	background-repeat: no-repeat;
 	background-position: center bottom;

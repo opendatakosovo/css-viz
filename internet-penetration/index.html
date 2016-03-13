@@ -46,6 +46,18 @@
                 can set the background-url here.
                 **/
             }
+
+            .filled-cell-1{
+                background-image: url('img/cursors-1.gif');
+            }
+
+            .filled-cell-2{
+                background-image: url('img/cursors-2.gif');
+            }
+
+            .filled-cell-3{
+                background-image: url('img/cursors-3.gif');
+            }
         </style>
         
         <!-- CONSTANTS -->
@@ -88,18 +100,19 @@
 
                 function fillCell(cell){
                     if(!cell.hasClass('filled-cell')){
-                        cell.addClass('filled-cell');
-
                         var randomCursorsIndex = Math.floor((Math.random() * 3) + 1)
 
-                        cell.css('background-image','url(img/cursors-' + randomCursorsIndex + '.gif');
+                        cell.addClass('filled-cell');
+                        cell.addClass('filled-cell-' + randomCursorsIndex);
                     }
                 }
 
                 function emptyCell(cell){
                     if(cell.hasClass('filled-cell')){
                         cell.removeClass('filled-cell');
-                        cell.css('background-image','');
+                        cell.removeClass('filled-cell-1');
+                        cell.removeClass('filled-cell-2');
+                        cell.removeClass('filled-cell-3');
                     }
                 }
 

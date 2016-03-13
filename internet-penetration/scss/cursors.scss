@@ -1,0 +1,29 @@
+$bottom: 0;
+$right: 0;
+
+// apply "bottom" for every row.
+// First row has "bottom" set to 0.
+@for $i from 1 through 6{
+
+    .cell-row-#{$i} .cell{
+        bottom: $bottom;
+    }
+    $bottom: $bottom + 35;
+}
+
+// Apply "right" for every cell.
+// First cell of each row has "right" set to 0.
+@for $i from 1 through 36{
+
+    .cell-#{$i}{
+        right: $right;
+    }
+
+    // If cell is first cell for a row.
+    // Reset the value to 0.
+    @if $i % 6 == 0 {
+        $right: 0;
+    }@else{
+        $right: $right + 35;
+    }   
+}

@@ -219,22 +219,23 @@
                         var deskIndex = index + 1;
 
                         // If desk has a boy, draw a boy.
-                        if(sittingStudents[0] == 1){
+                        if(sittingStudents[0] == 1 && !$('.boy-' + deskIndex).hasClass('boy-present')){
                             $('.boy-' + deskIndex).addClass('boy-present');
                         }
 
                         // If desk doesn't have a boy,
                         // make him disappear
-                        else{
+                        else if(sittingStudents[0] == 0 && $('.boy-' + deskIndex).hasClass('boy-present')){
                             $('.boy-' + deskIndex).removeClass('boy-present');
                         }
 
                         // If desk has a girl, draw a girl.
                         if(sittingStudents[1] == 1){
-                            // Get a random number between 1 and 4:
-                            var ranNum = Math.floor((Math.random() * 4) + 1);
+                            // Get a random number between 1 and 3:
+                            var ranNum = Math.floor((Math.random() * 3) + 1);
 
-                            if(ranNum == 4){
+                            // If the randum number is 3, make the girl raise her hand.
+                            if(ranNum == 3){
 
                                 if(!$('.girl-' + deskIndex).hasClass('girl-present-raises-hand') && !$('.girl-' + deskIndex).hasClass('girl-present')){
 
@@ -243,17 +244,18 @@
                                     
                                     $('.girl-' + deskIndex).css('background-image','url(img/girl-raises-hand.gif?x='+ Math.random() +')');
                                 }
-                            }else{
-                                if(!$('.girl-' + deskIndex).hasClass('girl-present')){
-                                    $('.girl-' + deskIndex).addClass('girl-present'); 
-                                }
+                            }else if(!$('.girl-' + deskIndex).hasClass('girl-present')){
+                                $('.girl-' + deskIndex).addClass('girl-present'); 
                             }      
                         }
 
                         // If desk doesn't have a girl,
                         // make her disappear.
-                        else{
+                        else if (sittingStudents[1] == 0 && $('.girl-' + deskIndex).hasClass('girl-present')) {
                             $('.girl-' + deskIndex).removeClass('girl-present');
+                            $('.girl-' + deskIndex).css('background-image','');
+                        }else if (sittingStudents[1] == 0 && $('.girl-' + deskIndex).hasClass('girl-present-raises-hand')) {
+                            $('.girl-' + deskIndex).removeClass('girl-present-raises-hand');
                             $('.girl-' + deskIndex).css('background-image','');
                         }
                     });

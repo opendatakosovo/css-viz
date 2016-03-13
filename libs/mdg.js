@@ -125,5 +125,6 @@ function getRangeTransformedValue(input, oMin, oMax, nMin, nMax){
 
 // Get how many trees should be represented in the visualizer based on given input value.
 function getNumbersOfCellsToFill(input){
-    return getRangeTransformedValue(input, VALUE_MIN, VALUE_MAX, VISUALIZER_RANGE_MIN, VISUALIZER_RANGE_MAX);
+    var output = getRangeTransformedValue(input, VALUE_MIN, VALUE_MAX, VISUALIZER_RANGE_MIN, VISUALIZER_RANGE_MAX);
+    return output;
 }

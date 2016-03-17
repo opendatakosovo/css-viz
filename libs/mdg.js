@@ -12,8 +12,9 @@ for(var i = 0; i < VISUALIZER_RANGE_MAX; i++){
 }
 
 function draw(value, fillCell, emptyCell){
+	
     if(DRAW_RANDOMLY){
-        drawRandomly(value, fillCell, emptyCell);
+        drawRandomly(value, fillCell, emptyCell, incrementalFill);
     }else{
         drawInOrder(value);
     }
@@ -36,15 +37,46 @@ function drawInOrder(value, fillCell, emptyCell){
 
 
 function drawRandomly(value, fillCellFunc, emptyCellFunc){
-
+	
     var nextFilledCellCount = getNumbersOfCellsToFill(value);
-    
-    var currentCellCount = nextFilledCellCount - previouslyFilledCellCount;
+	
+	// Get fill/empty values based on incrementalFill parameter
+	if(incrementalFill) {
+		changeInCellCount = nextFilledCellCount - previouslyFilledCellCount;
+		if(changeInCellCount >= 0) {
+			cellsToFillCount = changeInCellCount;
+			cellsToEmptyCount = 0;
+		}
+		else {
+			cellsToFillCount = 0;
+			cellsToEmptyCount = Math.abs(changeInCellCount);
+		}	
+	}
+	// If not incremental fill, refresh all cells
+	else {
+		cellsToFillCount = nextFilledCellCount;
+		cellsToEmptyCount = previouslyFilledCellCount;
+	}
+	
+    // Emptying previously filled cells.
+    if(cellsToEmptyCount > 0){
+        // From the total filled cells, remove cells that should be emptied.
+        cellsToEmpty = _.sample(totalFilledCells, cellsToEmptyCount);
+        totalFilledCells = _.difference(totalFilledCells, cellsToEmpty);
 
-    // Filling empty cells.
-    if(currentCellCount > 0){
+        for(var i = 0; i < cellsToEmpty.length; i++){
+            cell = $('.cell-' + cellsToEmpty[i]);
+
+            emptyCellFunc(cell);                            
+
+            totalEmptyCells.push(cellsToEmpty[i]);
+        }   
+    }
+
+    // Filling new cells
+    if(cellsToFillCount > 0){
         // Build an array with the indices of all cells that are to be filled.
-        cellsToFill = _.sample(totalEmptyCells, currentCellCount);
+        cellsToFill = _.sample(totalEmptyCells, cellsToFillCount);
         totalEmptyCells = _.difference(totalEmptyCells, cellsToFill);
 
         for(var i = 0; i < cellsToFill.length; i++){
@@ -55,20 +87,6 @@ function drawRandomly(value, fillCellFunc, emptyCellFunc){
             totalFilledCells.push(cellsToFill[i]);
         }
 
-    }
-    // Emptying previously filled cells.
-    else if(currentCellCount < 0){
-        // From the total filled cells, remove cells that should be emptied.
-        cellsToEmpty = _.sample(totalFilledCells, Math.abs(currentCellCount));
-        totalFilledCells = _.difference(totalFilledCells, cellsToEmpty);
-
-        for(var i = 0; i < cellsToEmpty.length; i++){
-            cell = $('.cell-' + cellsToEmpty[i]);
-
-            emptyCellFunc(cell);                            
-
-            totalEmptyCells.push(cellsToEmpty[i]);
-        }   
     }
 
     previouslyFilledCellCount = nextFilledCellCount;

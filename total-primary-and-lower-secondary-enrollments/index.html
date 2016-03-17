@@ -284,19 +284,28 @@
                         $('.btn-primary').removeClass('btn-primary');
                         $(this).removeClass('btn-default');
                         $(this).addClass('btn-primary');
-
                         // Update visualization
                         var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
                         var nextYear = btnNextYearClass[0].split('-')[1];
+                        var boys = DATASET[nextYear]['boys'];
+                        var girls = DATASET[nextYear]['girls'];
+                        setPercentage(boys, girls);
                         draw(nextYear);
                     });
                 }
 
+                setPercentage(DATASET['2009']['boys'], DATASET['2009']['girls'])
                 // Initialize visualizer for the first year.
                 var firstYear = parseInt(Object.keys(DATASET)[0]);
                 draw(firstYear);
             });
- 
+
+            function setPercentage(boys, girls){
+                $("#percentage-boys").empty();
+                $("#percentage-boys").text(boys + "%");
+                $("#percentage-girls").empty();
+                $("#percentage-girls").text(girls + "%");
+            }
         </script>
 
     </head>
@@ -315,7 +324,7 @@
                 </div>
                 <div class="col-xs-10">
                     <!-- Build visualization grid. -->
-                    <div class="container-visualizer">
+                    <div class="container-visualizer" style="float: left;">
                         <div class="row row-desk-1">
                             <div class="col-xs-4 desk desk-1">
                                 <div class="row">
@@ -396,6 +405,14 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+
+                    <div id="percentage-container" style="float: right; margin: 10% 10% 0 0; width: 35%">
+                        <b><h2 id="percentage-boys">47%</h2></b>
+                        <h4>Percentage of eligible boys enrolled in Primary School</h4>
+                        <br><br>
+                        <b><h2 id="percentage-girls">53%</h2></b>
+                        <h4>Percentage of eligible girls enrolled in Primary School</h4>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ function draw(value, fillCell, emptyCell, initFunc){
     }
 
     if(DRAW_RANDOMLY){
-        drawRandomly(value, fillCell, emptyCell, incrementalFill);
+        drawRandomly(value, fillCell, emptyCell);
     }else{
         drawInOrder(value);
     }

@@ -182,7 +182,7 @@
 
         function setPercentage(year_value){
             $('#percentage').empty();
-            $('#percentage').text(year_value + "%");
+            $('#percentage').text(Number(100 - year_value).toFixed(1) + "%");
         }
 
     </script>
@@ -258,7 +258,7 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div id="percentage-container" style="margin: 75% -5% 0 0;">
+                <div id="percentage-container" style="margin: 50% -5% 0 0;">
                     <b><h2 id="percentage"></h2></b>
                     <h4>Poverty headcount (National poverty line) as a percentage of the population</h4>
                 </div>

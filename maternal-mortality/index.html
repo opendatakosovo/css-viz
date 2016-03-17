@@ -7,7 +7,7 @@
 
         <style>
             body{
-                background-color: #F8C2DA;
+                background-color: #F8C0D9;
             }
 
             .container-visualizer{
@@ -85,32 +85,28 @@
         <script>
             // Build dataset object.
             // In the data we have, the lesser the value, the better is.
-            //
-            // However, the viusalization is designed the represent values the opposite way
-            // (i.e. the lessert the value, the worse it is).
-            // To resolve this, we just "invert" the value.
             var DATASET = {
-                '2000': (100 - 29.9),
-                '2001': (100 - 12.6),
-                '2002': (100 - 19.8),
-                '2003': (100 - 21.9),
-                '2004': (100 - 9.7),
-                '2005': (100 - 6.9),
-                '2006': (100 - 7.0),
-                '2007': (100 - 10.8),
-                '2008': (100 - 28.4),
-                '2009': (100 - 43.3),
-                '2010': (100 - 7.3)
+                '2000': 29.9,
+                '2001': 12.6,
+                '2002': 19.8,
+                '2003': 21.9,
+                '2004': 9.7,
+                '2005': 6.9,
+                '2006': 7.0,
+                '2007': 10.8,
+                '2008': 28.4,
+                '2009': 43.3,
+                '2010': 7.3
             }
 
             // TODO: Set contant values.
-            var VALUE_MIN = DATASET['2009'];
-            var VALUE_MAX = DATASET['2005'];
+            var VALUE_MIN = 1;
+            var VALUE_MAX = 45;
             var VISUALIZER_RANGE_MIN = 1;
             var VISUALIZER_RANGE_MAX = 13;
 
             var DRAW_RANDOMLY = true;
-			var incrementalFill = true;
+			var incrementalFill = false;
 			
         </script>
 
@@ -148,17 +144,17 @@
                 <div class="col-xs-2">
                     <!-- Include buttons for each year. -->
                     <div class="btn-group-vertical" role="group">
-                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2000">2000</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2001">2001</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2002">2002</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2003">2003</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2004">2004</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005">2005</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006">2006</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007">2007</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008">2008</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009">2009</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010">2010</button>
+                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2000" style="margin-top: 5px;">2000</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2001" style="margin-top: 5px;">2001</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2002" style="margin-top: 5px;">2002</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2003" style="margin-top: 5px;">2003</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2004" style="margin-top: 5px;">2004</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009</button>
+                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010</button>
                     </div>
                 </div>
                 <div class="col-xs-10">

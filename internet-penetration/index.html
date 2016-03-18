@@ -119,12 +119,14 @@
                 }
             }
 
-            registerYearSelectionListeners(fillCell, emptyCell, 1, 1);
+            registerYearSelectionListeners(fillCell, emptyCell, null, 1);
 
             // Init visualizer for first year
             var firstYear = parseInt(Object.keys(DATASET)[0]);
             var firstYearValue = DATASET[firstYear];
-            draw(firstYearValue, fillCell, emptyCell);
+            $("#value").empty();
+            $("#value").text(firstYearValue + "%");
+            draw(firstYearValue, fillCell, emptyCell, null);
 
         });
     </script>

@@ -1,220 +1,242 @@
 <html>
-    <head>
-        <title>Maternal Mortality</title>
-        <script src="../libs/jquery.js"></script>
-        <script src="../libs/underscore.min.js"></script>
-        <link rel="stylesheet" href="../libs/bootstrap.min.css">
+<head>
+    <title>Maternal Mortality</title>
+    <script src="../libs/jquery.js"></script>
+    <script src="../libs/underscore.min.js"></script>
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
 
-        <style>
-            body{
-                background-color: #F8C0D9;
-            }
+    <style>
+        body {
+            background-color: #F8C0D9;
+        }
 
-            .container-visualizer{
-                width: 600px;
-            }
+        .container-visualizer {
+            width: 600px;
+        }
 
-            .cell{
-                /** TODO: Set width and height of image. **/
-                /**
-                    width = container width / number of cells per row.
-                **/
-                background-size: 138px 128px;
-                background-repeat: no-repeat;
-                background-position: center bottom;
+        .cell {
+            /** TODO: Set width and height of image. **/
+            /**
+                width = container width / number of cells per row.
+            **/
+            background-size: 138px 128px;
+            background-repeat: no-repeat;
+            background-position: center bottom;
 
-                /** Cell height should equal height of image. **/
-                height: 150px;
-
-                /**
-                border-style: solid;
-                border-width: thin;
-                border-color: green;
-                **/
-                
-            }
-
-            .filled-cell{
-                /** If image is non-infinite loop animated gif then
-                don't set the background-url here.
-                
-                This is because we will have to reload the image every time we want to display it.
-                
-                So we will use jQuery's .css() function instead.
-                
-                However, if we are dealing with either infinite loop
-                animated gif or just a non-animated image then we
-                can set the background-url here.
-                **/
-            }
+            /** Cell height should equal height of image. **/
+            height: 150px;
 
             /**
-                Selectors for row cells and individual cells.
-                If there are too many selectors to implement, use a for loop with scss.
+            border-style: solid;
+            border-width: thin;
+            border-color: green;
             **/
-            .cell-row-1 .cell{
-                bottom: 0px;
-            }
-            .cell-row-2 .cell{
-                bottom: 100px;
-            }
-            .cell-row-3 .cell{
-                bottom: 200px;
-            }
-            .cell-row-4 .cell{
-                bottom: 300px;
-            }
-            .cell-row-5 .cell{
-                bottom: 400px;
-            }
 
-            .cell-pull-right{
-                left: 45px;
-            }
+        }
 
-            .cell-pull-left{
-                right:45px;
-            }
+        .filled-cell {
+            /** If image is non-infinite loop animated gif then
+            don't set the background-url here.
 
-            .cell-4, .cell-5, .cell-9, .cell-10{
-               padding-left: 50px;
-            }
-        </style>
-        
-        <!-- CONSTANTS -->
-        <script>
-            // Build dataset object.
-            // In the data we have, the lesser the value, the better is.
-            var DATASET = {
-                '2000': 29.9,
-                '2001': 12.6,
-                '2002': 19.8,
-                '2003': 21.9,
-                '2004': 9.7,
-                '2005': 6.9,
-                '2006': 7.0,
-                '2007': 10.8,
-                '2008': 28.4,
-                '2009': 43.3,
-                '2010': 7.3
-            }
+            This is because we will have to reload the image every time we want to display it.
 
-            // TODO: Set contant values.
-            var VALUE_MIN = 1;
-            var VALUE_MAX = 45;
-            var VISUALIZER_RANGE_MIN = 1;
-            var VISUALIZER_RANGE_MAX = 13;
+            So we will use jQuery's .css() function instead.
 
-            var DRAW_RANDOMLY = true;
-			var incrementalFill = false;
-			
-        </script>
+            However, if we are dealing with either infinite loop
+            animated gif or just a non-animated image then we
+            can set the background-url here.
+            **/
+        }
 
-        <script>
-            $(function() {
+        /**
+            Selectors for row cells and individual cells.
+            If there are too many selectors to implement, use a for loop with scss.
+        **/
+        .cell-row-1 .cell {
+            bottom: 0px;
+        }
 
-                function fillCell(cell){
-                    if(!cell.hasClass('filled-cell')){
-                        cell.addClass('filled-cell');
-                        cell.css('background-image','url(img/maternal.gif?x='+ Math.random() +')');
-                    }
+        .cell-row-2 .cell {
+            bottom: 100px;
+        }
+
+        .cell-row-3 .cell {
+            bottom: 200px;
+        }
+
+        .cell-row-4 .cell {
+            bottom: 300px;
+        }
+
+        .cell-row-5 .cell {
+            bottom: 400px;
+        }
+
+        .cell-pull-right {
+            left: 45px;
+        }
+
+        .cell-pull-left {
+            right: 45px;
+        }
+
+        .cell-4, .cell-5, .cell-9, .cell-10 {
+            padding-left: 50px;
+        }
+    </style>
+
+    <!-- CONSTANTS -->
+    <script>
+        // Build dataset object.
+        // In the data we have, the lesser the value, the better is.
+        var DATASET = {
+            '2000': 29.9,
+            '2001': 12.6,
+            '2002': 19.8,
+            '2003': 21.9,
+            '2004': 9.7,
+            '2005': 6.9,
+            '2006': 7.0,
+            '2007': 10.8,
+            '2008': 28.4,
+            '2009': 43.3,
+            '2010': 7.3
+        }
+
+        // TODO: Set contant values.
+        var VALUE_MIN = 1;
+        var VALUE_MAX = 45;
+        var VISUALIZER_RANGE_MIN = 1;
+        var VISUALIZER_RANGE_MAX = 13;
+
+        var DRAW_RANDOMLY = true;
+        var incrementalFill = false;
+
+    </script>
+
+    <script>
+        $(function () {
+
+            function fillCell(cell) {
+                if (!cell.hasClass('filled-cell')) {
+                    cell.addClass('filled-cell');
+                    cell.css('background-image', 'url(img/maternal.gif?x=' + Math.random() + ')');
                 }
+            }
 
-                function emptyCell(cell){
-                    if(cell.hasClass('filled-cell')){
-                        cell.removeClass('filled-cell');
-                        cell.css('background-image','');
-                    }
+            function emptyCell(cell) {
+                if (cell.hasClass('filled-cell')) {
+                    cell.removeClass('filled-cell');
+                    cell.css('background-image', '');
                 }
+            }
 
-                registerYearSelectionListeners(fillCell, emptyCell);
+            registerYearSelectionListeners(fillCell, emptyCell);
 
-                // Init visualizer for first year
-                var firstYear = parseInt(Object.keys(DATASET)[0]);
-                var firstYearValue = DATASET[firstYear];
-                draw(firstYearValue, fillCell, emptyCell);
+            // Init visualizer for first year
+            var firstYear = parseInt(Object.keys(DATASET)[0]);
+            var firstYearValue = DATASET[firstYear];
+            $('#value').empty();
+            $('#value').text(firstYearValue);
+            draw(firstYearValue, fillCell, emptyCell);
 
-            });
-        </script>
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-2">
-                    <!-- Include buttons for each year. -->
-                    <div class="btn-group-vertical" role="group">
-                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2000" style="margin-top: 5px;">2000</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2001" style="margin-top: 5px;">2001</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2002" style="margin-top: 5px;">2002</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2003" style="margin-top: 5px;">2003</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2004" style="margin-top: 5px;">2004</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010</button>
-                    </div>
-                </div>
-                <div class="col-xs-10">
-                    <!-- Build visualization grid. -->
-                    <div class="container-visualizer">
-                        <div class="row cell-row cell-row-1">
-                            <div class="col-xs-4 cell cell-1">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-4 cell cell-2">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-4 cell cell-3">
-                                <div class="cell-img"></div>
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-2">
-                            <div class="col-xs-6 cell cell-4 cell-pull-right">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-6 cell cell-5 cell-pull-left">
-                                <div class="cell-img"></div>
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-3">
-                            <div class="col-xs-4 cell cell-6">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-4 cell cell-7">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-4 cell cell-8">
-                                <div class="cell-img"></div>
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-4">
-                            <div class="col-xs-6 cell cell-9 cell-pull-right">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-6 cell cell-10 cell-pull-left">
-                                <div class="cell-img"></div>
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-5">
-                            <div class="col-xs-4 cell cell-11">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-4 cell cell-12">
-                                <div class="cell-img"></div>
-                            </div>
-                            <div class="col-xs-4 cell cell-13">
-                                <div class="cell-img"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+        });
+    </script>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+            <!-- Include buttons for each year. -->
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-xs btn-primary btn-year btn-2000" style="margin-top: 5px;">2000
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2001" style="margin-top: 5px;">2001
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2002" style="margin-top: 5px;">2002
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2003" style="margin-top: 5px;">2003
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2004" style="margin-top: 5px;">2004
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010
+                </button>
+            </div>
         </div>
+        <div class="col-xs-10">
+            <!-- Build visualization grid. -->
+            <div class="container-visualizer">
+                <div class="row cell-row cell-row-1">
+                    <div class="col-xs-4 cell cell-1">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-4 cell cell-2">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-4 cell cell-3">
+                        <div class="cell-img"></div>
+                    </div>
+                </div>
+                <div class="row cell-row cell-row-2">
+                    <div class="col-xs-6 cell cell-4 cell-pull-right">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-6 cell cell-5 cell-pull-left">
+                        <div class="cell-img"></div>
+                    </div>
+                </div>
+                <div class="row cell-row cell-row-3">
+                    <div class="col-xs-4 cell cell-6">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-4 cell cell-7">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-4 cell cell-8">
+                        <div class="cell-img"></div>
+                    </div>
+                </div>
+                <div class="row cell-row cell-row-4">
+                    <div class="col-xs-6 cell cell-9 cell-pull-right">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-6 cell cell-10 cell-pull-left">
+                        <div class="cell-img"></div>
+                    </div>
+                </div>
+                <div class="row cell-row cell-row-5">
+                    <div class="col-xs-4 cell cell-11">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-4 cell cell-12">
+                        <div class="cell-img"></div>
+                    </div>
+                    <div class="col-xs-4 cell cell-13">
+                        <div class="cell-img"></div>
+                    </div>
+                </div>
 
-        <script src="../libs/mdg-core.js"></script>
-        <script src="../libs/mdg.js"></script>
-    </body>
+            </div>
+            <div id="percentage-container" style="margin: -65% -5% 0 0; float: right;">
+                    <b><h1 id="value"></h1></b>
+                    <h4>Maternal deaths per 100,000 births</h4>
+                </div>
+        </div>
+    </div>
+</div>
+
+<script src="../libs/mdg-core.js"></script>
+<script src="../libs/mdg.js"></script>
+</body>
 </html>

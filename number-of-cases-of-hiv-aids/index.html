@@ -1,203 +1,240 @@
 <html>
-    <head>
-        <title>Number of Cases of HIV/AIDS</title>
-        <script src="../libs/jquery.js"></script>
+<head>
+    <title>Number of Cases of HIV/AIDS</title>
+    <script src="../libs/jquery.js"></script>
 
-        <link rel="stylesheet" href="../libs/bootstrap.min.css">
-        
-        <style>
-            body{
-                background-color: #F15A3F;
-            }
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
 
-            .container-visualizer{
-                width: 450px;
-            }
+    <style>
+        body {
+            background-color: #F15A3F;
+        }
 
-            .cell{
-                height: 120px;
+        .container-visualizer {
+            width: 450px;
+        }
 
-                /**
-                border-style: solid;
-                border-width: thin;
-                border-color: black;
-                **/
-                
-                background-size: 150px 120px; /** width height **/
-                background-repeat: no-repeat;
-                background-position: center bottom; 
-            }
+        .cell {
+            height: 120px;
 
-            .unit{
-                /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
-                height: 116px;
-
-                background-size: 75px 107px; /** width height **/
-                background-repeat: no-repeat;
-                background-position: center bottom;
-
-                /** 
-                border-style: solid;
-                border-width: thin;
-                border-color: red;
-                **/
-            }
-
-            .unit-a-present{
-                background-image: url('img/hiv.gif');
-            }
-
-            .unit-b-present{
-                background-image: url('img/aids.gif');
-            }
-
-            .row-cell-2 .row .unit{
-                bottom: 40px;
-            }
-
-            .row-cell-3 .row .unit{
-                bottom: 80px;
-            }
-
-        </style>
-
-        <!-- CONSTANTS-->
-        <script>
-            var DATASET = {
-                '2010': {
-                    'unitA': 0,
-                    'unitB': 3
-                },
-                '2011': {
-                    'unitA': 1,
-                    'unitB': 7
-                },
-                '2012': {
-                    'unitA': 2,
-                    'unitB': 2
-                },
-                '2013': {
-                    'unitA': 2,
-                    'unitB': 1
-                },
-                '2014': {
-                    'unitA': 6,
-                    'unitB': 1
-                }
-            }
-
-            /** 
-                We don't need these because the original data range is so 
-                small that we don't need to reduce it to a smaller range
-                by using getRangeTransformedValue in mdg-core.js.
-            **/
             /**
-            var VALUE_MIN_UNIT_A = DATASET['2010']['unitA'];
-            var VALUE_MAX_UNIT_A = DATASET['2014']['unitA'];
-            var VALUE_MIN_UNIT_B = DATASET['2013']['unitB'];
-            var VALUE_MAX_UNIT_B = DATASET['2011']['unitB'];
+            border-style: solid;
+            border-width: thin;
+            border-color: black;
             **/
 
-            var VISUALIZER_RANGE_MIN = 1;
-            var VISUALIZER_RANGE_MAX = 7;
-            
-        </script>
-        <script>
-            $(function() {
-            
+            background-size: 150px 120px; /** width height **/
+            background-repeat: no-repeat;
+            background-position: center bottom;
+        }
 
-                // Get how many unit-A should be represented in the visualizer based
-                // on given input value.
-                function getUnitACount(input){
-                    return input;
-                }
+        .unit {
+            /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
+            height: 116px;
 
-                // Get how many unit-B should be represented in the visualizer based
-                // on given input value.
-                function getUnitBCount(input){
-                    return input;
-                }
+            background-size: 75px 107px; /** width height **/
+            background-repeat: no-repeat;
+            background-position: center bottom;
 
-                // Build dual data matrix
-                matrices = buildDataMatrix(getUnitACount, getUnitBCount);
-                registerYearSelectionListeners();
+            /**
+            border-style: solid;
+            border-width: thin;
+            border-color: red;
+            **/
+        }
 
-                // Initialize visualizer for the first year.
-                var firstYear = parseInt(Object.keys(DATASET)[0]);
-                draw(firstYear);
-            });
- 
-        </script>
+        .unit-a-present {
+            background-image: url('img/hiv.gif');
+        }
 
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-2">
-                    <!-- Include buttons for each year. -->
-                    <div class="btn-group-vertical" role="group">
-                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2010" style="margin-top: 5px;">2010</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">2011</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">2012</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2013" style="margin-top: 5px;">2013</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2014" style="margin-top: 5px;">2014</button>
+        .unit-b-present {
+            background-image: url('img/aids.gif');
+        }
+
+        .row-cell-2 .row .unit {
+            bottom: 40px;
+        }
+
+        .row-cell-3 .row .unit {
+            bottom: 80px;
+        }
+
+    </style>
+
+    <!-- CONSTANTS-->
+    <script>
+        var DATASET = {
+            '2010': {
+                'unitA': 0,
+                'unitB': 3
+            },
+            '2011': {
+                'unitA': 1,
+                'unitB': 7
+            },
+            '2012': {
+                'unitA': 2,
+                'unitB': 2
+            },
+            '2013': {
+                'unitA': 2,
+                'unitB': 1
+            },
+            '2014': {
+                'unitA': 6,
+                'unitB': 1
+            }
+        }
+
+        /**
+         We don't need these because the original data range is so
+         small that we don't need to reduce it to a smaller range
+         by using getRangeTransformedValue in mdg-core.js.
+         **/
+        /**
+         var VALUE_MIN_UNIT_A = DATASET['2010']['unitA'];
+         var VALUE_MAX_UNIT_A = DATASET['2014']['unitA'];
+         var VALUE_MIN_UNIT_B = DATASET['2013']['unitB'];
+         var VALUE_MAX_UNIT_B = DATASET['2011']['unitB'];
+         **/
+
+        var VISUALIZER_RANGE_MIN = 1;
+        var VISUALIZER_RANGE_MAX = 7;
+
+    </script>
+    <script>
+        $(function () {
+
+
+            // Get how many unit-A should be represented in the visualizer based
+            // on given input value.
+            function getUnitACount(input) {
+                return input;
+            }
+
+            // Get how many unit-B should be represented in the visualizer based
+            // on given input value.
+            function getUnitBCount(input) {
+                return input;
+            }
+
+            // Build dual data matrix
+            matrices = buildDataMatrix(getUnitACount, getUnitBCount);
+            registerYearSelectionListenersOnPage();
+
+            // Initialize visualizer for the first year.
+            var firstYear = parseInt(Object.keys(DATASET)[0]);
+            $("#value").empty();
+            $("#value").text(DATASET[firstYear]['unitB']);
+            draw(firstYear);
+        });
+
+        function registerYearSelectionListenersOnPage() {
+            for (var y = 0; y < $('.btn-year').length; y++) {
+                $($('.btn-year')[y]).click(function () {
+
+                    // Get previous year we just moved away from:
+                    var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
+                    var previousYear = btnPreviousYearClass[0].split('-')[1];
+
+                    // Update button style state for feedback
+                    $('.btn-primary').addClass('btn-default');
+                    $('.btn-primary').removeClass('btn-primary');
+                    $(this).removeClass('btn-default');
+                    $(this).addClass('btn-primary');
+                    // Update visualization
+                    var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
+                    var nextYear = btnNextYearClass[0].split('-')[1];
+                    $("#value").empty();
+                    $("#value").text(DATASET[nextYear]['unitB']);
+                    draw(nextYear);
+                });
+            }
+        }
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+            <!-- Include buttons for each year. -->
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-xs btn-primary btn-year btn-2010" style="margin-top: 5px;">2010
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">2011
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">2012
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2013" style="margin-top: 5px;">2013
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2014" style="margin-top: 5px;">2014
+                </button>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <!-- Build visualization grid. -->
+            <div class="col-md-8">
+                <div class="container-visualizer">
+                    <div class="row row-cell-1">
+                        <div class="col-xs-4 cell cell-1">
+                            <div class="row">
+                                <div class="col-xs-6 unit unit-a unit-a-1"></div>
+                                <div class="col-xs-6 unit unit-b unit-b-1"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 cell cell-2">
+                            <div class="row">
+                                <div class="col-xs-6 unit unit-a unit-a-2"></div>
+                                <div class="col-xs-6 unit unit-b unit-b-2"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4 cell cell-3">
+                            <div class="row">
+                                <div class="col-xs-6 unit unit-a unit-a-3"></div>
+                                <div class="col-xs-6 unit unit-b unit-b-3"></div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xs-10">
-                    <!-- Build visualization grid. -->
-                    <div class="container-visualizer">
-                        <div class="row row-cell-1">
-                            <div class="col-xs-4 cell cell-1">
-                                <div class="row">
-                                    <div class="col-xs-6 unit unit-a unit-a-1"></div>
-                                    <div class="col-xs-6 unit unit-b unit-b-1"></div>
-                                </div>
-                            </div>
-                            <div class="col-xs-4 cell cell-2">
-                                <div class="row">
-                                    <div class="col-xs-6 unit unit-a unit-a-2"></div>
-                                    <div class="col-xs-6 unit unit-b unit-b-2"></div>
-                                </div>
-                            </div>
-                            <div class="col-xs-4 cell cell-3">
-                                <div class="row">
-                                    <div class="col-xs-6 unit unit-a unit-a-3"></div>
-                                    <div class="col-xs-6 unit unit-b unit-b-3"></div>
-                                </div>
+                    <div class="row row-cell-2">
+                        <div class="col-xs-12 cell cell-4">
+                            <div class="row">
+                                <div class="col-xs-6 unit unit-a unit-a-4"></div>
+                                <div class="col-xs-6 unit unit-b unit-b-4"></div>
                             </div>
                         </div>
-                        <div class="row row-cell-2">
-                            <div class="col-xs-12 cell cell-4">
-                                <div class="row">
-                                    <div class="col-xs-6 unit unit-a unit-a-4"></div>
-                                    <div class="col-xs-6 unit unit-b unit-b-4"></div>
-                                </div>
+                    </div>
+                    <div class="row row-cell-3">
+                        <div class="col-xs-4 cell cell-5">
+                            <div class="row">
+                                <div class="col-xs-6 unit unit-a unit-a-5"></div>
+                                <div class="col-xs-6 unit unit-b unit-b-5"></div>
                             </div>
                         </div>
-                        <div class="row row-cell-3">
-                            <div class="col-xs-4 cell cell-5">
-                                <div class="row">
-                                    <div class="col-xs-6 unit unit-a unit-a-5"></div>
-                                    <div class="col-xs-6 unit unit-b unit-b-5"></div>
-                                </div>
+                        <div class="col-xs-4 cell cell-6">
+                            <div class="row">
+                                <div class="col-xs-6 unit unit-a unit-a-6"></div>
+                                <div class="col-xs-6 unit unit-b unit-b-6"></div>
                             </div>
-                            <div class="col-xs-4 cell cell-6">
-                                <div class="row">
-                                    <div class="col-xs-6 unit unit-a unit-a-6"></div>
-                                    <div class="col-xs-6 unit unit-b unit-b-6"></div>
-                                </div>
-                            </div>
-                            <div class="col-xs-4 cell cell-7">
-                                <div class="row">
-                                    <div class="col-xs-6 unit unit-a unit-a-7"></div>
-                                    <div class="col-xs-6 unit unit-b unit-b-7"></div>
-                                </div>
+                        </div>
+                        <div class="col-xs-4 cell cell-7">
+                            <div class="row">
+                                <div class="col-xs-6 unit unit-a unit-a-7"></div>
+                                <div class="col-xs-6 unit unit-b unit-b-7"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div id="percentage-container" style="margin: 50% -5% 0 0;">
+                    <b><h1 id="value"></h1></b>
+                    <h4>New cases of HIV/AIDS</h4>
+                </div>
+            </div>
         </div>
-        <script src="../libs/mdg-dm.js"></script>
-    </body>
+    </div>
+</div>
+<script src="../libs/mdg-dm.js"></script>
+</body>
 </html>

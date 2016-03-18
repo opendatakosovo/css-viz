@@ -143,7 +143,7 @@
                 $('.filled-cell .cell-img').effect("shake", {times: 2, distance: 3}, 300);
             }
 
-            registerYearSelectionListenersOnPage(fillCell, emptyCell, shakeAlreadyFilledCells);
+            registerYearSelectionListeners(fillCell, emptyCell, shakeAlreadyFilledCells, 1);
 
             // Init visualizer for first year
             var firstYear = parseInt(Object.keys(DATASET)[0]);
@@ -153,36 +153,9 @@
 
         });
 
-        function registerYearSelectionListenersOnPage(fillCell, emptyCell, initFunc) {
-            // Register year selection button listeners.
-            for (var y = 0; y < $('.btn-year').length; y++) {
-                $($('.btn-year')[y]).click(function () {
-
-                    // Get previous year we just moved away from:
-                    var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
-                    var previousYear = btnPreviousYearClass[0].split('-')[1];
-
-                    // Update button style state for feedback
-                    $('.btn-primary').addClass('btn-default');
-                    $('.btn-primary').removeClass('btn-primary');
-                    $(this).removeClass('btn-default');
-                    $(this).addClass('btn-primary');
-
-                    // Update visualization
-                    var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
-                    var nextYear = btnNextYearClass[0].split('-')[1];
-                    var nextYearValue = DATASET[nextYear];
-                    console.log(nextYearValue);
-                    setPercentage(nextYearValue);
-
-                    draw(nextYearValue, fillCell, emptyCell, initFunc);
-                });
-            }
-        }
-
         function setPercentage(year_value){
-            $('#percentage').empty();
-            $('#percentage').text(Number(100 - year_value).toFixed(1) + "%");
+            $('#value').empty();
+            $('#value').text(Number(100 - year_value).toFixed(1) + "%");
         }
 
     </script>
@@ -259,7 +232,7 @@
             </div>
             <div class="col-md-4">
                 <div id="percentage-container" style="margin: 50% -5% 0 0;">
-                    <b><h2 id="percentage"></h2></b>
+                    <b><h2 id="value"></h2></b>
                     <h4>Poverty headcount (National poverty line) as a percentage of the population</h4>
                 </div>
             </div>

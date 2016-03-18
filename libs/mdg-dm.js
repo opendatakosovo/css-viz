@@ -54,29 +54,6 @@ function buildDataMatrix(getUnitACount, getUnitBCount){
 
 }
 
-// Register year selection button listeners.
-function registerYearSelectionListeners(){
-    for(var y=0; y < $('.btn-year').length; y++){
-        $($('.btn-year')[y]).click(function() {
-
-            // Get previous year we just moved away from:
-            var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
-            var previousYear = btnPreviousYearClass[0].split('-')[1];
-
-            // Update button style state for feedback
-            $('.btn-primary').addClass('btn-default');
-            $('.btn-primary').removeClass('btn-primary');
-            $(this).removeClass('btn-default');
-            $(this).addClass('btn-primary');
-
-            // Update visualization
-            var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
-            var nextYear = btnNextYearClass[0].split('-')[1];
-            draw(nextYear);
-        });
-    }
-}
-
 // Draw the data.
 // Read from the matrix.
 function draw(year){

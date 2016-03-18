@@ -1,198 +1,215 @@
 <html>
-    <head>
-        <title>Afforester Areas</title>
-        <script src="../libs/jquery.js"></script>
-        <script src="../libs/underscore.min.js"></script>
-        
-        <link rel="stylesheet" href="../libs/bootstrap.min.css">
+<head>
+    <title>Afforester Areas</title>
+    <script src="../libs/jquery.js"></script>
+    <script src="../libs/underscore.min.js"></script>
 
-        <link rel="stylesheet" href="css/trees.css">
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
 
-        <style>
-            body{
-                background-color: #8CC63E;
-            }
+    <link rel="stylesheet" href="css/trees.css">
 
-            .container-visualizer{
-                width: 600px;
-            }
+    <style>
+        body {
+            background-color: #8CC63E;
+        }
 
-            .cell{
-                height: 74px;
+        .container-visualizer {
+            width: 600px;
+        }
 
-                background-size: 100px 74px; /** width height **/
-                background-repeat: no-repeat;
-                background-position: center bottom;
-                
-                /**
-                border-style: solid;
-                border-width: thin;
-                border-color: green;
-                **/
-            }
+        .cell {
+            height: 74px;
 
-            .filled-cell{
-                /** Animated gif file so we don't set the background-url here. **/
-                /** This is because we will have to reload the image every time we want to display it **.
-                /** So we will use jQuery's .css() function instead **/
-            }
+            background-size: 100px 74px; /** width height **/
+            background-repeat: no-repeat;
+            background-position: center bottom;
 
-        </style>
-        
-        <!-- CONSTANTS -->
-        <script>
-            var DATASET = {
-                '2004': 18,
-                '2005': 408,
-                '2006': 604,
-                '2007': 671,
-                '2008': 1183,
-                '2009': 2013,
-                '2010': 2253,
-            }
+            /**
+            border-style: solid;
+            border-width: thin;
+            border-color: green;
+            **/
+        }
 
-            var VALUE_MIN = DATASET['2004'];
-            var VALUE_MAX = DATASET['2010'];
-            var VISUALIZER_RANGE_MIN = 1;
-            var VISUALIZER_RANGE_MAX = 36;
+        .filled-cell {
+            /** Animated gif file so we don't set the background-url here. **/
+            /** This is because we will have to reload the image every time we want to display it **.
+            /** So we will use jQuery's .css() function instead **/
+        }
 
-            var DRAW_RANDOMLY = true;
-			var incrementalFill = true;
-			
-        </script>
+    </style>
 
-        <script>
-            $(function() {
+    <!-- CONSTANTS -->
+    <script>
+        var DATASET = {
+            '2004': 18,
+            '2005': 408,
+            '2006': 604,
+            '2007': 671,
+            '2008': 1183,
+            '2009': 2013,
+            '2010': 2253,
+        }
 
-                function fillCell(cell){
-                    if(!cell.hasClass('filled-cell')){
-                        cell.addClass('filled-cell');
-                        cell.css('background-image','url(img/trees.gif?x='+ Math.random() +')');
-                    }
+        var VALUE_MIN = DATASET['2004'];
+        var VALUE_MAX = DATASET['2010'];
+        var VISUALIZER_RANGE_MIN = 1;
+        var VISUALIZER_RANGE_MAX = 36;
+
+        var DRAW_RANDOMLY = true;
+        var incrementalFill = true;
+
+    </script>
+
+    <script>
+        $(function () {
+
+            function fillCell(cell) {
+                if (!cell.hasClass('filled-cell')) {
+                    cell.addClass('filled-cell');
+                    cell.css('background-image', 'url(img/trees.gif?x=' + Math.random() + ')');
                 }
+            }
 
-                function emptyCell(cell){
-                    if(cell.hasClass('filled-cell')){
-                        cell.removeClass('filled-cell');
-                        cell.css('background-image','');
-                    }
+            function emptyCell(cell) {
+                if (cell.hasClass('filled-cell')) {
+                    cell.removeClass('filled-cell');
+                    cell.css('background-image', '');
                 }
+            }
 
-                registerYearSelectionListeners(fillCell, emptyCell);
+            registerYearSelectionListeners(fillCell, emptyCell);
 
-                // Init visualizer for first year
-                var firstYear = parseInt(Object.keys(DATASET)[0]);
-                var firstYearValue = DATASET[firstYear];
-                draw(firstYearValue, fillCell, emptyCell);
+            // Init visualizer for first year
+            var firstYear = parseInt(Object.keys(DATASET)[0]);
+            var firstYearValue = DATASET[firstYear];
+            $("#value").empty();
+            $("#value").text(firstYearValue);
+            draw(firstYearValue, fillCell, emptyCell);
 
-            });
-        </script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-2">
-                    <div class="btn-group-vertical" role="group">
-                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2004" style="margin-top: 5px;">2004</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010</button>
-                    </div>
-                </div>
-                <div class="col-xs-10">
-                    <div class="container-visualizer">
-                        <div class="row cell-row cell-row-1">
-                            <div class="col-xs-2 cell cell-1">
-                            </div>
-                            <div class="col-xs-2 cell cell-2">
-                            </div>
-                            <div class="col-xs-2 cell cell-3">
-                            </div>
-                            <div class="col-xs-2 cell cell-4">
-                            </div>
-                            <div class="col-xs-2 cell cell-5">
-                            </div>
-                            <div class="col-xs-2 cell cell-6">
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-2">
-                            <div class="col-xs-2 cell cell-7">
-                            </div>
-                            <div class="col-xs-2 cell cell-8">
-                            </div>
-                            <div class="col-xs-2 cell cell-9">
-                            </div>
-                            <div class="col-xs-2 cell cell-10">
-                            </div>
-                            <div class="col-xs-2 cell cell-11">
-                            </div>
-                            <div class="col-xs-2 cell cell-12">
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-3">
-                            <div class="col-xs-2 cell cell-13">
-                            </div>
-                            <div class="col-xs-2 cell cell-14">
-                            </div>
-                            <div class="col-xs-2 cell cell-15">
-                            </div>
-                            <div class="col-xs-2 cell cell-16">
-                            </div>
-                            <div class="col-xs-2 cell cell-17">
-                            </div>
-                            <div class="col-xs-2 cell cell-18">
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-4">
-                            <div class="col-xs-2 cell cell-19">
-                            </div>
-                            <div class="col-xs-2 cell cell-20">
-                            </div>
-                            <div class="col-xs-2 cell cell-21">
-                            </div>
-                            <div class="col-xs-2 cell cell-22">
-                            </div>
-                            <div class="col-xs-2 cell cell-23">
-                            </div>
-                            <div class="col-xs-2 cell cell-24">
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-5">
-                            <div class="col-xs-2 cell cell-25">
-                            </div>
-                            <div class="col-xs-2 cell cell-26">
-                            </div>
-                            <div class="col-xs-2 cell cell-27">
-                            </div>
-                            <div class="col-xs-2 cell cell-28">
-                            </div>
-                            <div class="col-xs-2 cell cell-29">
-                            </div>
-                            <div class="col-xs-2 cell cell-30">
-                            </div>
-                        </div>
-                        <div class="row cell-row cell-row-6">
-                            <div class="col-xs-2 cell cell-31">
-                            </div>
-                            <div class="col-xs-2 cell cell-32">
-                            </div>
-                            <div class="col-xs-2 cell cell-33">
-                            </div>
-                            <div class="col-xs-2 cell cell-34">
-                            </div>
-                            <div class="col-xs-2 cell cell-35">
-                            </div>
-                            <div class="col-xs-2 cell cell-36">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> 
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-xs btn-primary btn-year btn-2004" style="margin-top: 5px;">2004
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010
+                </button>
+            </div>
         </div>
-        <script src="../libs/mdg-core.js"></script>
-        <script src="../libs/mdg.js"></script>
-    </body>
+        <div class="col-md-10">
+            <div class="col-md-8">
+                <div class="container-visualizer" style="float: left;">
+                    <div class="row cell-row cell-row-1">
+                        <div class="col-xs-2 cell cell-1">
+                        </div>
+                        <div class="col-xs-2 cell cell-2">
+                        </div>
+                        <div class="col-xs-2 cell cell-3">
+                        </div>
+                        <div class="col-xs-2 cell cell-4">
+                        </div>
+                        <div class="col-xs-2 cell cell-5">
+                        </div>
+                        <div class="col-xs-2 cell cell-6">
+                        </div>
+                    </div>
+                    <div class="row cell-row cell-row-2">
+                        <div class="col-xs-2 cell cell-7">
+                        </div>
+                        <div class="col-xs-2 cell cell-8">
+                        </div>
+                        <div class="col-xs-2 cell cell-9">
+                        </div>
+                        <div class="col-xs-2 cell cell-10">
+                        </div>
+                        <div class="col-xs-2 cell cell-11">
+                        </div>
+                        <div class="col-xs-2 cell cell-12">
+                        </div>
+                    </div>
+                    <div class="row cell-row cell-row-3">
+                        <div class="col-xs-2 cell cell-13">
+                        </div>
+                        <div class="col-xs-2 cell cell-14">
+                        </div>
+                        <div class="col-xs-2 cell cell-15">
+                        </div>
+                        <div class="col-xs-2 cell cell-16">
+                        </div>
+                        <div class="col-xs-2 cell cell-17">
+                        </div>
+                        <div class="col-xs-2 cell cell-18">
+                        </div>
+                    </div>
+                    <div class="row cell-row cell-row-4">
+                        <div class="col-xs-2 cell cell-19">
+                        </div>
+                        <div class="col-xs-2 cell cell-20">
+                        </div>
+                        <div class="col-xs-2 cell cell-21">
+                        </div>
+                        <div class="col-xs-2 cell cell-22">
+                        </div>
+                        <div class="col-xs-2 cell cell-23">
+                        </div>
+                        <div class="col-xs-2 cell cell-24">
+                        </div>
+                    </div>
+                    <div class="row cell-row cell-row-5">
+                        <div class="col-xs-2 cell cell-25">
+                        </div>
+                        <div class="col-xs-2 cell cell-26">
+                        </div>
+                        <div class="col-xs-2 cell cell-27">
+                        </div>
+                        <div class="col-xs-2 cell cell-28">
+                        </div>
+                        <div class="col-xs-2 cell cell-29">
+                        </div>
+                        <div class="col-xs-2 cell cell-30">
+                        </div>
+                    </div>
+                    <div class="row cell-row cell-row-6">
+                        <div class="col-xs-2 cell cell-31">
+                        </div>
+                        <div class="col-xs-2 cell cell-32">
+                        </div>
+                        <div class="col-xs-2 cell cell-33">
+                        </div>
+                        <div class="col-xs-2 cell cell-34">
+                        </div>
+                        <div class="col-xs-2 cell cell-35">
+                        </div>
+                        <div class="col-xs-2 cell cell-36">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div id="percentage-container" style="margin: 50% -5% 0 0;">
+                    <b><h1 id="value"></h1></b>
+                    <h4>Afforested area in hectares (cumulative)</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../libs/mdg-core.js"></script>
+<script src="../libs/mdg.js"></script>
+</body>
 </html>

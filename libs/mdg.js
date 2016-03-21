@@ -118,15 +118,17 @@ function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercent
 			
 			//Invert Values
 			if(invertValues == 1){
-				nextYearValue = Number(100 - nextYearValue).toFixed(1);
+				TextValue = Number(100 - nextYearValue).toFixed(1);
+			} else {
+				TextValue = nextYearValue;
 			}
 			
 			// Update Text
             $('#value').empty();
             if (isPercentage) {
-                $('#value').text(nextYearValue + "%");
+                $('#value').text(TextValue + "%");
             } else {
-                $('#value').text(nextYearValue);
+                $('#value').text(TextValue);
             }
 			
 			// Update Cells

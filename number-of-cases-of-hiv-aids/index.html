@@ -125,7 +125,9 @@
             // Initialize visualizer for the first year.
             var firstYear = parseInt(Object.keys(DATASET)[0]);
             $("#value").empty();
-            $("#value").text(DATASET[firstYear]['unitB']);
+            $("#value").text(DATASET[firstYear]['unitA']);
+            $("#value-aids").empty();
+            $("#value-aids").text(DATASET[firstYear]['unitB']);
             draw(firstYear);
         });
 
@@ -146,7 +148,9 @@
                     var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
                     var nextYear = btnNextYearClass[0].split('-')[1];
                     $("#value").empty();
-                    $("#value").text(DATASET[nextYear]['unitB']);
+                    $("#value").text(DATASET[nextYear]['unitA']);
+                    $("#value-aids").empty();
+                    $("#value-aids").text(DATASET[nextYear]['unitB']);
                     draw(nextYear);
                 });
             }
@@ -227,9 +231,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div id="percentage-container" style="margin: 50% -5% 0 0;">
+                <div id="percentage-container" style="margin: 20% -5% 0 0;">
                     <b><h1 id="value"></h1></b>
-                    <h4>New cases of HIV/AIDS</h4>
+                    <h4>New cases of HIV</h4>
+                    <br>
+                    <b><h1 id="value-aids"></h1></b>
+                    <h4>New cases of AIDS</h4>
                 </div>
             </div>
         </div>

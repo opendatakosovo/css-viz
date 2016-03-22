@@ -112,7 +112,7 @@ function triggerYearButtonClickTimer(time) {
     });
 }
 
-function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercentage){
+function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercentage, invertValues){
     // Register year selection button listeners.
     for(var y=0; y < $('.btn-year').length; y++){
         $($('.btn-year')[y]).click(function() {
@@ -132,12 +132,22 @@ function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercent
             var nextYear = btnNextYearClass[0].split('-')[1];
             var nextYearValue = DATASET[nextYear];
 
+			//Invert Values
+			if(invertValues == 1){
+				TextValue = Number(100 - nextYearValue).toFixed(1);
+			} else {
+				TextValue = nextYearValue;
+			}
+
+			// Update Text
             $('#value').empty();
             if (isPercentage) {
-                $('#value').text(nextYearValue + "%");
+                $('#value').text(TextValue + "%");
             } else {
-                $('#value').text(nextYearValue);
+                $('#value').text(TextValue);
             }
+
+			// Update Cells
             draw(nextYearValue, fillCell, emptyCell, initFunc);
         });
     }

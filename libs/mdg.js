@@ -96,6 +96,22 @@ function drawRandomly(value, fillCellFunc, emptyCellFunc){
     previouslyFilledCellCount = nextFilledCellCount;
 }
 
+function triggerYearButtonClickTimer(time) {
+    var years = $('.btn-year');
+    years.each(function (i, obj) {
+        var btn_class = $(obj).attr("class").match(/btn-[0-9]{4}/)[0];
+        if (i != 0) {
+            setTimeout(function () {
+                $("." + btn_class).click();
+            }, i * time);
+        } else {
+            setTimeout(function () {
+                $("." + btn_class).click();
+            }, 1);
+        }
+    });
+}
+
 function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercentage){
     // Register year selection button listeners.
     for(var y=0; y < $('.btn-year').length; y++){

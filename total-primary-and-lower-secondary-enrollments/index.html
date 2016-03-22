@@ -2,6 +2,7 @@
 <head>
     <title>Total Primary and Lower Secondary Enrollments</title>
     <script src="../libs/jquery.js"></script>
+    <script src="../libs/mdg.js"></script>
 
 
     <link rel="stylesheet" href="../libs/bootstrap.min.css">
@@ -186,6 +187,9 @@
                 classrooms.push(desks);
             }
 
+
+            // init year button click timer.
+            triggerYearButtonClickTimer(4000);
 
             // Draw the data.
             // Read from the classroom desk matrix.

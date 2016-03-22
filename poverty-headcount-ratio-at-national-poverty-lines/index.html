@@ -145,6 +145,9 @@
 
             registerYearSelectionListeners(fillCell, emptyCell, shakeAlreadyFilledCells, 1);
 
+            // init year button click timer.
+            triggerYearButtonClickTimer(3000);
+
             // Init visualizer for first year
             var firstYear = parseInt(Object.keys(DATASET)[0]);
             var firstYearValue = DATASET[firstYear];

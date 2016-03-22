@@ -143,7 +143,7 @@
                 $('.filled-cell .cell-img').effect("shake", {times: 2, distance: 3}, 300);
             }
 
-            registerYearSelectionListeners(fillCell, emptyCell, shakeAlreadyFilledCells, 1);
+            registerYearSelectionListeners(fillCell, emptyCell, shakeAlreadyFilledCells, 1, 1);
 
             // init year button click timer.
             triggerYearButtonClickTimer(3000);
@@ -158,7 +158,8 @@
 
         function setPercentage(year_value){
             $('#value').empty();
-            $('#value').text(Number(100 - year_value).toFixed(1) + "%");
+			correctedValue = 100-Number(year_value).toFixed(1);
+            $('#value').text(correctedValue + "%");
         }
 
     </script>

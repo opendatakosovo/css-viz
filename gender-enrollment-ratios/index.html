@@ -1,252 +1,278 @@
 <html>
-    <head>
-        <title>Gender Enrollment Ratios</title>
-        <script src="../libs/jquery.js"></script>
-        <link rel="stylesheet" href="../libs/bootstrap.min.css">
+<head>
+    <title>Gender Enrollment Ratios</title>
+    <script src="../libs/jquery.js"></script>
+    <script src="../libs/mdg.js"></script>
+    <link rel="stylesheet" href="../libs/bootstrap.min.css">
 
-        <link rel="stylesheet" href="css/school.css">
-        <link rel="stylesheet" href="css/girlstack.css">
+    <link rel="stylesheet" href="css/school.css">
+    <link rel="stylesheet" href="css/girlstack.css">
 
-        <script>    
-            $(function() {
-                var data = {
-                    'preschool': {
-                        '2004': 94.2,
-                        '2005': 102.0,
-                        '2006': 87.9,
-                        '2007': 81.4,
-                        '2008': 84.9,
-                        '2009': 83.1,
-                        '2010': 92.1,
-                        '2011': 90.3,
-                        '2012': 87.8,
-                        '2013': 95.3,
-                        '2014': 92.6
-                    },
-                    'pre-primary': {
-                        '2004': 90.9,
-                        '2005': 92.3,
-                        '2006': 93.7,
-                        '2007': 104.6,
-                        '2008': 89.3,
-                        '2009': 96.4,
-                        '2010': 94.2,
-                        '2011': 96.8,
-                        '2012': 95.5,
-                        '2013': 92.3,
-                        '2014': 94.2
-                    },
-                    'primary-and-lower-secondary': {
-                        '2004': 91.8,
-                        '2005': 92.4,
-                        '2006': 92.8,
-                        '2007': 93.1,
-                        '2008': 90.8,
-                        '2009': 91.8,
-                        '2010': 93.3,
-                        '2011': 93.7,
-                        '2012': 93.7,
-                        '2013': 93.0,
-                        '2014': 93.8
-                    },
-                    'high-secondary': {
-                        '2004': 79.1,
-                        '2005': 75.6,
-                        '2006': 77.0,
-                        '2007': 79.5,
-                        '2008': 81.9,
-                        '2009': 80.2,
-                        '2010': 83.3,
-                        '2011': 85.0,
-                        '2012': 85.3,
-                        '2013': 87.1,
-                        '2014': 88.7
+    <script>
+        $(function () {
+            var data = {
+                'preschool': {
+                    '2004': 94.2,
+                    '2005': 102.0,
+                    '2006': 87.9,
+                    '2007': 81.4,
+                    '2008': 84.9,
+                    '2009': 83.1,
+                    '2010': 92.1,
+                    '2011': 90.3,
+                    '2012': 87.8,
+                    '2013': 95.3,
+                    '2014': 92.6
+                },
+                'pre-primary': {
+                    '2004': 90.9,
+                    '2005': 92.3,
+                    '2006': 93.7,
+                    '2007': 104.6,
+                    '2008': 89.3,
+                    '2009': 96.4,
+                    '2010': 94.2,
+                    '2011': 96.8,
+                    '2012': 95.5,
+                    '2013': 92.3,
+                    '2014': 94.2
+                },
+                'primary-and-lower-secondary': {
+                    '2004': 91.8,
+                    '2005': 92.4,
+                    '2006': 92.8,
+                    '2007': 93.1,
+                    '2008': 90.8,
+                    '2009': 91.8,
+                    '2010': 93.3,
+                    '2011': 93.7,
+                    '2012': 93.7,
+                    '2013': 93.0,
+                    '2014': 93.8
+                },
+                'high-secondary': {
+                    '2004': 79.1,
+                    '2005': 75.6,
+                    '2006': 77.0,
+                    '2007': 79.5,
+                    '2008': 81.9,
+                    '2009': 80.2,
+                    '2010': 83.3,
+                    '2011': 85.0,
+                    '2012': 85.3,
+                    '2013': 87.1,
+                    '2014': 88.7
+                }
+            };
+
+            // Register year selection button listeners.
+            for (var y = 0; y < $('.btn-year').length; y++) {
+                $($('.btn-year')[y]).click(function () {
+
+                    // Get previous year we just moved away from:
+                    var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
+                    var previousYear = btnPreviousYearClass[0].split('-')[1];
+
+                    // Update button style state for feedback
+                    $('.btn-primary').addClass('btn-default');
+                    $('.btn-primary').removeClass('btn-primary');
+                    $(this).removeClass('btn-default');
+                    $(this).addClass('btn-primary');
+
+                    // Update visualization
+                    var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
+                    var nextYear = btnNextYearClass[0].split('-')[1];
+                    draw(previousYear, nextYear);
+                });
+            }
+
+            function draw(previousYear, nextYear) {
+                if (previousYear != nextYear) {
+
+                    // TODO: Loop to cover all school groups.
+                    var schoolGroups = Object.keys(data);
+
+                    for (var i = 0; i < schoolGroups.length; i++) {
+                        // Animate the stack going up or down.
+                        $('.' + schoolGroups[i] + ' .stack-' + previousYear).addClass('stack-' + nextYear);
+                        $('.' + schoolGroups[i] + ' .stack-' + previousYear).removeClass('stack-' + previousYear);
+
+                        // Animate the girl going up or down..
+                        $('.' + schoolGroups[i] + ' .girl-' + previousYear).addClass('girl-' + nextYear);
+                        $('.' + schoolGroups[i] + ' .girl-' + previousYear).removeClass('girl-' + previousYear);
+
+
+                        // Animate the numerical value increasing or decreasing.
+                        $('.' + schoolGroups[i] + ' .number').prop('Counter', $('.' + schoolGroups[i] + ' .number').text()).animate({
+                            Counter: data[schoolGroups[i]][nextYear]
+                        }, {
+                            // Duration must match stack and girl animation length
+                            duration: 1000,
+                            easing: 'swing',
+                            step: function (now) {
+                                $(this).text(Math.round(now));
+                            }
+                        });
                     }
                 }
+            }
 
-                // Register year selection button listeners.
-                for(var y=0; y < $('.btn-year').length; y++){
-                    $($('.btn-year')[y]).click(function() {
+            // init year button click timer.
+            triggerYearButtonClickTimer(3000);
 
-                        // Get previous year we just moved away from:
-                        var btnPreviousYearClass = $('.btn-primary').attr("class").match(/btn-[0-9]{4}/);
-                        var previousYear = btnPreviousYearClass[0].split('-')[1];
-
-                        // Update button style state for feedback
-                        $('.btn-primary').addClass('btn-default');
-                        $('.btn-primary').removeClass('btn-primary');
-                        $(this).removeClass('btn-default');
-                        $(this).addClass('btn-primary');
-
-                        // Update visualization
-                        var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
-                        var nextYear = btnNextYearClass[0].split('-')[1];
-                        draw(previousYear, nextYear);
-                    });
-                }
-
-                function draw(previousYear, nextYear){
-                    if(previousYear != nextYear){
-
-                        // TODO: Loop to cover all school groups.
-                        var schoolGroups = Object.keys(data);
-
-                        for(var i=0; i < schoolGroups.length; i++){
-                            // Animate the stack going up or down.
-                            $('.' + schoolGroups[i] + ' .stack-' + previousYear).addClass('stack-' + nextYear);
-                            $('.' + schoolGroups[i] + ' .stack-' + previousYear).removeClass('stack-' + previousYear);
-
-                            // Animate the girl going up or down..
-                            $('.' + schoolGroups[i] + ' .girl-' + previousYear).addClass('girl-' + nextYear);
-                            $('.' + schoolGroups[i] + ' .girl-' + previousYear).removeClass('girl-' + previousYear);
-
-                            
-                            // Animate the numerical value increasing or decreasing.
-                            $('.' + schoolGroups[i] + ' .number').prop('Counter', $('.' + schoolGroups[i] + ' .number').text()).animate({
-                                Counter: data[schoolGroups[i]][nextYear]
-                            }, {
-                                 // Duration must match stack and girl animation length
-                                duration: 1000,
-                                easing: 'swing',
-                                step: function (now) {
-                                    $(this).text(Math.round(now));
-                                }
-                            });
-                        }
-                    }
-                }
-
-            });
-        </script>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-2">
-                    <div class="btn-group-vertical" role="group">
-                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2004" style="margin-top: 5px;">2004-05</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005-06</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006-07</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007-08</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008-09</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009-10</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010-11</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">2011-12</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">2012-13</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2013" style="margin-top: 5px;">2013-14</button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2014" style="margin-top: 5px;">2014-15</button>
-                    </div>
-                </div>
-                <div class="col-xs-10">
-                    <div class="container-visualizer">
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-xs btn-primary btn-year btn-2004" style="margin-top: 5px;">
+                    2004-05
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">
+                    2005-06
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">
+                    2006-07
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">
+                    2007-08
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">
+                    2008-09
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">
+                    2009-10
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">
+                    2010-11
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">
+                    2011-12
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">
+                    2012-13
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2013" style="margin-top: 5px;">
+                    2013-14
+                </button>
+                <button type="button" class="btn btn-xs btn-default btn-year btn-2014" style="margin-top: 5px;">
+                    2014-15
+                </button>
+            </div>
+        </div>
+        <div class="col-xs-10">
+            <div class="container-visualizer">
+                <div class="row">
+                    <!-- preschool -->
+                    <div class="col-xs-3 school-col preschool">
                         <div class="row">
-                            <!-- preschool -->
-                            <div class="col-xs-3 school-col preschool">
-                                <div class="row">
-                                    <div class="col-xs-12 girl girl-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row stack-row">
-                                    <div class="col-xs-12 stack stack-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 value">
-                                        <span class="number">94</span>%
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 label">
-                                        Preschool
-                                    </div>
-                                </div>
+                            <div class="col-xs-12 girl girl-2004">
                             </div>
+                        </div>
 
-                            <!-- pre-primary -->
-                            <div class="col-xs-3 school-col pre-primary">
-                                <div class="row">
-                                    <div class="col-xs-12 girl girl-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row stack-row">
-                                    <div class="col-xs-12 stack stack-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 value">
-                                        <span class="number">91</span>%
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 label">
-                                        Pre-Primary
-                                    </div>
-                                </div>
+                        <div class="row stack-row">
+                            <div class="col-xs-12 stack stack-2004">
                             </div>
+                        </div>
 
-                            <!-- primary and lower-secondary -->
-                            <div class="col-xs-3 school-col primary-and-lower-secondary">
-                                <div class="row">
-                                    <div class="col-xs-12 girl girl-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row stack-row">
-                                    <div class="col-xs-12 stack stack-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 value">
-                                        <span class="number">92</span>%
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 label">
-                                        Primary<br>Lower-Secondary
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-xs-12 value">
+                                <span class="number">94</span>%
                             </div>
+                        </div>
 
-                            <!-- high secondary -->
-                            <div class="col-xs-3 school-col high-secondary">
-                                <div class="row">
-                                    <div class="col-xs-12 girl girl-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row stack-row">
-                                    <div class="col-xs-12 stack stack-2004">
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 value">
-                                        <span class="number">79</span>%
-                                    </div>
-                                </div>
-
-                                <div class="row">
-                                    <div class="col-xs-12 label">
-                                        High Secondary
-                                    </div>
-                                </div>
+                        <div class="row">
+                            <div class="col-xs-12 label">
+                                Preschool
                             </div>
                         </div>
                     </div>
-                    <br><br>
-                    <div id="gender-enrollment-text" style="margin-left: 5%;">
-                        <h3>Female students as a percentage of male students</h3>
+
+                    <!-- pre-primary -->
+                    <div class="col-xs-3 school-col pre-primary">
+                        <div class="row">
+                            <div class="col-xs-12 girl girl-2004">
+                            </div>
+                        </div>
+
+                        <div class="row stack-row">
+                            <div class="col-xs-12 stack stack-2004">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 value">
+                                <span class="number">91</span>%
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 label">
+                                Pre-Primary
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- primary and lower-secondary -->
+                    <div class="col-xs-3 school-col primary-and-lower-secondary">
+                        <div class="row">
+                            <div class="col-xs-12 girl girl-2004">
+                            </div>
+                        </div>
+
+                        <div class="row stack-row">
+                            <div class="col-xs-12 stack stack-2004">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 value">
+                                <span class="number">92</span>%
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 label">
+                                Primary<br>Lower-Secondary
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- high secondary -->
+                    <div class="col-xs-3 school-col high-secondary">
+                        <div class="row">
+                            <div class="col-xs-12 girl girl-2004">
+                            </div>
+                        </div>
+
+                        <div class="row stack-row">
+                            <div class="col-xs-12 stack stack-2004">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 value">
+                                <span class="number">79</span>%
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-xs-12 label">
+                                High Secondary
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <br><br>
+            <div id="gender-enrollment-text" style="margin-left: 5%;">
+                <h3>Female students as a percentage of male students</h3>
+            </div>
         </div>
-    </body>
+    </div>
+</div>
+</body>
 </html>

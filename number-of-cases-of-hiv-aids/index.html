@@ -104,8 +104,6 @@
     </script>
     <script>
         $(function () {
-
-
             // Get how many unit-A should be represented in the visualizer based
             // on given input value.
             function getUnitACount(input) {
@@ -121,6 +119,11 @@
             // Build dual data matrix
             matrices = buildDataMatrix(getUnitACount, getUnitBCount);
             registerYearSelectionListenersOnPage();
+
+
+            // init year button click timer.
+            triggerYearButtonClickTimer(3000);
+
 
             // Initialize visualizer for the first year.
             var firstYear = parseInt(Object.keys(DATASET)[0]);
@@ -249,6 +252,7 @@
         </div>
     </div>
 </div>
+<script src="../libs/mdg.js"></script>
 <script src="../libs/mdg-dm.js"></script>
 </body>
 </html>

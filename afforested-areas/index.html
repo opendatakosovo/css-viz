@@ -63,7 +63,6 @@
 
     <script>
         $(function () {
-
             function fillCell(cell) {
                 if (!cell.hasClass('filled-cell')) {
                     cell.addClass('filled-cell');
@@ -79,6 +78,9 @@
             }
 
             registerYearSelectionListeners(fillCell, emptyCell);
+
+            // init year button click timer.
+            triggerYearButtonClickTimer(3000);
 
             // Init visualizer for first year
             var firstYear = parseInt(Object.keys(DATASET)[0]);

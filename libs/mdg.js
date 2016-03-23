@@ -96,6 +96,22 @@ function drawRandomly(value, fillCellFunc, emptyCellFunc){
     previouslyFilledCellCount = nextFilledCellCount;
 }
 
+function triggerYearButtonClickTimer(time) {
+    var years = $('.btn-year');
+    years.each(function (i, obj) {
+        var btn_class = $(obj).attr("class").match(/btn-[0-9]{4}/)[0];
+        if (i != 0) {
+            setTimeout(function () {
+                $("." + btn_class).click();
+            }, i * time);
+        } else {
+            setTimeout(function () {
+                $("." + btn_class).click();
+            }, 1);
+        }
+    });
+}
+
 function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercentage, invertValues){
     // Register year selection button listeners.
     for(var y=0; y < $('.btn-year').length; y++){
@@ -115,14 +131,14 @@ function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercent
             var btnNextYearClass = $(this).attr("class").match(/btn-[0-9]{4}/);
             var nextYear = btnNextYearClass[0].split('-')[1];
             var nextYearValue = DATASET[nextYear];
-			
+
 			//Invert Values
 			if(invertValues == 1){
 				TextValue = Number(100 - nextYearValue).toFixed(1);
 			} else {
 				TextValue = nextYearValue;
 			}
-			
+
 			// Update Text
             $('#value').empty();
             if (isPercentage) {
@@ -130,7 +146,7 @@ function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercent
             } else {
                 $('#value').text(TextValue);
             }
-			
+
 			// Update Cells
             draw(nextYearValue, fillCell, emptyCell, initFunc);
         });

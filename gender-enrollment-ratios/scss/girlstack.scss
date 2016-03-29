@@ -2,8 +2,8 @@
 $containerHeight: 400;
 $girlHeight: 150;
 
-$valueMin: 75.6;
-$valueMax: 104.6;
+$valueMin: 43;
+$valueMax: 52;
 
 $stackMinHeight: 35;
 $stackMaxHeight: 250;
@@ -44,70 +44,70 @@ $stackMaxHeight: 250;
 // The dataset
 $data-map: (
     2004: (
-        preschool: 94.2,
-        pre-primary:  90.9,
-        primary-and-lower-secondary: 91.8,
-        high-secondary: 79.1
-    ),
-    2005: (
-        preschool: 102.0,
-        pre-primary: 92.3,
-        primary-and-lower-secondary: 92.4,
-        high-secondary: 75.6
+		preschool: 48.5019785189373,
+		pre-primary: 47.6244601045692,
+		primary-and-lower-secondary: 47.8492208296277,
+		high-secondary: 44.1800458715596
+	),
+	2005: (
+		preschool: 50.4894283476899,
+		pre-primary: 48.0048192771084,
+		primary-and-lower-secondary: 48.0253274567012,
+		high-secondary: 43.0617402816223
     ),
     2006: (
-        preschool: 87.9,
-        pre-primary: 93.7,
-        primary-and-lower-secondary: 92.8,
-        high-secondary: 77.0
+		preschool: 46.7828152841022,
+		pre-primary: 48.380672388449,
+		primary-and-lower-secondary: 48.121769239774,
+		high-secondary: 43.5004679166996
     ),
     2007: (
-        preschool: 81.4,
-        pre-primary: 104.6,
-        primary-and-lower-secondary: 93.1,
-        high-secondary: 79.5
+		preschool: 44.8654244306418,
+		pre-primary: 51.1259890444309,
+		primary-and-lower-secondary: 48.2207695672522,
+		high-secondary: 44.2947886527653
     ),
     2008: (
-        preschool: 84.9,
-        pre-primary: 89.3,
-        primary-and-lower-secondary: 90.8,
-        high-secondary: 81.9
+		preschool: 45.9241799253585,
+		pre-primary: 47.1841008437532,
+		primary-and-lower-secondary: 47.5792243981732,
+		high-secondary: 45.0183005448571
     ),
     2009: (
-        preschool: 83.1,
-        pre-primary: 96.4,
-        primary-and-lower-secondary: 91.8,
-        high-secondary: 80.2
+		preschool: 45.3809711804185,
+		pre-primary: 49.0938792179284,
+		primary-and-lower-secondary: 47.8652355779101,
+		high-secondary: 44.5167366630467
     ),
     2010: (
-        preschool: 92.1,
-        pre-primary: 94.2,
-        primary-and-lower-secondary: 93.3,
-        high-secondary: 83.3
+		preschool: 47.9433449747769,
+		pre-primary: 48.4964622641509,
+		primary-and-lower-secondary: 48.2662544861121,
+		high-secondary: 45.4341401369197
     ),
     2011: (
-        preschool: 90.3,
-        pre-primary: 96.8,
-        primary-and-lower-secondary: 93.7,
-        high-secondary: 85.0
+		preschool: 47.4550029030385,
+		pre-primary: 49.1865509761388,
+		primary-and-lower-secondary: 48.3730666829258,
+		high-secondary: 45.9491336622078
     ),
     2012: (
-        preschool: 87.8,
-        pre-primary: 95.5,
-        primary-and-lower-secondary: 93.7,
-        high-secondary: 85.3
+		preschool: 46.761922434589,
+		pre-primary: 48.8507161490378,
+		primary-and-lower-secondary: 48.3730666829258,
+		high-secondary: 46.0313806728814
     ),
     2013: (
-        preschool: 95.3,
-        pre-primary: 92.3,
-        primary-and-lower-secondary: 93.0,
-        high-secondary: 87.1
+		preschool: 48.7940630797774,
+		pre-primary: 48.0007482579619,
+		primary-and-lower-secondary: 48.1942370642623,
+		high-secondary: 46.5544598204423
     ),
     2014: (
-        preschool: 92.6,
-        pre-primary: 94.2,
-        primary-and-lower-secondary: 93.8,
-        high-secondary: 88.7
+		preschool: 48.0657127715951,
+		pre-primary: 48.5149408684662,
+		primary-and-lower-secondary: 48.4127477169659,
+		high-secondary: 46.9985551031131
     )
 );
 

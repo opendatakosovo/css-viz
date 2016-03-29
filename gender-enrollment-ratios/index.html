@@ -111,7 +111,8 @@
                             duration: 1000,
                             easing: 'swing',
                             step: function (now) {
-                                $(this).text(Math.round(now));
+                                //$(this).text(Math.round(now*10)/10);
+								$(this).text(now.toFixed(1));
                             }
                         });
                     }
@@ -181,7 +182,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 value">
-                                <span class="number">94</span>%
+                                <span class="number">48.5</span>%
                             </div>
                         </div>
 
@@ -206,7 +207,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 value">
-                                <span class="number">91</span>%
+                                <span class="number">47.6</span>%
                             </div>
                         </div>
 
@@ -231,7 +232,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 value">
-                                <span class="number">92</span>%
+                                <span class="number">47.8</span>%
                             </div>
                         </div>
 
@@ -256,7 +257,7 @@
 
                         <div class="row">
                             <div class="col-xs-12 value">
-                                <span class="number">79</span>%
+                                <span class="number">44.2</span>%
                             </div>
                         </div>
 
@@ -269,7 +270,7 @@
                 </div>
             </div>
             <br><br>
-            <div id="gender-enrollment-text" style="margin-left: 6%;">
+            <div id="gender-enrollment-text" style="margin-left: 10%;">
                 <h3>Females as a percentage of all enrolled students</h3>
             </div>
         </div>

@@ -1,3 +1,17 @@
+
+body {
+    font-family: "UniversLTStd-Cn", sans-serif;
+}
+
+@font-face {
+    font-family: "UniversLTStd-Cn";
+    src: url("/static/fonts/UniversLTStd-Cn.otf");
+}
+
+h1 {
+    font-weight: bold;
+}
+
 .btn {
     border: 2px solid black;
     background-color: transparent !important;

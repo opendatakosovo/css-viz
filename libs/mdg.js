@@ -139,6 +139,13 @@ function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercent
 				TextValue = nextYearValue;
 			}
 
+            var year_text = $(this).text().trim()
+            if(year_text.indexOf("*") > -1){
+                $("#extrapolated-data").css("display", "block");
+            } else {
+                $("#extrapolated-data").css("display", "none");
+            }
+            console.log($(this).text().trim());
 			// Update Text
             $('#value').empty();
             if (isPercentage) {

@@ -90,6 +90,7 @@
         }
     </style>
 
+    <link rel="stylesheet" href="../static/css/buttons.css">
     <!-- CONSTANTS -->
     <script>
         // Build dataset object.
@@ -157,9 +158,8 @@
         });
 
         function setPercentage(year_value){
-            $('#value').empty();
-			correctedValue = 100-Number(year_value).toFixed(1);
-            $('#value').text(correctedValue + "%");
+			var corrected_value = 100-Number(year_value).toFixed(1);
+            $('#value').text(corrected_value + "%");
         }
 
     </script>
@@ -238,6 +238,7 @@
                 <div id="percentage-container" style="margin: 50% -5% 0 0;">
                     <b><h1 id="value"></h1></b>
                     <h4>Poverty headcount (National poverty line) as a percentage of the population</h4>
+                    <h6 id="extrapolated-data" style="display: none;">* data for this year is extrapolated from other years</h6>
                 </div>
             </div>
         </div>

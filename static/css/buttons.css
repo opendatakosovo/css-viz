@@ -5,7 +5,7 @@ body {
 
 @font-face {
     font-family: "UniversLTStd-Cn";
-    src: url("/static/fonts/UniversLTStd-Cn.ttf");
+    src: url("../fonts/UniversLTStd-Cn.ttf");
 }
 
 h1 {

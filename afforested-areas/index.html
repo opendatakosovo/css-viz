@@ -52,8 +52,8 @@
             '2010': 2253,
 			'2011': 2554,
 			'2012': 3099,
-			'2013': 3637,
-        }
+			'2013': 3637
+        };
 
         var VALUE_MIN = DATASET['2004'];
         var VALUE_MAX = DATASET['2013'];
@@ -81,7 +81,7 @@
                 }
             }
 
-            registerYearSelectionListeners(fillCell, emptyCell);
+            registerYearSelectionListeners(fillCell, emptyCell, null, null, null, true);
 
             // init year button click timer.
             triggerYearButtonClickTimer(3000);
@@ -89,7 +89,6 @@
             // Init visualizer for first year
             var firstYear = parseInt(Object.keys(DATASET)[0]);
             var firstYearValue = DATASET[firstYear];
-            $("#value").empty();
             $("#value").text(firstYearValue);
             draw(firstYearValue, fillCell, emptyCell);
 

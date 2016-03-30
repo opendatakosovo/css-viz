@@ -111,7 +111,7 @@ function timedLoop(i, time) {
 	}, time);
 };
 
-Number.prototype.formatMoney = function(c, d, t){
+Number.prototype.formatNumber = function(c, d, t){
 var n = this,
     c = isNaN(c = Math.abs(c)) ? 2 : c,
     d = d == undefined ? "." : d,
@@ -147,9 +147,9 @@ function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercent
                 TextValue = Number(100 - nextYearValue).toFixed(1);
             } else {
                 if (formatter) {
-                    TextValue = nextYearValue.formatMoney(0, ".", ",") + " ha";
+                    TextValue = nextYearValue.formatNumber(0, ".", ",") + " ha";
                 } else {
-                    TextValue = nextYearValue.formatMoney(1, ".", ",");
+                    TextValue = nextYearValue.formatNumber(1, ".", ",");
                 }
             }
 

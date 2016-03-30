@@ -190,7 +190,7 @@
 
 
             // init year button click timer.
-            triggerYearButtonClickTimer(4000);
+            timedLoop(1, 4000);
 
             // Draw the data.
             // Read from the classroom desk matrix.
@@ -311,7 +311,7 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-xs-2" id="year-buttons">
             <!-- Include buttons for each year. -->
             <div class="btn-group-vertical" role="group">
                 <button type="button" class="btn btn-xs btn-primary btn-year btn-2009" style="margin-top: 5px;">
@@ -429,5 +429,15 @@
         </div>
     </div>
 </div>
+<script>
+// Listen for user clicks
+var clicked = false;
+var man_i = undefined;
+$("#year-buttons").click(function(e) {
+	if(e.which) {
+		clicked = true;
+	}
+});
+</script>
 </body>
 </html>

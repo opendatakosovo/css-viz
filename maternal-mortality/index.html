@@ -135,7 +135,7 @@
             registerYearSelectionListeners(fillCell, emptyCell);
 
             // init year button click timer.
-            triggerYearButtonClickTimer(5500);
+            timedLoop(1, 5500);
 
             // Init visualizer for first year
             var firstYear = parseInt(Object.keys(DATASET)[0]);
@@ -151,7 +151,7 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-2">
+        <div class="col-xs-2" id="year-buttons">
             <!-- Include buttons for each year. -->
             <div class="btn-group-vertical" role="group">
                 <button type="button" class="btn btn-xs btn-primary btn-year btn-2000" style="margin-top: 5px;">2000
@@ -239,7 +239,16 @@
         </div>
     </div>
 </div>
-
+<script>
+// Listen for user clicks
+var clicked = false;
+var man_i = undefined;
+$("#year-buttons").click(function(e) {
+	if(e.which) {
+		clicked = true;
+	}
+});
+</script>
 <script src="../libs/mdg-core.js"></script>
 <script src="../libs/mdg.js"></script>
 </body>

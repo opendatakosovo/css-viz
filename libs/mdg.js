@@ -96,28 +96,20 @@ function drawRandomly(value, fillCellFunc, emptyCellFunc) {
     previouslyFilledCellCount = nextFilledCellCount;
 }
 
-function triggerYearButtonClickTimer(time) {
-    var years = $('.btn-year');
-    years.each(function (i, obj) {
-        if (i.which) {
-            //Actually clicked
-        }
-        else {
-            //Triggered by code
-            var btn_class = $(obj).attr("class").match(/btn-[0-9]{4}/)[0];
-            if (i != 0) {
-                setTimeout(function () {
-                    $("." + btn_class).click();
-                }, i * time);
-            } else {
-                setTimeout(function () {
-                    $("." + btn_class).click();
-                }, 1);
-            }
-        }
-
-    });
-}
+function timedLoop(i, time) {
+	setTimeout(function(x) {
+	    var years = $('.btn-year');
+		var max_i = years.length;
+		var btn_class = $(years[i]).attr("class").match(/btn-[0-9]{4}/)[0];
+		
+		//Advance loop
+		i = i + 1
+		if (i <= max_i && !clicked) {
+			$("." + btn_class).click();
+			timedLoop(i, time);
+		}
+	}, time);
+};
 
 Number.prototype.formatMoney = function(c, d, t){
 var n = this,
@@ -167,7 +159,7 @@ function registerYearSelectionListeners(fillCell, emptyCell, initFunc, isPercent
             } else {
                 $("#extrapolated-data").css("display", "none");
             }
-            console.log($(this).text().trim());
+            //console.log($(this).text().trim());
             // Update Text
             $('#value').empty();
             if (isPercentage) {

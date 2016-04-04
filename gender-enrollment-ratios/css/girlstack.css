@@ -1,8 +1,8 @@
 .preschool .girl {
-  background-image: url("../img/preschool-girl.png"); }
+  background-image: url("../img/preschool-girl-gray.png"); }
 
 .pre-primary .girl {
-  background-image: url("../img/pre-primary-girl.png"); }
+  background-image: url("../img/pre-primary-gray.png"); }
 
 .primary-and-lower-secondary .girl {
   background-image: url("../img/primary-and-lower-secondary-girl.png"); }
@@ -11,10 +11,10 @@
   background-image: url("../img/high-secondary-girl.png"); }
 
 .preschool .stack {
-  background-color: #ffcc00; }
+  background-color: gray; }
 
 .pre-primary .stack {
-  background-color: #ff7700; }
+  background-color: gray; }
 
 .primary-and-lower-secondary .stack {
   background-color: #ff0000; }

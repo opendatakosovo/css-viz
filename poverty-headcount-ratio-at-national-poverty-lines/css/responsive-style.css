@@ -56,7 +56,7 @@
 
 }
 
-@media only screen and (min-width: 321px) and (max-width: 480px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) {
     .container-visualizer {
         width: 280px;
         margin-top: -50px;
@@ -104,7 +104,46 @@
 
 }
 
-@media only screen and (min-width: 481px) and (max-width: 720px) {
+@media only screen and (min-width: 480px) and (max-width: 720px) {
+    .container-visualizer {
+        width: 350px;
+        margin-top: -50px;
+    }
+
+    .cell {
+        /** Set width and height of image. **/
+        /**
+            width = container width / number of cells per row.
+        **/
+        background-size: 120px 60px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /** Cell height should equal height of image. **/
+        height: 150px;
+
+        /**
+        border-style: solid;
+        border-width: thin;
+        border-color: green;
+        **/
+    }
+
+    .cell-pull-right .cell-img {
+        margin-left: -22px;
+    }
+
+    .cell-pull-left .cell-img {
+        margin-left: -22px;
+    }
+
+    .cell-img {
+        margin-top: 33px;
+        height: 120px;
+        width: 120px;
+        background-size: 120px 120px;
+        background-position: center;
+    }
 
     #text-container {
         margin-top: -200px;

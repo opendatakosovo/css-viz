@@ -198,61 +198,11 @@ body {
     }
 }
 
-@media only screen and (min-width: 720px) and (max-width: 1024px) {
+@media only screen and (min-width: 720px) and (max-width: 1920px) {
     #year-buttons {
         margin-left: -15px;
     }
-    .container-visualizer {
-        width: 500px;
-        margin-left: 15px;
-    }
-
-    .value {
-        text-align: center;
-        font-size: 25px;
-        color: white;
-        bottom: 35px;
-    }
-
-    .school-col {
-        height: 400px;
-    }
-
-    .stack-row {
-        padding-left: 18px;
-        padding-right: 18px;
-    }
-
-    .label {
-        text-align: center;
-        font-size: 15px;
-        color: black;
-        bottom: 30px;
-        font-weight: bold;
-    }
-
-    .girl {
-        /** Styling **/
-        background-size: 150px 150px; /* width and height **/
-        height: 150px;
-        background-repeat: no-repeat;
-        background-position: center bottom;
-
-        /* Transition */
-        -webkit-transition: margin-top 1s; /* For Safari 3.1 to 6.0 */
-        transition: margin-top 1s;
-    }
-
     .description-container {
         padding: 20px;
-    }
-}
-
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
-    #year-buttons {
-        margin-left: -15px;
-    }
-    .description-container {
-        padding: 10px 100px 10px 100px;
     }
 }

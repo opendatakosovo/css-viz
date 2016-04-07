@@ -9,13 +9,19 @@ body {
     src: url("../fonts/UniversLTStd-Cn.ttf");
 }
 
+.p {
+    text-align: justify;
+    text-justify: inter-word;
+    font-size: 15px;
+}
+
 h1 {
     font-weight: bold;
     font-family: "UniversLTStd-Cn";
 }
 
 .btn {
-    padding-top:5px;
+    padding-top: 5px;
     border: 2px solid black;
     background-color: transparent !important;
     font-size: 15px;

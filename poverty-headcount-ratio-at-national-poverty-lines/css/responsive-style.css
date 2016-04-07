@@ -101,6 +101,9 @@
         background-size: 100px 100px;
         background-position: center;
     }
+    .description-container {
+        padding: 10px;
+    }
 
 }
 
@@ -148,12 +151,17 @@
     #text-container {
         margin-top: -200px;
     }
+
+    .description-container {
+        padding: 10px;
+    }
 }
 
 @media only screen and (min-width: 720px) and (max-width: 1024px) {
     #text-container {
         margin-top: -200px;
     }
+
 }
 
 @media only screen and (min-width: 1024px) and (max-width: 1920px) {
@@ -163,7 +171,9 @@
 
     .description-container {
         margin-top: -15%;
+        padding: 10px 100px 10px 100px;
     }
+
 }
 
 @media (max-width: 800px) {

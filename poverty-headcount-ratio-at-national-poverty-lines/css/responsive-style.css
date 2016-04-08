@@ -58,7 +58,7 @@
 
 @media only screen and (min-width: 320px) and (max-width: 480px) {
     .container-visualizer {
-        width: 280px;
+        width: 260px;
         margin-top: -50px;
     }
 
@@ -71,7 +71,7 @@
         /**
             width = container width / number of cells per row.
         **/
-        background-size: 100px 50px;
+        background-size: 90px 50px;
         background-repeat: no-repeat;
         background-position: center bottom;
 
@@ -97,7 +97,7 @@
         margin-top: 53px;
         margin-left: -14px;
         height: 100px;
-        width: 100px;
+        width: 90px;
         background-size: 100px 100px;
         background-position: center;
     }

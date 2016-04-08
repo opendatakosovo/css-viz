@@ -29,15 +29,15 @@
         }
 
         .cell-row-2 .cell {
-            bottom: 90px;
+            bottom: 70px;
         }
 
         .cell-row-3 .cell {
-            bottom: 180px;
+            bottom: 140px;
         }
 
         .cell-row-4 .cell {
-            bottom: 270px;
+            bottom: 190px;
         }
 
         .filled-cell {
@@ -54,6 +54,7 @@
             left: 40px;
         }
     </style>
+    <link rel="stylesheet" href="css/responsive-style.css">
     <link rel="stylesheet" href="../static/css/buttons.css">
 
     <!-- CONSTANTS -->
@@ -123,92 +124,88 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-xs-2">
-            <!-- Include buttons for each year. -->
-            <div class="row">
-                <div class="col-xs-12" align="center" id="year-buttons">
-                    <div class="btn-group-vertical" role="group">
-                        <button type="button" class="btn btn-xs btn-primary btn-year btn-2002" style="margin-top: 5px;">
-                            2002
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2003" style="margin-top: 5px;">
-                            2003
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2004" style="margin-top: 5px;">
-                            2004
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">
-                            2005
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">
-                            2006
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">
-                            2007
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">
-                            2008
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">
-                            2009
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">
-                            2010
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">
-                            2011
-                        </button>
-                        <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">
-                            2012
-                        </button>
-                    </div>
+        <div class="col-xs-12 col-md-12">
+            <div class="col-xs-2 col-md-2" align="center" id="year-buttons">
+                <br>
+                <div class="btn-group-vertical" role="group">
+                    <button type="button" class="btn btn-xs btn-primary btn-year btn-2002" style="margin-top: 5px;">
+                        2002
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2003" style="margin-top: 5px;">
+                        2003
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2004" style="margin-top: 5px;">
+                        2004
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">
+                        2005
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">
+                        2006
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">
+                        2007
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">
+                        2008
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">
+                        2009
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">
+                        2010
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">
+                        2011
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">
+                        2012
+                    </button>
                 </div>
             </div>
-        </div>
-        <div class="col-md-10">
-            <div class="col-md-8">
+            <div class="col-xs-8 col-md-7">
                 <!-- Build visualization grid. -->
                 <div class="container-visualizer" style="float:left;">
                     <div class="row cell-row cell-row-1">
-                        <div class="col-md-3 cell cell-1">
+                        <div class="col-xs-3 col-md-3 cell cell-1">
                         </div>
-                        <div class="col-md-3 cell cell-2">
+                        <div class="col-xs-3 col-md-3 cell cell-2">
                         </div>
-                        <div class="col-md-3 cell cell-3">
+                        <div class="col-xs-3 cell cell-3">
                         </div>
-                        <div class="col-md-3 cell cell-4">
+                        <div class="col-xs-3 col-md-3 cell cell-4">
                         </div>
                     </div>
                     <div class="row cell-row cell-row-2">
-                        <div class="col-md-4 cell cell-5 cell-pull-right">
+                        <div class="col-xs-4 col-md-4 cell cell-5 cell-pull-right">
                         </div>
-                        <div class="col-md-4 cell cell-6">
+                        <div class="col-xs-4 col-md-4 cell cell-6">
                         </div>
-                        <div class="col-md-4 cell cell-7 cell-pull-left">
+                        <div class="col-xs-4 col-md-4 cell cell-7 cell-pull-left">
                         </div>
                     </div>
                     <div class="row cell-row cell-row-3">
-                        <div class="col-md-3 cell cell-8">
+                        <div class="col-xs-3 col-md-3 cell cell-8">
                         </div>
-                        <div class="col-md-3 cell cell-9">
+                        <div class="col-xs-3 col-md-3 cell cell-9">
                         </div>
-                        <div class="col-md-3 cell cell-10">
+                        <div class="col-xs-3 col-md-3 cell cell-10">
                         </div>
-                        <div class="col-md-3 cell cell-11">
+                        <div class="col-xs-3 col-md-3 cell cell-11">
                         </div>
                     </div>
                     <div class="row cell-row cell-row-4">
-                        <div class="col-md-4 cell cell-12 cell-pull-right">
+                        <div class="col-xs-4 col-md-4 cell cell-12 cell-pull-right">
                         </div>
-                        <div class="col-md-4 cell cell-13">
+                        <div class="col-xs-4 col-md-4 cell cell-13">
                         </div>
-                        <div class="col-md-4 cell cell-14 cell-pull-left">
+                        <div class="col-xs-4 col-md-4 cell cell-14 cell-pull-left">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div id="percentage-container" style="margin: 50% -5% 0 0;">
+            <div id="text-container" class="col-xs-12 col-md-3" style="text-align: center;">
+                <div id="percentage-container" style="text-align: center;">
                     <b><h1 id="value"></h1></b>
                     <h4>Infant deaths per 100,000 births</h4>
                     <h5>Source: <a
@@ -218,16 +215,34 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="description-container">
+            <h3 style="color:#000;">Infant mortality rate</h3>
+            <p class="p" style="color:#000;">
+                The infant mortality rate in Kosovo is relatively low by the standards of developing nations, with 11.4
+                infant deaths per 100,000 live births in 2012. This rate showed significant variation between 2002 and
+                2012, ranging between 15.1 and 8.8, but has generally exhibited a downward trend.
+            </p><br>
+            <p class="p" style="color:#000;">
+                That said, the infant mortality rate in Kosovo is significantly higher than most western countries, and
+                many of the ex-Yugoslav nations. Most countries in the EU, for example, have infant mortality rates
+                below 5, while Serbia, Macedonia and Montenegro all have infant mortality rates around or just over 5.
+                Albania on the other hand also has a slightly higher infant mortality rate, estimated to be 12.75 in
+                2015.
+            </p>
+        </div>
+    </div>
+</div>
 </div>
 <script>
-// Listen for user clicks
-var clicked = false;
-var man_i = undefined;
-$("#year-buttons").click(function(e) {
-	if(e.which) {
-		clicked = true;
-	}
-});
+    // Listen for user clicks
+    var clicked = false;
+    var man_i = undefined;
+    $("#year-buttons").click(function (e) {
+        if (e.which) {
+            clicked = true;
+        }
+    });
 </script>
 <script src="../libs/mdg-core.js"></script>
 <script src="../libs/mdg.js"></script>

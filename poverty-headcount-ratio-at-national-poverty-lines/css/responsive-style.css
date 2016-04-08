@@ -1,6 +1,6 @@
-@media (max-width: 320px) {
+@media (max-width: 321px) {
     .container-visualizer {
-        width: 220px;
+        width: 210px;
         margin-top: -50px;
         margin-left: 10px;
     }
@@ -15,7 +15,7 @@
         /**
             width = container width / number of cells per row.
         **/
-        background-size: 80px 40px;
+        background-size: 75px 40px;
         background-repeat: no-repeat;
         background-position: center bottom;
 
@@ -38,7 +38,7 @@
     }
 
     .cell-pull-right .cell-img {
-        margin-left: -35px;
+        margin-left: -34px;
     }
 
     .cell-pull-left .cell-img {
@@ -46,17 +46,17 @@
     }
 
     .cell-img {
-        margin-top: 72px;
-        margin-left: -15px;
-        height: 80px;
-        width: 80px;
-        background-size: 80px 80px;
+        margin-top: 75px;
+        margin-left: -14px;
+        height: 75px;
+        width: 75px;
+        background-size: 75px 75px;
         background-position: center;
     }
 
 }
 
-@media only screen and (min-width: 320px) and (max-width: 480px) {
+@media only screen and (min-width: 321px) and (max-width: 480px) {
     .container-visualizer {
         width: 260px;
         margin-top: -50px;

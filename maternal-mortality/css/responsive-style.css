@@ -1,0 +1,300 @@
+@media (max-width: 321px) {
+    .container-visualizer {
+        width: 100%;
+        padding: 0;
+        margin: 0 0 0 -5px;
+    }
+
+    #year-buttons {
+        margin-left: -15px;
+    }
+
+    .cell {
+        /** TODO: Set width and height of image. **/
+        /**
+            width = container width / number of cells per row.
+        **/
+        background-size: 108px 98px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /** Cell height should equal height of image. **/
+        height: 150px;
+    }
+
+    .cell-row-1 .cell {
+        bottom: 0px;
+    }
+
+    .cell-row-2 .cell {
+        bottom: 100px;
+    }
+
+    .cell-row-3 .cell {
+        bottom: 200px;
+    }
+
+    .cell-row-4 .cell {
+        bottom: 300px;
+    }
+
+    .cell-row-5 .cell {
+        bottom: 400px;
+    }
+
+    .cell-pull-right {
+        left: 25px;
+    }
+
+    .cell-pull-left {
+        right: 25px;
+    }
+
+    .cell-img {
+        height: 80px;
+        width: 80px;
+        background-size: 80px 80px;
+        background-position: center;
+    }
+
+    .cell-4, .cell-5, .cell-9, .cell-10 {
+        padding-left: 20px;
+    }
+
+    .description-container {
+        padding: 20px 5px 20px 20px;
+        margin-top: -70%;
+    }
+
+    #year-buttons-responsive {
+        margin-left: 10px;
+        display: block !important;
+    }
+
+    #year-buttons {
+        display: none !important;
+    }
+
+    #text-container {
+        margin-top: -130%;
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 481px) {
+    .container-visualizer {
+        width: 95%;
+        padding: 0;
+        margin: 0 0 0 -5px;
+    }
+
+    #year-buttons {
+        margin-left: -15px;
+    }
+
+    .cell {
+        /** TODO: Set width and height of image. **/
+        /**
+            width = container width / number of cells per row.
+        **/
+        background-size: 108px 98px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /** Cell height should equal height of image. **/
+        height: 150px;
+    }
+
+    .cell-row-1 .cell {
+        bottom: 0px;
+    }
+
+    .cell-row-2 .cell {
+        bottom: 100px;
+    }
+
+    .cell-row-3 .cell {
+        bottom: 200px;
+    }
+
+    .cell-row-4 .cell {
+        bottom: 300px;
+    }
+
+    .cell-row-5 .cell {
+        bottom: 400px;
+    }
+
+    .cell-pull-right {
+        left: 25px;
+    }
+
+    .cell-pull-left {
+        right: 25px;
+    }
+
+    .cell-img {
+        height: 100px;
+        width: 100px;
+        background-size: 100px 100px;
+        background-position: center;
+    }
+
+    .cell-4, .cell-5, .cell-9, .cell-10 {
+        padding-left: 20px;
+    }
+
+    .description-container {
+        padding: 20px 5px 20px 20px;
+        margin-top: -50%;
+    }
+
+    #year-buttons-responsive {
+        margin-left: 10px;
+        display: block !important;
+    }
+
+    #year-buttons {
+        display: none !important;
+    }
+
+    #text-container {
+        margin-top: -88%;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    .container-visualizer {
+        width: 95%;
+        padding: 0;
+        margin: 5px 0 0 15px;
+    }
+
+    #text-container {
+        margin-top: -66%;
+    }
+
+    #year-buttons {
+        margin-left: -15px;
+    }
+
+    .cell {
+        /** TODO: Set width and height of image. **/
+        /**
+            width = container width / number of cells per row.
+        **/
+        background-size: 128px 118px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /** Cell height should equal height of image. **/
+        height: 150px;
+    }
+
+    .cell-row-1 .cell {
+        bottom: 0px;
+    }
+
+    .cell-row-2 .cell {
+        bottom: 100px;
+    }
+
+    .cell-row-3 .cell {
+        bottom: 200px;
+    }
+
+    .cell-row-4 .cell {
+        bottom: 300px;
+    }
+
+    .cell-row-5 .cell {
+        bottom: 400px;
+    }
+
+    .cell-pull-right {
+        left: 45px;
+    }
+
+    .cell-pull-left {
+        right: 45px;
+    }
+
+    .cell-img {
+        height: 120px;
+        width: 120px;
+        background-size: 120px 120px;
+        background-position: center;
+    }
+
+    .cell-4, .cell-5, .cell-9, .cell-10 {
+        padding-left: 30px;
+    }
+
+    .description-container {
+        padding: 20px 5px 20px 20px;
+        margin-top: -45%;
+    }
+
+    #year-buttons-responsive {
+        margin-left: 10px;
+        display: block !important;
+    }
+
+    #year-buttons {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 720px) and (max-width: 990px) {
+    .container-visualizer {
+        margin-left: 20px;
+        width: 93%;
+    }
+
+    #text-container {
+        margin-top: -50%;
+    }
+
+    #year-buttons {
+        margin-top: 40px;
+    }
+
+    .description-container {
+        padding: 10px 100px 10px 100px;
+        margin-top: -25%;
+    }
+
+    #year-buttons-responsive {
+        display: block !important;
+    }
+
+    #year-buttons {
+        display: none !important;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1920px) {
+    #text-container {
+        margin-top: 7%;
+    }
+
+    .container-visualizer {
+        width: 100%;
+    }
+
+    .description-container {
+        padding: 10px 100px 10px 100px;
+        margin-top: -25%;
+    }
+
+    #text-container {
+        margin-top: 10%;
+    }
+
+    #year-buttons-responsive {
+        display: none !important;
+    }
+
+    #year-buttons {
+        display: block !important;
+    }
+}

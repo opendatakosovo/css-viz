@@ -61,7 +61,7 @@
         **/
 
         background-image: url('../img/desk.png');
-        background-size: 90px 65px; /** width height **/
+        background-size: 85px 65px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
     }
@@ -70,7 +70,7 @@
         /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
         height: 80px;
 
-        background-size: 50px 69px; /** width height **/
+        background-size: 40px 69px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
 
@@ -85,7 +85,7 @@
 
 @media only screen and (min-width: 480px) and (max-width: 720px) {
     .container-visualizer {
-        width: 330px;
+        width: 380px;
         padding: 0;
         margin-left: 10px;
     }
@@ -103,7 +103,7 @@
         **/
 
         background-image: url('../img/desk.png');
-        background-size: 120px 90px; /** width height **/
+        background-size: 130px 90px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
     }
@@ -112,7 +112,7 @@
         /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
         height: 100px;
 
-        background-size: 60px 89px; /** width height **/
+        background-size: 55px 89px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
 

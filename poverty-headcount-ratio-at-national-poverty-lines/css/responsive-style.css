@@ -86,19 +86,19 @@
     }
 
     .cell-pull-right .cell-img {
-        margin-left: -28px;
+        margin-left: -29px;
     }
 
     .cell-pull-left .cell-img {
-        margin-left: -28px;
+        margin-left: -29px;
     }
 
     .cell-img {
-        margin-top: 53px;
-        margin-left: -14px;
-        height: 100px;
+        margin-top: 59px;
+        margin-left: -13px;
+        height: 90px;
         width: 90px;
-        background-size: 100px 100px;
+        background-size: 90px 90px;
         background-position: center;
     }
     .description-container {
@@ -142,7 +142,7 @@
 
     .cell-img {
         margin-top: 33px;
-        margin-left: -4px;
+        margin-left: -13px;
         height: 120px;
         width: 120px;
         background-size: 120px 120px;

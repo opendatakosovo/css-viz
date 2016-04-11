@@ -1,0 +1,101 @@
+@media (max-width: 321px) {
+    .container-visualizer {
+        width: 300px;
+        margin-top: -30px;
+        margin-left: 13px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -20px;
+    }
+
+    #text-container {
+        margin-top: -30px;
+    }
+
+    .cell {
+        height: 74px;
+
+        background-size: 70px 60px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /**
+        border-style: solid;
+        border-width: thin;
+        border-color: green;
+        **/
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .container-visualizer {
+        width: 380px;
+        margin-top: 50px;
+        margin-left: 10px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -25px;
+    }
+
+    #text-container {
+        margin-top: -30px;
+    }
+
+    .cell {
+        height: 74px;
+
+        background-size: 70px 60px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+    }
+
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    .container-visualizer {
+        width: 600px;
+        margin-top: 55px;
+        margin-left: -15px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -5px;
+    }
+
+    #text-container {
+        margin-top: -30px;
+    }
+
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 1023px) {
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
+    #text-container{
+        margin-top: -50px;
+    }
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+
+    #text-container {
+        margin-top: 7%;
+    }
+
+    .description-container {
+        padding: 10px 100px 10px 100px !important;
+    }
+
+}

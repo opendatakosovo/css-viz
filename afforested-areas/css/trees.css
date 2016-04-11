@@ -1,127 +1,342 @@
 .cell-row-1 .cell {
-  bottom: 0; }
+    bottom: 0;
+}
 
 .cell-row-2 .cell {
-  bottom: 24; }
+    bottom: 24;
+}
 
 .cell-row-3 .cell {
-  bottom: 48; }
+    bottom: 48;
+}
 
 .cell-row-4 .cell {
-  bottom: 72; }
+    bottom: 72;
+}
 
 .cell-row-5 .cell {
-  bottom: 96; }
+    bottom: 96;
+}
 
 .cell-row-6 .cell {
-  bottom: 120; }
+    bottom: 120;
+}
 
 .cell-1 {
-  right: 0; }
+    right: 0;
+}
 
 .cell-2 {
-  right: 24; }
+    right: 24;
+}
 
 .cell-3 {
-  right: 48; }
+    right: 48;
+}
 
 .cell-4 {
-  right: 72; }
+    right: 72;
+}
 
 .cell-5 {
-  right: 96; }
+    right: 96;
+}
 
 .cell-6 {
-  right: 120; }
+    right: 120;
+}
 
 .cell-7 {
-  right: 0; }
+    right: 0;
+}
 
 .cell-8 {
-  right: 24; }
+    right: 24;
+}
 
 .cell-9 {
-  right: 48; }
+    right: 48;
+}
 
 .cell-10 {
-  right: 72; }
+    right: 72;
+}
 
 .cell-11 {
-  right: 96; }
+    right: 96;
+}
 
 .cell-12 {
-  right: 120; }
+    right: 120;
+}
 
 .cell-13 {
-  right: 0; }
+    right: 0;
+}
 
 .cell-14 {
-  right: 24; }
+    right: 24;
+}
 
 .cell-15 {
-  right: 48; }
+    right: 48;
+}
 
 .cell-16 {
-  right: 72; }
+    right: 72;
+}
 
 .cell-17 {
-  right: 96; }
+    right: 96;
+}
 
 .cell-18 {
-  right: 120; }
+    right: 120;
+}
 
 .cell-19 {
-  right: 0; }
+    right: 0;
+}
 
 .cell-20 {
-  right: 24; }
+    right: 24;
+}
 
 .cell-21 {
-  right: 48; }
+    right: 48;
+}
 
 .cell-22 {
-  right: 72; }
+    right: 72;
+}
 
 .cell-23 {
-  right: 96; }
+    right: 96;
+}
 
 .cell-24 {
-  right: 120; }
+    right: 120;
+}
 
 .cell-25 {
-  right: 0; }
+    right: 0;
+}
 
 .cell-26 {
-  right: 24; }
+    right: 24;
+}
 
 .cell-27 {
-  right: 48; }
+    right: 48;
+}
 
 .cell-28 {
-  right: 72; }
+    right: 72;
+}
 
 .cell-29 {
-  right: 96; }
+    right: 96;
+}
 
 .cell-30 {
-  right: 120; }
+    right: 120;
+}
 
 .cell-31 {
-  right: 0; }
+    right: 0;
+}
 
 .cell-32 {
-  right: 24; }
+    right: 24;
+}
 
 .cell-33 {
-  right: 48; }
+    right: 48;
+}
 
 .cell-34 {
-  right: 72; }
+    right: 72;
+}
 
 .cell-35 {
-  right: 96; }
+    right: 96;
+}
 
 .cell-36 {
-  right: 120; }
+    right: 120;
+}
 
 /*# sourceMappingURL=trees.css.map */
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .cell-row-1 .cell {
+        bottom: 0;
+    }
+
+    .cell-row-2 .cell {
+        bottom: 24;
+    }
+
+    .cell-row-3 .cell {
+        bottom: 48;
+    }
+
+    .cell-row-4 .cell {
+        bottom: 72;
+    }
+
+    .cell-row-5 .cell {
+        bottom: 96;
+    }
+
+    .cell-row-6 .cell {
+        bottom: 120;
+    }
+
+    .cell-1 {
+        right: 0;
+    }
+
+    .cell-2 {
+        right: 24;
+    }
+
+    .cell-3 {
+        right: 48;
+    }
+
+    .cell-4 {
+        right: 72;
+    }
+
+    .cell-5 {
+        right: 96;
+    }
+
+    .cell-6 {
+        right: 120;
+    }
+
+    .cell-7 {
+        right: 0;
+    }
+
+    .cell-8 {
+        right: 24;
+    }
+
+    .cell-9 {
+        right: 48;
+    }
+
+    .cell-10 {
+        right: 72;
+    }
+
+    .cell-11 {
+        right: 96;
+    }
+
+    .cell-12 {
+        right: 120;
+    }
+
+    .cell-13 {
+        right: 0;
+    }
+
+    .cell-14 {
+        right: 24;
+    }
+
+    .cell-15 {
+        right: 48;
+    }
+
+    .cell-16 {
+        right: 72;
+    }
+
+    .cell-17 {
+        right: 96;
+    }
+
+    .cell-18 {
+        right: 120;
+    }
+
+    .cell-19 {
+        right: 0;
+    }
+
+    .cell-20 {
+        right: 24;
+    }
+
+    .cell-21 {
+        right: 48;
+    }
+
+    .cell-22 {
+        right: 72;
+    }
+
+    .cell-23 {
+        right: 96;
+    }
+
+    .cell-24 {
+        right: 120;
+    }
+
+    .cell-25 {
+        right: 0;
+    }
+
+    .cell-26 {
+        right: 24;
+    }
+
+    .cell-27 {
+        right: 48;
+    }
+
+    .cell-28 {
+        right: 72;
+    }
+
+    .cell-29 {
+        right: 96;
+    }
+
+    .cell-30 {
+        right: 120;
+    }
+
+    .cell-31 {
+        right: 0;
+    }
+
+    .cell-32 {
+        right: 24;
+    }
+
+    .cell-33 {
+        right: 48;
+    }
+
+    .cell-34 {
+        right: 72;
+    }
+
+    .cell-35 {
+        right: 96;
+    }
+
+    .cell-36 {
+        right: 120;
+    }
+
+    /*# sourceMappingURL=trees.css.map */
+
+}

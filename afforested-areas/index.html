@@ -39,6 +39,7 @@
 
     </style>
 
+    <link rel="stylesheet" href="css/responsive-style.css">
     <link rel="stylesheet" href="../static/css/buttons.css">
     <!-- CONSTANTS -->
     <script>
@@ -98,32 +99,32 @@
 <body>
 <div class="container">
     <div class="row">
-        <div class="col-xs-2" id="year-buttons">
-            <div class="btn-group-vertical" role="group">
-                <button type="button" class="btn btn-xs btn-primary btn-year btn-2004" style="margin-top: 5px;">2004
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">2011
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">2012
-                </button>
-                <button type="button" class="btn btn-xs btn-default btn-year btn-2013" style="margin-top: 5px;">2013
-                </button>
+        <div class="col-xs-12 col-md-12">
+            <div class="col-xs-2 col-md-2" id="year-buttons">
+                <div class="btn-group-vertical" role="group">
+                    <button type="button" class="btn btn-xs btn-primary btn-year btn-2004" style="margin-top: 5px;">2004
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">2007
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">2008
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">2011
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2012" style="margin-top: 5px;">2012
+                    </button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2013" style="margin-top: 5px;">2013
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="col-md-10">
-            <div class="col-md-8">
+            <div class="col-xs-10 col-md-7">
                 <div class="container-visualizer" style="float: left;">
                     <div class="row cell-row cell-row-1">
                         <div class="col-xs-2 cell cell-1">
@@ -211,8 +212,9 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div id="percentage-container" style="margin: 50% -5% 0 0;">
+
+            <div id="text-container" class="col-xs-12 col-md-3" style="text-align: center;">
+                <div id="percentage-container" style="text-align: center;">
                     <b><h1 id="value"></h1></b>
                     <h4>Afforested area in hectares (cumulative)</h4>
                     <h5>Source: <a
@@ -220,6 +222,26 @@
                         Facts on the Environment 2015</a></h5>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="description-container">
+            <h3 style="color:#000;">Greening Kosovo</h3>
+            <p class="p" style="color:#000;">
+                Kosovo has made some progress in afforesting (planting forests). Between 2004 and 2010, 2,253 hectares
+                of forest were planted. However, while this sounds like a lot, when the total land area of Kosovo is
+                taken into account (1,090,800 hectares), this area represents only 0.2%. In addition, parts of the
+                forests, which cover roughly 44 percent of Kosovo’s territory, are in bad condition due to inadequate
+                management and illegal logging, leading also to increased soil erosion and landslides. The costs of
+                forest degradation are estimated to be around 0.4% of GDP.
+            </p><br>
+            <p class="p" style="color:#000;">
+                Kosovo also struggles with land degradation from unplanned extension of settlements, industrial and
+                sanitary landfills, and erosion. According to estimates from the Ministry of Agriculture, Forestry and
+                Rural Development (MAFRD), each year about 400 hectares of agricultural land is converted into
+                construction land.
+            </p>
+            <br>
         </div>
     </div>
 </div>

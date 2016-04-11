@@ -50,6 +50,9 @@
         bottom: 60px;
     }
 
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
@@ -91,6 +94,9 @@
         bottom: 60px;
     }
 
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
 }
 
 
@@ -117,6 +123,10 @@
     .row-cell-3 .row .unit {
         bottom: 54px;
     }
+
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
 }
 
 
@@ -133,6 +143,10 @@
     .row-cell-3 .row .unit {
         bottom: 40px;
     }
+
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
 }
 
 
@@ -144,6 +158,9 @@
 
     #text-container {
         margin-top: 2%;
+    }
+    .description-container {
+        padding: 10px 100px 10px 100px !important;
     }
 
 }

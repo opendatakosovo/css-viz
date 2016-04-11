@@ -1,0 +1,113 @@
+@media (max-width: 321px) {
+    .container-visualizer {
+        width: 400px;
+        margin-top: 50px;
+        margin-left: 15px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -20px;
+    }
+
+    .cell {
+        height: 74px;
+
+        background-size: 70px 60px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /**
+        border-style: solid;
+        border-width: thin;
+        border-color: green;
+        **/
+    }
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .container-visualizer {
+        width: 430px;
+        margin-top: 80px;
+        margin-left: 15px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -25px;
+    }
+
+    #text-container {
+        margin-top: -20px;
+    }
+
+    .cell {
+        /** TODO: Set width and height of image. **/
+        /**
+            width = container width / number of cells per row.
+        **/
+        background-size: 80px 66px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /** Cell height should equal height of image. **/
+        height: 90px;
+
+        /**
+        border-style: solid;
+        border-width: thin;
+        border-color: green;
+        **/
+    }
+
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    .container-visualizer {
+        width: 600px;
+        margin-top: 55px;
+        margin-left: -15px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -5px;
+    }
+
+    #text-container {
+        margin-top: -30px;
+    }
+
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
+}
+
+@media only screen and (min-width: 721px) and (max-width: 989px) {
+    .description-container {
+        padding: 10px 7px 10px 20px !important;
+    }
+
+    .container-visualizer {
+        margin-top:8%;
+    }
+
+    #text-container {
+        margin-top: -50px;
+    }
+}
+
+@media only screen and (min-width: 990px) and (max-width: 1920px) {
+
+    #text-container {
+        margin-top: 7%;
+    }
+
+    .description-container {
+        padding: 10px 100px 10px 100px !important;
+    }
+
+}

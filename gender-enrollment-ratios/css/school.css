@@ -238,6 +238,11 @@ body {
         font-weight: bold;
     }
 
+
+    .description-container {
+        padding: 10px 100px 10px 100px !important;
+    }
+
     .girl {
         /** Styling **/
         background-size: 140px 140px; /* width and height **/

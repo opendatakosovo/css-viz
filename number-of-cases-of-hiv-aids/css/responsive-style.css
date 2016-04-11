@@ -1,0 +1,149 @@
+@media (max-width: 321px) {
+    .container-visualizer {
+        width: 220px;
+        margin-top: -30px;
+        margin-left: 13px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -20px;
+    }
+
+    #text-container{
+        margin-top:-30px;
+    }
+    .cell {
+        height: 120px;
+
+        /**
+        border-style: solid;
+        border-width: thin;
+        border-color: black;
+        **/
+
+        background-size: 120px 100px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+    }
+
+    .unit {
+        /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
+        height: 116px;
+
+        background-size: 45px 77px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /**
+        border-style: solid;
+        border-width: thin;
+        border-color: red;
+        **/
+    }
+
+    .row-cell-2 .row .unit {
+        bottom: 30px;
+    }
+
+    .row-cell-3 .row .unit {
+        bottom: 60px;
+    }
+
+}
+
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .container-visualizer {
+        width: 250px;
+        margin-top: -30px;
+        margin-left: 10px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -20px;
+    }
+
+    #text-container{
+        margin-top:-30px;
+    }
+    .cell {
+        height: 120px;
+        background-size: 120px 100px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+    }
+
+    .unit {
+        /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
+        height: 116px;
+
+        background-size: 45px 77px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+    }
+
+    .row-cell-2 .row .unit {
+        bottom: 30px;
+    }
+
+    .row-cell-3 .row .unit {
+        bottom: 60px;
+    }
+
+}
+
+
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    .container-visualizer {
+        width: 430px;
+    }
+
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -20px;
+    }
+
+    #text-container {
+        margin-top: -30px;
+    }
+
+
+    .row-cell-2 .row .unit {
+        bottom: 27px;
+    }
+
+    .row-cell-3 .row .unit {
+        bottom: 54px;
+    }
+}
+
+
+@media only screen and (min-width: 721px) and (max-width: 1024px) {
+
+    .row-cell-2 .row .unit {
+        bottom: 20px;
+    }
+
+    #year-buttons {
+        margin-top: 50px;
+    }
+
+    .row-cell-3 .row .unit {
+        bottom: 40px;
+    }
+}
+
+
+@media only screen and (min-width: 1025px) and (max-width: 1920px) {
+
+    #year-buttons {
+        margin-top: 50px;
+    }
+
+    #text-container {
+        margin-top: 2%;
+    }
+
+}

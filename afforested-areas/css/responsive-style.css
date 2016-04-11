@@ -79,7 +79,7 @@
     }
 }
 
-@media only screen and (min-width: 721px) and (max-width: 1023px) {
+@media only screen and (min-width: 721px) and (max-width: 989px) {
     .description-container {
         padding: 10px 7px 10px 20px !important;
     }
@@ -88,7 +88,7 @@
     }
 }
 
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+@media only screen and (min-width: 990px) and (max-width: 1920px) {
 
     #text-container {
         margin-top: 7%;

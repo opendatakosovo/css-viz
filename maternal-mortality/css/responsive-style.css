@@ -244,7 +244,7 @@
     }
 }
 
-@media only screen and (min-width: 720px) and (max-width: 990px) {
+@media only screen and (min-width: 720px) and (max-width: 989px) {
     .container-visualizer {
         margin-left: 20px;
         width: 93%;

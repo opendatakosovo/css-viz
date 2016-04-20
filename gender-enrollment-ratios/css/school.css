@@ -1,11 +1,6 @@
 body {
     background-color: #F7941D;
 }
-
-.container-visualizer {
-    width: 650px;
-}
-
 .school-col {
     height: 400px;
 }
@@ -57,14 +52,6 @@ body {
 
 
 @media (max-width: 321px) {
-    #year-buttons {
-        margin-left: -15px;
-    }
-    .container-visualizer {
-        width: 200px;
-        margin-left: 30px;
-    }
-
     .value {
         text-align: center;
         font-size: 13.5px;
@@ -100,22 +87,9 @@ body {
         -webkit-transition: margin-top 1s; /* For Safari 3.1 to 6.0 */
         transition: margin-top 1s;
     }
-
-    .description-container {
-        padding: 20px 5px 20px 20px !important;
-    }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-    #year-buttons {
-        margin-left: -15px;
-    }
-
-    .container-visualizer {
-        width: 240px;
-        margin-left: 30px;
-    }
-
     .value {
         text-align: center;
         font-size: 15px;
@@ -150,21 +124,9 @@ body {
         -webkit-transition: margin-top 1s; /* For Safari 3.1 to 6.0 */
         transition: margin-top 1s;
     }
-
-    .description-container {
-        padding: 20px 5px 20px 20px !important;
-    }
 }
 
 @media only screen and (min-width: 480px) and (max-width: 720px) {
-    #year-buttons {
-        margin-left: -15px;
-    }
-    .container-visualizer {
-        width: 350px;
-        margin-left: 15px;
-    }
-
     .value {
         text-align: center;
         font-size: 20px;
@@ -200,19 +162,9 @@ body {
         -webkit-transition: margin-top 1s; /* For Safari 3.1 to 6.0 */
         transition: margin-top 1s;
     }
-    .description-container {
-        padding: 20px 5px 20px 20px !important;
-    }
 }
 
 @media only screen and (min-width: 720px) and (max-width: 1920px) {
-    #year-buttons {
-        margin-left: -15px;
-    }
-    .container-visualizer {
-        width: 550px;
-        margin-left: 15px;
-    }
 
     .value {
         text-align: center;
@@ -237,12 +189,6 @@ body {
         bottom: 22px;
         font-weight: bold;
     }
-
-
-    .description-container {
-        padding: 10px 100px 10px 100px !important;
-    }
-
     .girl {
         /** Styling **/
         background-size: 140px 140px; /* width and height **/

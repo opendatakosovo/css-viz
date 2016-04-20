@@ -1,0 +1,93 @@
+#year-buttons button {
+    width: 80px;
+}
+
+@media (max-width: 321px) {
+    .container-visualizer {
+        width: 210px;
+        margin-top: -50px;
+        margin-left: 10px;
+    }
+    #year-buttons {
+        margin-top: 35px;
+        margin-left: -20px;
+    }
+    #text-container {
+        /*padding-top: -180px;*/
+        padding-top: 0;
+        text-align: center;
+    }
+}
+@media only screen and (min-width: 321px) and (max-width: 480px) {
+    .container-visualizer {
+        width: 260px;
+        padding-top: -50px;
+    }
+
+    #year-buttons {
+        padding-top: 35px;
+        margin-left: -25px;
+    }
+    #text-container {
+        /*padding-top: -190px;*/
+        text-align: center;
+    }
+    .description-container {
+        padding: 20px !important;
+    }
+
+}
+
+@media only screen and (min-width: 480px) and (max-width: 720px) {
+    .container-visualizer {
+        width: 350px;
+        padding-top: -50px;
+    }
+
+    #year-buttons {
+        padding-top: 35px;
+        margin-left: -5px;
+    }
+
+    #text-container {
+        /*padding-top: -200px;*/
+        text-align: center;
+    }
+
+    .description-container {
+        padding: 10px;
+    }
+}
+
+@media only screen and (min-width: 720px) and (max-width: 1024px) {
+    #text-container {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1920px) {
+    #text-container {
+        padding-top: 8%;
+        text-align: center;
+    }
+
+    .description-container {
+        /*margin-top: -15%;*/
+        padding: 0px 100px 12px 189px;
+        text-align: justify;
+
+    }
+    .short-description-text{
+        text-align: left;
+         margin-left: 10%;
+    }
+
+}
+
+@media (max-width: 800px) {
+    .description-container {
+        padding: 10px 20px 10px 20px !important;
+    }
+}

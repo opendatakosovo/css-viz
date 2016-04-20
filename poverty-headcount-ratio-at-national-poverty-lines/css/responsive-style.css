@@ -1,15 +1,4 @@
 @media (max-width: 321px) {
-    .container-visualizer {
-        width: 210px;
-        margin-top: -50px;
-        margin-left: 10px;
-    }
-
-    #text-container {
-        margin-top: -180px;
-        padding-top: 0;
-    }
-
     .cell {
         /** Set width and height of image. **/
         /**
@@ -56,14 +45,6 @@
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-    .container-visualizer {
-        width: 260px;
-        margin-top: -50px;
-    }
-
-    #text-container {
-        margin-top: -190px;
-    }
 
     .cell {
         /** Set width and height of image. **/
@@ -100,9 +81,7 @@
         background-size: 90px 90px;
         background-position: center;
     }
-    .description-container {
-        padding: 20px !important;
-    }
+
 
 }
 
@@ -148,36 +127,4 @@
         background-position: center;
     }
 
-    #text-container {
-        margin-top: -200px;
-    }
-
-    .description-container {
-        padding: 10px;
-    }
-}
-
-@media only screen and (min-width: 720px) and (max-width: 1024px) {
-    #text-container {
-        margin-top: -200px;
-    }
-
-}
-
-@media only screen and (min-width: 1024px) and (max-width: 1920px) {
-    #text-container {
-        margin-top: 8%;
-    }
-
-    .description-container {
-        margin-top: -15%;
-        padding: 10px 100px 10px 100px;
-    }
-
-}
-
-@media (max-width: 800px) {
-    .description-container {
-        padding: 10px 20px 10px 20px !important;
-    }
 }

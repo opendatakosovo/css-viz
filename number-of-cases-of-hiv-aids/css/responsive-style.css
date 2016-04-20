@@ -1,18 +1,5 @@
 @media (max-width: 321px) {
-    .container-visualizer {
-        width: 220px;
-        margin-top: -30px;
-        margin-left: 13px;
-    }
 
-    #year-buttons {
-        margin-top: 35px;
-        margin-left: -20px;
-    }
-
-    #text-container{
-        margin-top:-30px;
-    }
     .cell {
         height: 120px;
 
@@ -50,26 +37,9 @@
         bottom: 60px;
     }
 
-    .description-container {
-        padding: 10px 7px 10px 20px !important;
-    }
 }
 
 @media only screen and (min-width: 321px) and (max-width: 480px) {
-    .container-visualizer {
-        width: 250px;
-        margin-top: -30px;
-        margin-left: 10px;
-    }
-
-    #year-buttons {
-        margin-top: 35px;
-        margin-left: -20px;
-    }
-
-    #text-container{
-        margin-top:-30px;
-    }
     .cell {
         height: 120px;
         background-size: 120px 100px; /** width height **/
@@ -94,38 +64,17 @@
         bottom: 60px;
     }
 
-    .description-container {
-        padding: 10px 7px 10px 20px !important;
-    }
 }
 
 
 
 @media only screen and (min-width: 481px) and (max-width: 720px) {
-    .container-visualizer {
-        width: 430px;
-    }
-
-    #year-buttons {
-        margin-top: 35px;
-        margin-left: -20px;
-    }
-
-    #text-container {
-        margin-top: -30px;
-    }
-
-
     .row-cell-2 .row .unit {
         bottom: 27px;
     }
 
     .row-cell-3 .row .unit {
         bottom: 54px;
-    }
-
-    .description-container {
-        padding: 10px 7px 10px 20px !important;
     }
 }
 
@@ -136,31 +85,8 @@
         bottom: 20px;
     }
 
-    #year-buttons {
-        margin-top: 50px;
-    }
-
     .row-cell-3 .row .unit {
         bottom: 40px;
-    }
-
-    .description-container {
-        padding: 10px 7px 10px 20px !important;
-    }
-}
-
-
-@media only screen and (min-width: 1025px) and (max-width: 1920px) {
-
-    #year-buttons {
-        margin-top: 50px;
-    }
-
-    #text-container {
-        margin-top: 2%;
-    }
-    .description-container {
-        padding: 10px 100px 10px 100px !important;
     }
 
 }

@@ -1,7 +1,9 @@
 #year-buttons button {
     width: 80px;
 }
-
+.description-container {
+    padding: 0px 100px 12px 189px;
+}
 @media (max-width: 321px) {
     .container-visualizer {
         width: 210px;
@@ -23,7 +25,6 @@
         width: 260px;
         padding-top: -50px;
     }
-
     #year-buttons {
         padding-top: 35px;
         margin-left: -25px;
@@ -64,6 +65,11 @@
         margin-top: 20px;
         text-align: center;
     }
+    .description-container {
+        /*margin-top: -15%;*/
+        padding: 0px 100px 12px 189px;
+        text-align: justify;
+    }
 
 }
 
@@ -77,7 +83,6 @@
         /*margin-top: -15%;*/
         padding: 0px 100px 12px 189px;
         text-align: justify;
-
     }
     .short-description-text{
         text-align: left;

@@ -2,10 +2,6 @@
     width: 80px;
 }
 
-div#viz-container {
-    height: 355px;
-}
-
 .container-visualizer{
     width: 500px;
 }
@@ -58,6 +54,7 @@ div#viz-container {
 	
 	.text-container{
 		margin-top: 50px;
+		text-align: center;
 	}
 	
     .description-container {
@@ -69,10 +66,11 @@ div#viz-container {
     }
 }
 
-@media only screen and (min-width: 720px) and (max-width: 992px) {
+@media only screen and (min-width: 720px) and (max-width: 991px) {
 	
 	.text-container{
 		margin-top: 50px;
+		text-align: center;
 	}
 	
     .description-container {
@@ -85,7 +83,7 @@ div#viz-container {
 
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1024px) {
+@media only screen and (min-width: 991px) and (max-width: 1024px) {
 	
     .description-container {
         margin-top: 50px;

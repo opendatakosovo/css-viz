@@ -13,19 +13,17 @@
         .container-visualizer {
             width: 450px;
         }
+		
+		.text-container{
+			margin-top: 150px;
+		    text-align: center;
+		}
 
         .cell {
             height: 176px;
-
             background-size: 150px 176px; /** width height **/
             background-repeat: no-repeat;
             background-position: center bottom;
-
-            /**
-            border-style: solid;
-            border-width: thin;
-            border-color: green;
-            **/
         }
 
         .cell-row-2 .cell {
@@ -53,6 +51,22 @@
         .cell-pull-right {
             left: 40px;
         }
+		
+		div#viz-container4 {
+			height: 470px;
+		}
+		
+		@media only screen and (min-width: 480px) and (max-width: 720px) {
+			div#viz-container4{
+				height: 400px !important;
+			}
+		}
+		
+		@media only screen and (max-width: 480px) {
+			div#viz-container4{
+				height: 260px !important;
+			}
+		}
     </style>
     <link rel="stylesheet" href="css/responsive-style.css">
     <link rel="stylesheet" href="../static/css/style.css">
@@ -163,9 +177,9 @@
                     </button>
                 </div>
             </div>
-            <div class="col-xs-10 col-md-7">
+            <div class="col-xs-10 col-md-7" id="viz-container4">
                 <!-- Build visualization grid. -->
-                <div class="container-visualizer" style="float:left;">
+                <div class="container-visualizer">
                     <div class="row cell-row cell-row-1">
                         <div class="col-xs-3 col-md-3 cell cell-1">
                         </div>
@@ -204,34 +218,37 @@
                     </div>
                 </div>
             </div>
-            <div id="text-container" class="col-xs-12 col-md-3" style="text-align: center;">
-                <div id="percentage-container" style="text-align: center;">
+            <div class="col-xs-12 col-md-3">
+                <div class="text-container" id="percentage-container">
                     <b><h1 id="value"></h1></b>
                     <h4>Infant deaths per 100,000 births</h4>
-
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="description-container">
-            <h3 style="color:#000;">Infant mortality rate</h3>
-            <p class="p" style="color:#000;">
-                The infant mortality rate in Kosovo is relatively low by the standards of developing nations, with 11.4
-                infant deaths per 100,000 live births in 2012. This rate showed significant variation between 2002 and
-                2012, ranging between 15.1 and 8.8, but has generally exhibited a downward trend.
-            </p>
-            <p class="p" style="color:#000;">
-                That said, the infant mortality rate in Kosovo is significantly higher than most western countries, and
-                many of the ex-Yugoslav nations. Most countries in the EU, for example, have infant mortality rates
-                below 5, while Serbia, Macedonia and Montenegro all have infant mortality rates around or just over 5.
-                Albania on the other hand also has a slightly higher infant mortality rate, estimated to be 12.75 in
-                2015.
-            </p>
-            <h5>Source: <a
-                    href="http://ec.europa.eu/eurostat/data/database">Eurostat</a>
-            </h5>
-        </div>
+		<div class="col-xs-0 col-md-2">
+		</div>
+		<div class="col-xs-12 col-md-10">
+	        <div class="description-container">
+	            <h3 style="color:#000;">Infant mortality rate</h3>
+	            <p class="p" style="color:#000;">
+	                The infant mortality rate in Kosovo is relatively low by the standards of developing nations, with 11.4
+	                infant deaths per 100,000 live births in 2012. This rate showed significant variation between 2002 and
+	                2012, ranging between 15.1 and 8.8, but has generally exhibited a downward trend.
+	            </p>
+	            <p class="p" style="color:#000;">
+	                That said, the infant mortality rate in Kosovo is significantly higher than most western countries, and
+	                many of the ex-Yugoslav nations. Most countries in the EU, for example, have infant mortality rates
+	                below 5, while Serbia, Macedonia and Montenegro all have infant mortality rates around or just over 5.
+	                Albania on the other hand also has a slightly higher infant mortality rate, estimated to be 12.75 in
+	                2015.
+	            </p>
+	            <h5>Source: <a
+	                    href="http://ec.europa.eu/eurostat/data/database">Eurostat</a>
+	            </h5>
+	        </div>
+		</div>
     </div>
 </div>
 </div>

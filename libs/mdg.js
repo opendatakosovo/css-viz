@@ -100,11 +100,11 @@ function timedLoop(i, time) {
 	setTimeout(function(x) {
 	    var years = $('.btn-year');
 		var max_i = years.length;
-		var btn_class = $(years[i]).attr("class").match(/btn-[0-9]{4}/)[0];
 		
 		//Advance loop
 		i = i + 1;
 		if (i <= max_i && !clicked) {
+			var btn_class = $(years[(i-1)]).attr("class").match(/btn-[0-9]{4}/)[0];
 			$("." + btn_class).click();
 			timedLoop(i, time);
 		}

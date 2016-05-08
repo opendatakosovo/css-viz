@@ -2,13 +2,6 @@
 
     .desk {
         height: 80px;
-
-        /**
-        border-style: solid;
-        border-width: thin;
-        border-color: black;
-        **/
-
         background-image: url('../img/desk.png');
         background-size: 70px 55px; /** width height **/
         background-repeat: no-repeat;
@@ -18,16 +11,9 @@
     .student {
         /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
         height: 80px;
-
         background-size: 35px 57px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
-
-        /**
-        border-style: solid;
-        border-width: thin;
-        border-color: red;
-        **/
     }
 
 }
@@ -37,13 +23,6 @@
 
     .desk {
         height: 80px;
-
-        /**
-        border-style: solid;
-        border-width: thin;
-        border-color: black;
-        **/
-
         background-image: url('../img/desk.png');
         background-size: 80px 65px; /** width height **/
         background-repeat: no-repeat;
@@ -53,16 +32,9 @@
     .student {
         /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
         height: 80px;
-
         background-size: 40px 69px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
-
-        /**
-        border-style: solid;
-        border-width: thin;
-        border-color: red;
-        **/
     }
 
 }
@@ -79,7 +51,6 @@
     .student {
         /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
         height: 100px;
-
         background-size: 55px 89px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;

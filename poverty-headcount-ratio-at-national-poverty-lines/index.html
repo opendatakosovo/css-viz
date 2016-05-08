@@ -15,7 +15,12 @@
         .container-visualizer {
             width: 450px;
         }
-
+		
+		.text-container{
+			margin-top: 150px;
+		    text-align: center;
+		}
+		
         .cell {
             /** Set width and height of image. **/
             /**
@@ -86,14 +91,24 @@
             height: 150px;
             width: 125px;
             background-size: 150px 150px;
+			margin-left: 12px;
+			margin-left: 12px;
             background-position: center;
+			background-repeat: no-repeat;
         }
+		
+	    .cell-pull-right .cell-img {
+	        margin-left: 15px;
+	    }
 
-        .container-visualizer {
-            margin-top: -50px;
-            text-align: justify;
-            text-justify: inter-word;
-        }
+	    .cell-pull-left .cell-img {
+	        margin-left: 15px;
+	    }
+		
+		.btn-year {
+			margin-top: 5px !important;
+			margin-right: 100px !important;
+		}
 
     </style>
 
@@ -180,31 +195,20 @@
             <div class="col-xs-2 col-md-2" id="year-buttons">
                 <!-- Include buttons for each year. -->
                 <div class="btn-group-vertical" role="group">
-                    <button type="button" class="btn btn-xs btn-primary btn-year btn-2003" style="margin-top: 5px;">2003
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2004" style="margin-top: 5px;">2004
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2005" style="margin-top: 5px;">2005
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2006" style="margin-top: 5px;">2006
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2007" style="margin-top: 5px;">
-                        2007*
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2008" style="margin-top: 5px;">
-                        2008*
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2009" style="margin-top: 5px;">2009
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2010" style="margin-top: 5px;">2010
-                    </button>
-                    <button type="button" class="btn btn-xs btn-default btn-year btn-2011" style="margin-top: 5px;">2011
-                    </button>
+                    <button type="button" class="btn btn-xs btn-primary btn-year btn-2003">2003</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2004">2004</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2005">2005</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2006">2006</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2007">2007*</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2008">2008*</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2009">2009</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2010">2010</button>
+                    <button type="button" class="btn btn-xs btn-default btn-year btn-2011">2011</button>
                 </div>
             </div>
-            <div id="viz-container" class="col-xs-8  col-md-7">
+            <div id="viz-container" class="col-xs-10 col-md-7">
                 <!-- Build visualization grid. -->
-                <div class="container-visualizer" style="float: left;">
+                <div class="container-visualizer">
                     <div class="row cell-row cell-row-1">
                         <div class="col-xs-4 cell cell-1">
                             <div class="cell-img"></div>
@@ -245,46 +249,48 @@
                     </div>
                 </div>
             </div>
-            <div id="text-container" class="col-xs-12 col-md-3" style="text-align: center;">
-                <div id="percentage-container" style="text-align: center;">
+            <div class="col-xs-12 col-md-3">
+                <div class="text-container">
                     <b><h1 id="value"></h1></b>
                     <h4>Poverty headcount (National poverty line) as a percentage of the population</h4>
                     <h6 id="extrapolated-data" style="display: none;">* data for this year is extrapolated from other
                         years</h6>
-
-
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="description-container">
-            <h3 style="color:#000;">Poverty Headcount</h3>
-            <p class="p" style="color:#000;">
-                Poverty remains a persistent and widespread issue in Kosovo as of 2015. A report produced by the Kosovo
-                Agency of Statistics (KAS) on Consumption Poverty found that, in 2011, 29.7% of the population in Kosovo
-                was
-                unable to meet human needs and 10.0% were unable to meet even basic survival needs. These poverty rates
-                are
-                very high compared to neighbouring countries and, while decreasing, have remained persistently high over
-                the
-                past 10 years. Reports from the World Bank and UNDP also identify that poverty and vulnerability levels
-                would be much higher without the safety net provided through migration and remittances.
-            </p><br>
-            <p class="p" style="color:#000;">
-                Another measure of poverty, the poverty gap, which measures the "depth" of poverty and takes into
-                account
-                both the percentage of the population below the poverty line and how far below the poverty line those
-                people
-                are, has also slightly decreased. From 2009 to 2011 the depth of poverty based on the full poverty line
-                declined from 9.6% to 7.8%. Similar falls have been seen the extreme poverty gap measure, declining from
-                3.0% to 2.1% over the same period.
-            </p>
-            <h5>Source: <a
-                    href="http://data.worldbank.org/data-catalog/world-development-indicators">
-                World Bank World Development Indicators</a>
-            </h5>
-        </div>
+		<div class="col-xs-0 col-md-2">
+		</div>
+		<div class="col-xs-12 col-md-10">
+	        <div class="description-container">
+	            <h3 style="color:#000;">Poverty Headcount</h3>
+	            <p class="p" style="color:#000;">
+	                Poverty remains a persistent and widespread issue in Kosovo as of 2015. A report produced by the Kosovo
+	                Agency of Statistics (KAS) on Consumption Poverty found that, in 2011, 29.7% of the population in Kosovo
+	                was
+	                unable to meet human needs and 10.0% were unable to meet even basic survival needs. These poverty rates
+	                are
+	                very high compared to neighbouring countries and, while decreasing, have remained persistently high over
+	                the
+	                past 10 years. Reports from the World Bank and UNDP also identify that poverty and vulnerability levels
+	                would be much higher without the safety net provided through migration and remittances.
+	            </p><br>
+	            <p class="p" style="color:#000;">
+	                Another measure of poverty, the poverty gap, which measures the "depth" of poverty and takes into
+	                account
+	                both the percentage of the population below the poverty line and how far below the poverty line those
+	                people
+	                are, has also slightly decreased. From 2009 to 2011 the depth of poverty based on the full poverty line
+	                declined from 9.6% to 7.8%. Similar falls have been seen the extreme poverty gap measure, declining from
+	                3.0% to 2.1% over the same period.
+	            </p>
+	            <h5>Source: <a
+	                    href="http://data.worldbank.org/data-catalog/world-development-indicators">
+	                World Bank World Development Indicators</a>
+	            </h5>
+	        </div>
+		</div>
     </div>
 
 </div>

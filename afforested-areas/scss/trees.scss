@@ -24,6 +24,6 @@ $right: 0;
     @if $i % 6 == 0 {
         $right: 0;
     }@else{
-        $right: $right + 24;
+        $right: $right + 14;
     }   
 }

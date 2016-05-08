@@ -12,8 +12,12 @@
 
         .container-visualizer {
             width: 450px ;
-            height:350px !important;
         }
+		
+		.text-container{
+			margin-top: 50px;
+		    text-align: center;
+		}
 
         .cell {
             height: 120px;
@@ -59,6 +63,22 @@
         .row-cell-3 .row .unit {
             bottom: 80px;
         }
+		
+		div#viz-container6 {
+			height: 300px;
+		}
+		
+		@media only screen and (min-width: 480px) and (max-width: 720px) {
+			div#viz-container6{
+				height: 300px !important;
+			}
+		}
+		
+		@media only screen and (max-width: 480px) {
+			div#viz-container6{
+				height: 270px !important;
+			}
+		}
 
     </style>
 
@@ -191,7 +211,7 @@
                     </button>
                 </div>
             </div>
-            <div class="col-xs-10 col-md-7">
+            <div class="col-xs-10 col-md-7" id="viz-container6">
                 <!-- Build visualization grid. -->
                 <div class="container-visualizer">
                     <div class="row row-cell-1">
@@ -244,32 +264,34 @@
                     </div>
                 </div>
             </div>
-            <div id="text-container" class="col-xs-12 col-md-3" style="text-align: center;">
-                <div id="percentage-container" style="text-align: center;">
+            <div class="col-xs-12 col-md-3">
+                <div id="percentage-container" class="text-container" >
                     <b><h1 id="value"></h1></b>
                     <h4 id="text-hiv">New cases of HIV</h4>
                     <br>
                     <b><h1 id="value-aids"></h1></b>
                     <h4 id="text-aids">New cases of AIDS</h4>
-
-
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="description-container">
-            <h3 style="color:#000;">HIV and AIDS</h3>
-            <p class="p" style="color:#000;">
-                Kosovo is currently categorised in the group of states with a low rate of HIV. The infection rate is
-                below 1% of the general population and below 5 percent of all groups threatened by the growing risk of
-                HIV.
-            </p>
-            <h5>Source: <a
-                    href="http://www.unaids.org/sites/default/files/country/documents/KOSOVO_narrative_report_2015.pdf">
-                UNAIDS Kosovo Narrative Report 2015</a>
-            </h5>
-        </div>
+		<div class="col-xs-0 col-md-2" >
+		</div>
+		<div class="col-xs-12 col-md-10" >
+	        <div class="description-container">
+	            <h3 style="color:#000;">HIV and AIDS</h3>
+	            <p class="p" style="color:#000;">
+	                Kosovo is currently categorised in the group of states with a low rate of HIV. The infection rate is
+	                below 1% of the general population and below 5 percent of all groups threatened by the growing risk of
+	                HIV.
+	            </p>
+	            <h5>Source: <a
+	                    href="http://www.unaids.org/sites/default/files/country/documents/KOSOVO_narrative_report_2015.pdf">
+	                UNAIDS Kosovo Narrative Report 2015</a>
+	            </h5>
+	        </div>
+		</div>
     </div>
 </div>
 </div>

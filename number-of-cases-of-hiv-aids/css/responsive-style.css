@@ -13,6 +13,10 @@
         background-repeat: no-repeat;
         background-position: center bottom;
     }
+	
+    .container-visualizer {
+		margin-top: 0px;
+    }
 
     .unit {
         /* Not 150pk height, because need to push up the student a bit to fit on on desk properly. */
@@ -45,6 +49,10 @@
         background-size: 120px 100px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
+    }
+	
+    .container-visualizer {
+		margin-top: 0px;
     }
 
     .unit {

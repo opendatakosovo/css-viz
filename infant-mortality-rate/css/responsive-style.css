@@ -2,16 +2,13 @@
 
     .cell {
         height: 122px;
-
-        background-size: 88px 122px; /** width height **/
+        background-size: 80px 115px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
-
-        /**
-        border-style: solid;
+		
+        /*border-style: solid;
         border-width: thin;
-        border-color: green;
-        **/
+        border-color: green;*/
     }
 
     .cell-pull-left {
@@ -39,17 +36,14 @@
 @media only screen and (min-width: 321px) and (max-width: 481px) {
 
     .cell {
-        height: 142px;
-
-        background-size: 105px 142px; /** width height **/
+        height: 140px;
+        background-size: 80px 115px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
-
-        /**
-        border-style: solid;
+		
+        /*border-style: solid;
         border-width: thin;
-        border-color: green;
-        **/
+        border-color: green;*/
     }
 
     .cell-pull-left {
@@ -71,21 +65,19 @@
     .cell-row-4 .cell {
         bottom: 180px;
     }
+	
 }
 
 @media only screen and (min-width: 481px) and (max-width: 720px) {
     .cell {
         height: 152px;
-
         background-size: 125px 152px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
 
-        /**
-        border-style: solid;
+        /*border-style: solid;
         border-width: thin;
-        border-color: green;
-        **/
+        border-color: green;*/
     }
 
     .cell-pull-left {
@@ -107,5 +99,5 @@
     .cell-row-4 .cell {
         bottom: 180px;
     }
-
+	
 }

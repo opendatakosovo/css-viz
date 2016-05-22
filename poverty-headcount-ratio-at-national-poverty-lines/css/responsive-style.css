@@ -3,6 +3,10 @@
     .cell {
         background-size: 75px 40px;
     }
+	
+	.container-visualizer{
+	    margin-top: 0px;
+	}
 
     .cell-pull-right {
         left: 20px;
@@ -34,6 +38,10 @@
     .cell {
         background-size: 75px 40px;
     }
+	
+	.container-visualizer{
+	    margin-top: -45px;
+	}
 
     .cell-pull-right {
         left: 20px;
@@ -65,6 +73,10 @@
     .cell {
         background-size: 120px 60px;
     }
+	
+	.container-visualizer{
+	    margin-top: -15px;
+	}
 
     .cell-pull-right .cell-img {
         margin-left: -22px;

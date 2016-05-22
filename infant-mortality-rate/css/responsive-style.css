@@ -10,6 +10,10 @@
         border-width: thin;
         border-color: green;*/
     }
+	
+    .container-visualizer {
+		margin-top: -20px;
+    }
 
     .cell-pull-left {
         right: 10px;
@@ -37,13 +41,17 @@
 
     .cell {
         height: 140px;
-        background-size: 80px 115px; /** width height **/
+        background-size: 80px 100px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
 		
         /*border-style: solid;
         border-width: thin;
         border-color: green;*/
+    }
+	
+    .container-visualizer {
+		margin-top: -20px;
     }
 
     .cell-pull-left {
@@ -78,6 +86,11 @@
         /*border-style: solid;
         border-width: thin;
         border-color: green;*/
+    }
+	
+    .container-visualizer {
+		margin-top: 15px;
+		margin-bottom: 50px;
     }
 
     .cell-pull-left {

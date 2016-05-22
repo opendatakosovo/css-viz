@@ -12,6 +12,10 @@
         /** Cell height should equal height of image. **/
         height: 150px;
     }
+	
+    .container-visualizer {
+		margin-top: -38px;
+    }
 
     .cell-row-1 .cell {
         bottom: 0px;
@@ -68,6 +72,10 @@
 
         /** Cell height should equal height of image. **/
         height: 150px;
+    }
+	
+    .container-visualizer {
+		margin-top: -38px;
     }
 
     .cell-row-1 .cell {
@@ -126,6 +134,10 @@
 
         /** Cell height should equal height of image. **/
         height: 150px;
+    }
+	
+    .container-visualizer {
+		margin-top: -10px;
     }
 
     .cell-row-1 .cell {

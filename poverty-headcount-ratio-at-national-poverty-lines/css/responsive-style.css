@@ -21,7 +21,7 @@
     }
 
     .cell-img {
-        margin-top: 75px;
+        margin-top: 33px;
         margin-left: -14px;
         height: 75px;
         width: 75px;
@@ -32,23 +32,31 @@
 @media only screen and (min-width: 321px) and (max-width: 480px) {
 	
     .cell {
-        background-size: 90px 50px;
+        background-size: 75px 40px;
+    }
+
+    .cell-pull-right {
+        left: 20px;
+    }
+
+    .cell-pull-left {
+        right: 20px;
     }
 
     .cell-pull-right .cell-img {
-        margin-left: -40px;
+        margin-left: -32px;
     }
 
     .cell-pull-left .cell-img {
-        margin-left: -40px;
+        margin-left: -32px;
     }
 
     .cell-img {
-        margin-top: 59px;
-        margin-left: -20px;
-        height: 90px;
-        width: 90px;
-        background-size: 90px 90px;
+        margin-top: 75px;
+        margin-left: -12px;
+        height: 75px;
+        width: 75px;
+        background-size: 75px 75px;
     }
 }
 

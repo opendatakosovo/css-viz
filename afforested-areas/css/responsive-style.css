@@ -2,7 +2,7 @@
     .cell {
         height: 74px;
 
-        background-size: 70px 60px; /** width height **/
+        background-size: 45px 35px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
     }
@@ -13,8 +13,28 @@
     .cell {
         height: 74px;
 
-        background-size: 70px 60px; /** width height **/
+        background-size: 45px 35px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
+		
+    }
+	
+    .container-visualizer {
+		margin-top: 0px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+
+    .cell {
+        height: 74px;
+
+        background-size: 60px 50px; /** width height **/
+        background-repeat: no-repeat;
+        background-position: center bottom;
+    }
+	
+    .container-visualizer {
+		margin-top: 12px;
     }
 }

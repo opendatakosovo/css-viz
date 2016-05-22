@@ -2,15 +2,17 @@
     .cell {
         height: 74px;
 
-        background-size: 70px 60px; /** width height **/
+        background-size: 45px 40px; /** width height **/
         background-repeat: no-repeat;
         background-position: center bottom;
 
-        /**
-        border-style: solid;
+        /*border-style: solid;
         border-width: thin;
-        border-color: green;
-        **/
+        border-color: green;*/
+    }
+	
+    .container-visualizer {
+		margin-top: -12px;
     }
 }
 
@@ -20,17 +22,42 @@
         /**
             width = container width / number of cells per row.
         **/
-        background-size: 80px 66px;
+        background-size: 45px 40px;
         background-repeat: no-repeat;
         background-position: center bottom;
 
         /** Cell height should equal height of image. **/
         height: 90px;
 
-        /**
-        border-style: solid;
+        /*border-style: solid;
         border-width: thin;
-        border-color: green;
+        border-color: green;*/
+    }
+	
+    .container-visualizer {
+		margin-top: -12px;
+    }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 720px) {
+    .cell {
+        /** TODO: Set width and height of image. **/
+        /**
+            width = container width / number of cells per row.
         **/
+        background-size: 60px 50px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+
+        /** Cell height should equal height of image. **/
+        height: 90px;
+
+        /*border-style: solid;
+        border-width: thin;
+        border-color: green;*/
+    }
+	
+    .container-visualizer {
+		margin-top: 0px;
     }
 }
